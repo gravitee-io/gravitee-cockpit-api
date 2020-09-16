@@ -27,6 +27,8 @@ public class OrganizationPayload implements Payload {
 
     private String id;
 
+    private List<String> hrids;
+
     private String name;
 
     private String description;
@@ -63,5 +65,13 @@ public class OrganizationPayload implements Payload {
 
     public void setDomainRestrictions(List<String> domainRestrictions) {
         this.domainRestrictions = domainRestrictions;
+    }
+
+    public List<String> getHrids() {
+        return hrids;
+    }
+
+    public void setHrids(List<String> hrids) {
+        this.hrids = hrids;
     }
 }
