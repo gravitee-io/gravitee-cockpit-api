@@ -21,7 +21,10 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.gravitee.cockpit.api.command.environment.EnvironmentReply;
 import io.gravitee.cockpit.api.command.hello.HelloReply;
+import io.gravitee.cockpit.api.command.ignored.IgnoredReply;
 import io.gravitee.cockpit.api.command.organization.OrganizationReply;
+import io.gravitee.cockpit.api.command.membership.MembershipReply;
+import io.gravitee.cockpit.api.command.user.UserReply;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
@@ -32,19 +35,19 @@ import io.gravitee.cockpit.api.command.organization.OrganizationReply;
         include = JsonTypeInfo.As.EXISTING_PROPERTY,
         property = "type")
 @JsonSubTypes({
+        @JsonSubTypes.Type(value = IgnoredReply.class, name = "IGNORED_REPLY"),
         @JsonSubTypes.Type(value = OrganizationReply.class, name = "ORGANIZATION_REPLY"),
-        @JsonSubTypes.Type(value = OrganizationReply.class, name = "organization_reply"),
         @JsonSubTypes.Type(value = EnvironmentReply.class, name = "ENVIRONMENT_REPLY"),
-        @JsonSubTypes.Type(value = EnvironmentReply.class, name = "environment_reply"),
+        @JsonSubTypes.Type(value = UserReply.class, name = "USER_REPLY"),
+        @JsonSubTypes.Type(value = MembershipReply.class, name = "ROLE_REPLY"),
         @JsonSubTypes.Type(value = HelloReply.class, name = "HELLO_REPLY"),
-        @JsonSubTypes.Type(value = HelloReply.class, name = "hello_reply")
 })
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class Reply {
 
      public enum Type {
-          ORGANIZATION_REPLY, ENVIRONMENT_REPLY, HELLO_REPLY, AUTH_REPLY
+          IGNORED_REPLY, ORGANIZATION_REPLY, ENVIRONMENT_REPLY, HELLO_REPLY, USER_REPLY
      }
 
      protected String commandId;

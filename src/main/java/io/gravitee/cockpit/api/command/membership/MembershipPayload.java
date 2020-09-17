@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api.command.environment;
+package io.gravitee.cockpit.api.command.membership;
 
 import io.gravitee.cockpit.api.command.Payload;
 
@@ -23,50 +23,32 @@ import java.util.List;
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
  * @author GraviteeSource Team
  */
-public class EnvironmentPayload implements Payload {
-
-    private String id;
-
-    private List<String> hrids;
+public class MembershipPayload implements Payload {
 
     private String organizationId;
 
-    private String name;
+    private String referenceType;
 
-    private String description;
+    private String referenceId;
 
-    private List<String> domainRestrictions;
+    private String userId;
 
-    public String getId() {
-        return id;
+    private String role;
+
+    public String getReferenceType() {
+        return referenceType;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setReferenceType(String referenceType) {
+        this.referenceType = referenceType;
     }
 
-    public String getName() {
-        return name;
+    public String getReferenceId() {
+        return referenceId;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public List<String> getDomainRestrictions() {
-        return domainRestrictions;
-    }
-
-    public void setDomainRestrictions(List<String> domainRestrictions) {
-        this.domainRestrictions = domainRestrictions;
+    public void setReferenceId(String referenceId) {
+        this.referenceId = referenceId;
     }
 
     public String getOrganizationId() {
@@ -77,11 +59,19 @@ public class EnvironmentPayload implements Payload {
         this.organizationId = organizationId;
     }
 
-    public List<String> getHrids() {
-        return hrids;
+    public String getRole() {
+        return role;
     }
 
-    public void setHrids(List<String> hrids) {
-        this.hrids = hrids;
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }
