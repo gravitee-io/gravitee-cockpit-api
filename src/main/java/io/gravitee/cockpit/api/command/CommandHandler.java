@@ -22,8 +22,24 @@ import io.reactivex.Single;
  * @author GraviteeSource Team
  */
 public interface CommandHandler<C extends Command<?>, R extends Reply> {
+  /**
+   * Returns the type of command handled by this command handler.
+   * The type is used to determine the right handler to use when a command need to be handled.
+   * @return the type of command handled.
+   */
+  Command.Type handleType();
 
-    Command.Type handleType();
-
-    Single<R> handle(C command);
+  /**
+   * Method invoked when a command of the expected {@link Command.Type} is received.
+   *
+   * @param command the command to handle.
+   * @return the reply with a status indicating if the command has been successfully handled or not.
+   */
+  default Single<R> handle(C command) {
+    return Single.error(
+      new RuntimeException(
+        "Handle command of type " + handleType() + " is not implemented"
+      )
+    );
+  }
 }

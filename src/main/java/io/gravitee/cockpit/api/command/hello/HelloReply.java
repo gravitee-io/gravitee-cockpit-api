@@ -24,6 +24,10 @@ import io.gravitee.cockpit.api.command.CommandStatus;
  */
 public class HelloReply extends Reply {
 
+    private String installationId;
+
+    private String installationStatus;
+
     public HelloReply() {
         this(null, null);
     }
@@ -37,4 +41,19 @@ public class HelloReply extends Reply {
         return true;
     }
 
+    public String getInstallationId() {
+        return installationId;
+    }
+
+    public void setInstallationId(String installationId) {
+        this.installationId = installationId;
+    }
+
+    public String getInstallationStatus() {
+        return installationStatus;
+    }
+
+    public void setInstallationStatus(String installationStatus) {
+        this.installationStatus = installationStatus;
+    }
 }
