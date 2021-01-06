@@ -15,9 +15,11 @@
  */
 package io.gravitee.cockpit.api.command.hello;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.gravitee.cockpit.api.command.Node;
 import io.gravitee.cockpit.api.command.Payload;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
@@ -25,7 +27,28 @@ import io.gravitee.cockpit.api.command.Payload;
  */
 public class HelloPayload implements Payload {
 
+    /**
+     * Contains all necessary information about the node.
+     */
     private Node node;
+
+    /**
+     * The default organization identifier, <code>null</code> if there is no default organization defined.
+     */
+    private String defaultOrganizationId;
+
+    /**
+     * The default environment identifier, <code>null</code> if there is no default organization defined.
+     */
+    private String defaultEnvironmentId;
+
+    /**
+     * Additional information about this installation.
+     */
+    private Map<String, String> additionalInformation = new HashMap<>();
+
+    public HelloPayload() {
+    }
 
     public Node getNode() {
         return node;
@@ -33,5 +56,29 @@ public class HelloPayload implements Payload {
 
     public void setNode(Node node) {
         this.node = node;
+    }
+
+    public String getDefaultOrganizationId() {
+        return defaultOrganizationId;
+    }
+
+    public void setDefaultOrganizationId(String defaultOrganizationId) {
+        this.defaultOrganizationId = defaultOrganizationId;
+    }
+
+    public String getDefaultEnvironmentId() {
+        return defaultEnvironmentId;
+    }
+
+    public void setDefaultEnvironmentId(String defaultEnvironmentId) {
+        this.defaultEnvironmentId = defaultEnvironmentId;
+    }
+
+    public Map<String, String> getAdditionalInformation() {
+        return additionalInformation;
+    }
+
+    public void setAdditionalInformation(Map<String, String> additionalInformation) {
+        this.additionalInformation = additionalInformation;
     }
 }
