@@ -36,9 +36,9 @@ workflows:
       - gravitee/release:
           context: cicd-orchestrator
           dry_run: true
-          secrethub_org: << pipeline.parameters.secrethub_org >>
-          secrethub_repo: << pipeline.parameters.secrethub_repo >>
-          maven_profile_id: << pipeline.parameters.maven_profile_id >>
+          secrethub_org: graviteeio
+          secrethub_repo: cicd
+          maven_profile_id: gravitee-dry-run
   release:
     when:
       and:
