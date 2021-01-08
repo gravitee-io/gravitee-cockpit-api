@@ -15,7 +15,7 @@ parameters:
     description: "Maven ID of the Maven profile to use for a dry run ?"
   secrethub_org:
     type: string
-    default: "gravitee-lab"
+    default: "graviteeio"
     description: "SecretHub Org to use to fetch secrets ?"
   secrethub_repo:
     type: string
