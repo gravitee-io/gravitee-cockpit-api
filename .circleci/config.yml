@@ -31,16 +31,20 @@ workflows:
     when:
       equal: [ pr_build, << pipeline.parameters.gio_action >> ]
     jobs:
-      - gravitee/pr-build:
+      # will perform a "pure perivate release, to our private artifactory". So
+      # basically, you will check with PR, what will happen with the release.
+      - gravitee/release:
           context: cicd-orchestrator
+          dry_run: true
+          secrethub_org: << pipeline.parameters.secrethub_org >>
+          secrethub_repo: << pipeline.parameters.secrethub_repo >>
+          maven_profile_id: << pipeline.parameters.maven_profile_id >>
   release:
-    # see https://circleci.com/docs/2.0/configuration-reference/#logic-statement-examples
     when:
       and:
         - equal: [ release, << pipeline.parameters.gio_action >> ]
         - not: << pipeline.parameters.dry_run >>
     jobs:
-      # return to simple definition :
       - gravitee/release:
           context: cicd-orchestrator
           dry_run: << pipeline.parameters.dry_run >>
@@ -48,13 +52,11 @@ workflows:
           secrethub_repo: << pipeline.parameters.secrethub_repo >>
           maven_profile_id: << pipeline.parameters.maven_profile_id >>
   release_dry_run:
-    # see https://circleci.com/docs/2.0/configuration-reference/#logic-statement-examples
     when:
       and:
         - equal: [ release, << pipeline.parameters.gio_action >> ]
         - << pipeline.parameters.dry_run >>
     jobs:
-      # return to simple definition :
       - gravitee/release:
           context: cicd-orchestrator
           dry_run: << pipeline.parameters.dry_run >>
