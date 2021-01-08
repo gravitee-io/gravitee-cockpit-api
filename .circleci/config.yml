@@ -31,14 +31,16 @@ workflows:
     when:
       equal: [ pr_build, << pipeline.parameters.gio_action >> ]
     jobs:
-      # will perform a "pure perivate release, to our private artifactory". So
-      # basically, you will check with PR, what will happen with the release.
-      - gravitee/release:
+      - gravitee/pull_request:
           context: cicd-orchestrator
-          dry_run: true
+          # you can anytime change the maven container image tag
+          # e.g.you want another jdk or maven version
+          # maven_container_image_tag: stable-latest
           secrethub_org: graviteeio
           secrethub_repo: cicd
-          maven_profile_id: gravitee-dry-run
+          # # [maven_profile_id] maven profile defined in the dev team dedicated [settings.xml]
+          # maven_profile_id: gravitee-dry-run
+          maven_profile_id: gio-dev
   release:
     when:
       and:
