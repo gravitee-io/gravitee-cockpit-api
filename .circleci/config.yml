@@ -41,7 +41,7 @@ workflows:
           # # [maven_profile_id] maven profile defined in the dev team dedicated [settings.xml]
           # maven_profile_id: gravitee-dry-run
           maven_profile_id: gio-dev
-  release:
+  mvn_release:
     when:
       and:
         - equal: [ release, << pipeline.parameters.gio_action >> ]
