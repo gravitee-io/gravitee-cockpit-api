@@ -15,7 +15,7 @@ parameters:
     description: "Maven ID of the Maven profile to use for a dry run ?"
   secrethub_org:
     type: string
-    default: "graviteeio"
+    default: "gravitee-lab"
     description: "SecretHub Org to use to fetch secrets ?"
   secrethub_repo:
     type: string
@@ -32,6 +32,7 @@ workflows:
       equal: [ pr_build, << pipeline.parameters.gio_action >> ]
     jobs:
       - gravitee/pull_request:
+          # This is a  standard pull request : no docker image job
           context: cicd-orchestrator
           # you can anytime change the maven container image tag
           # e.g.you want another jdk or maven version
