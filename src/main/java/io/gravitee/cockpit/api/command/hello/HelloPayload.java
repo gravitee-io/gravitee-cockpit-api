@@ -43,7 +43,7 @@ public class HelloPayload implements Payload {
     private String defaultEnvironmentId;
 
     /**
-     * Additional information about this installation.
+     * Additional information.
      */
     private Map<String, String> additionalInformation = new HashMap<>();
 

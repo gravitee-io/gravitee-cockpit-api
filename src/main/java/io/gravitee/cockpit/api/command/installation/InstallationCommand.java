@@ -13,22 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api.command.membership;
+package io.gravitee.cockpit.api.command.installation;
 
-import io.gravitee.cockpit.api.command.CommandStatus;
-import io.gravitee.cockpit.api.command.Reply;
+import io.gravitee.cockpit.api.command.Command;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
  * @author GraviteeSource Team
  */
-public class MembershipReply extends Reply {
+public class InstallationCommand extends Command<InstallationPayload> {
 
-    public MembershipReply() {
-        this(null, null);
-    }
+  public InstallationCommand() {
+    super(Type.INSTALLATION_COMMAND);
+  }
 
-    public MembershipReply(String commandId, CommandStatus commandStatus) {
-        super(Type.MEMBERSHIP_REPLY, commandId, commandStatus);
-    }
+  public InstallationCommand(InstallationPayload payload) {
+    this();
+    this.payload = payload;
+  }
 }

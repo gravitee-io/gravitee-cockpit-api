@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.gravitee.cockpit.api.command.environment.EnvironmentReply;
 import io.gravitee.cockpit.api.command.hello.HelloReply;
 import io.gravitee.cockpit.api.command.ignored.IgnoredReply;
+import io.gravitee.cockpit.api.command.installation.InstallationReply;
 import io.gravitee.cockpit.api.command.organization.OrganizationReply;
 import io.gravitee.cockpit.api.command.membership.MembershipReply;
 import io.gravitee.cockpit.api.command.user.UserReply;
@@ -39,7 +40,8 @@ import io.gravitee.cockpit.api.command.user.UserReply;
         @JsonSubTypes.Type(value = OrganizationReply.class, name = "ORGANIZATION_REPLY"),
         @JsonSubTypes.Type(value = EnvironmentReply.class, name = "ENVIRONMENT_REPLY"),
         @JsonSubTypes.Type(value = UserReply.class, name = "USER_REPLY"),
-        @JsonSubTypes.Type(value = MembershipReply.class, name = "ROLE_REPLY"),
+        @JsonSubTypes.Type(value = MembershipReply.class, name = "MEMBERSHIP_REPLY"),
+        @JsonSubTypes.Type(value = InstallationReply.class, name = "INSTALLATION_REPLY"),
         @JsonSubTypes.Type(value = HelloReply.class, name = "HELLO_REPLY"),
 })
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -47,7 +49,7 @@ import io.gravitee.cockpit.api.command.user.UserReply;
 public abstract class Reply {
 
      public enum Type {
-          IGNORED_REPLY, ORGANIZATION_REPLY, ENVIRONMENT_REPLY, HELLO_REPLY, USER_REPLY
+          IGNORED_REPLY, ORGANIZATION_REPLY, ENVIRONMENT_REPLY, HELLO_REPLY, USER_REPLY, MEMBERSHIP_REPLY, INSTALLATION_REPLY
      }
 
      protected String commandId;

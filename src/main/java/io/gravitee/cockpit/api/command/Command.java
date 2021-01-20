@@ -18,6 +18,7 @@ package io.gravitee.cockpit.api.command;
 import com.fasterxml.jackson.annotation.*;
 import io.gravitee.cockpit.api.command.environment.EnvironmentCommand;
 import io.gravitee.cockpit.api.command.hello.HelloCommand;
+import io.gravitee.cockpit.api.command.installation.InstallationCommand;
 import io.gravitee.cockpit.api.command.organization.OrganizationCommand;
 import io.gravitee.cockpit.api.command.membership.MembershipCommand;
 import io.gravitee.cockpit.api.command.user.UserCommand;
@@ -36,6 +37,7 @@ import io.gravitee.common.utils.UUID;
         @JsonSubTypes.Type(value = EnvironmentCommand.class, name = "ENVIRONMENT_COMMAND"),
         @JsonSubTypes.Type(value = UserCommand.class, name = "USER_COMMAND"),
         @JsonSubTypes.Type(value = MembershipCommand.class, name = "MEMBERSHIP_COMMAND"),
+        @JsonSubTypes.Type(value = InstallationCommand.class, name = "INSTALLATION_COMMAND"),
         @JsonSubTypes.Type(value = HelloCommand.class, name = "HELLO_COMMAND")}
 )
 public abstract class Command<T extends Payload> {
@@ -51,7 +53,7 @@ public abstract class Command<T extends Payload> {
     protected Type type;
 
     public enum Type {
-        ORGANIZATION_COMMAND, ENVIRONMENT_COMMAND, HELLO_COMMAND, USER_COMMAND, MEMBERSHIP_COMMAND
+        ORGANIZATION_COMMAND, ENVIRONMENT_COMMAND, HELLO_COMMAND, USER_COMMAND, MEMBERSHIP_COMMAND, INSTALLATION_COMMAND
     }
 
     public Command(Type type) {
