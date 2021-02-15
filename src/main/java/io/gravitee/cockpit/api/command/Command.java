@@ -15,14 +15,17 @@
  */
 package io.gravitee.cockpit.api.command;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.gravitee.cockpit.api.command.echo.EchoCommand;
 import io.gravitee.cockpit.api.command.environment.EnvironmentCommand;
 import io.gravitee.cockpit.api.command.goodbye.GoodbyeCommand;
 import io.gravitee.cockpit.api.command.hello.HelloCommand;
 import io.gravitee.cockpit.api.command.installation.InstallationCommand;
-import io.gravitee.cockpit.api.command.organization.OrganizationCommand;
 import io.gravitee.cockpit.api.command.membership.MembershipCommand;
+import io.gravitee.cockpit.api.command.node.NodeCommand;
+import io.gravitee.cockpit.api.command.organization.OrganizationCommand;
 import io.gravitee.cockpit.api.command.user.UserCommand;
 import io.gravitee.common.utils.UUID;
 
@@ -42,8 +45,9 @@ import io.gravitee.common.utils.UUID;
         @JsonSubTypes.Type(value = InstallationCommand.class, name = "INSTALLATION_COMMAND"),
         @JsonSubTypes.Type(value = HelloCommand.class, name = "HELLO_COMMAND"),
         @JsonSubTypes.Type(value = GoodbyeCommand.class, name = "GOODBYE_COMMAND"),
-        @JsonSubTypes.Type(value = EchoCommand.class, name = "ECHO_COMMAND")}
-)
+        @JsonSubTypes.Type(value = EchoCommand.class, name = "ECHO_COMMAND"),
+        @JsonSubTypes.Type(value = NodeCommand.class, name = "NODE_COMMAND")
+})
 public abstract class Command<T extends Payload> {
 
     public static final String COMMAND_PREFIX = "command: ";
@@ -64,7 +68,8 @@ public abstract class Command<T extends Payload> {
         USER_COMMAND,
         MEMBERSHIP_COMMAND,
         INSTALLATION_COMMAND,
-        ECHO_COMMAND
+        ECHO_COMMAND,
+        NODE_COMMAND
     }
 
     public Command(Type type) {
