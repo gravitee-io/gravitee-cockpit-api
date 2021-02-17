@@ -15,11 +15,17 @@
  */
 package io.gravitee.cockpit.api;
 
+import io.gravitee.cockpit.api.command.Command;
+import io.gravitee.cockpit.api.command.Payload;
+import io.gravitee.cockpit.api.command.Reply;
 import io.gravitee.common.service.Service;
+import io.reactivex.Maybe;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
  * @author GraviteeSource Team
  */
-public interface CockpitConnector  extends Service<CockpitConnector> {
+public interface CockpitConnector extends Service<CockpitConnector> {
+
+    Maybe<Reply> sendCommand(Command<? extends Payload> command);
 }
