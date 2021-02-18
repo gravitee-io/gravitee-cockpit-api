@@ -18,6 +18,7 @@ package io.gravitee.cockpit.api.command;
 import com.fasterxml.jackson.annotation.*;
 import io.gravitee.cockpit.api.command.echo.EchoCommand;
 import io.gravitee.cockpit.api.command.environment.EnvironmentCommand;
+import io.gravitee.cockpit.api.command.goodbye.GoodbyeCommand;
 import io.gravitee.cockpit.api.command.hello.HelloCommand;
 import io.gravitee.cockpit.api.command.installation.InstallationCommand;
 import io.gravitee.cockpit.api.command.organization.OrganizationCommand;
@@ -40,6 +41,7 @@ import io.gravitee.common.utils.UUID;
         @JsonSubTypes.Type(value = MembershipCommand.class, name = "MEMBERSHIP_COMMAND"),
         @JsonSubTypes.Type(value = InstallationCommand.class, name = "INSTALLATION_COMMAND"),
         @JsonSubTypes.Type(value = HelloCommand.class, name = "HELLO_COMMAND"),
+        @JsonSubTypes.Type(value = GoodbyeCommand.class, name = "GOODBYE_COMMAND"),
         @JsonSubTypes.Type(value = EchoCommand.class, name = "ECHO_COMMAND")}
 )
 public abstract class Command<T extends Payload> {
@@ -58,6 +60,7 @@ public abstract class Command<T extends Payload> {
         ORGANIZATION_COMMAND,
         ENVIRONMENT_COMMAND,
         HELLO_COMMAND,
+        GOODBYE_COMMAND,
         USER_COMMAND,
         MEMBERSHIP_COMMAND,
         INSTALLATION_COMMAND,
