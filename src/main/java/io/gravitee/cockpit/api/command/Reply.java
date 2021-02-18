@@ -21,11 +21,12 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.gravitee.cockpit.api.command.echo.EchoReply;
 import io.gravitee.cockpit.api.command.environment.EnvironmentReply;
+import io.gravitee.cockpit.api.command.goodbye.GoodbyeReply;
 import io.gravitee.cockpit.api.command.hello.HelloReply;
 import io.gravitee.cockpit.api.command.ignored.IgnoredReply;
 import io.gravitee.cockpit.api.command.installation.InstallationReply;
-import io.gravitee.cockpit.api.command.organization.OrganizationReply;
 import io.gravitee.cockpit.api.command.membership.MembershipReply;
+import io.gravitee.cockpit.api.command.organization.OrganizationReply;
 import io.gravitee.cockpit.api.command.user.UserReply;
 
 /**
@@ -44,6 +45,7 @@ import io.gravitee.cockpit.api.command.user.UserReply;
         @JsonSubTypes.Type(value = MembershipReply.class, name = "MEMBERSHIP_REPLY"),
         @JsonSubTypes.Type(value = InstallationReply.class, name = "INSTALLATION_REPLY"),
         @JsonSubTypes.Type(value = HelloReply.class, name = "HELLO_REPLY"),
+        @JsonSubTypes.Type(value = GoodbyeReply.class, name = "GOODBYE_REPLY"),
         @JsonSubTypes.Type(value = EchoReply.class, name = "ECHO_REPLY"),
 })
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -55,6 +57,7 @@ public abstract class Reply {
           ORGANIZATION_REPLY,
           ENVIRONMENT_REPLY,
           HELLO_REPLY,
+          GOODBYE_REPLY,
           USER_REPLY,
           MEMBERSHIP_REPLY,
           INSTALLATION_REPLY,
