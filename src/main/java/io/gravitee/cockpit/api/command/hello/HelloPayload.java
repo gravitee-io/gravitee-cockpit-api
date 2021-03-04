@@ -17,7 +17,6 @@ package io.gravitee.cockpit.api.command.hello;
 
 import io.gravitee.cockpit.api.command.Node;
 import io.gravitee.cockpit.api.command.Payload;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,58 +26,59 @@ import java.util.Map;
  */
 public class HelloPayload implements Payload {
 
-    /**
-     * Contains all necessary information about the node.
-     */
-    private Node node;
+  /**
+   * Contains all necessary information about the node.
+   */
+  private Node node;
 
-    /**
-     * The default organization identifier, <code>null</code> if there is no default organization defined.
-     */
-    private String defaultOrganizationId;
+  /**
+   * The default organization identifier, <code>null</code> if there is no default organization defined.
+   */
+  private String defaultOrganizationId;
 
-    /**
-     * The default environment identifier, <code>null</code> if there is no default organization defined.
-     */
-    private String defaultEnvironmentId;
+  /**
+   * The default environment identifier, <code>null</code> if there is no default organization defined.
+   */
+  private String defaultEnvironmentId;
 
-    /**
-     * Additional information.
-     */
-    private Map<String, String> additionalInformation = new HashMap<>();
+  /**
+   * Additional information.
+   */
+  private Map<String, String> additionalInformation = new HashMap<>();
 
-    public HelloPayload() {
-    }
+  public HelloPayload() {}
 
-    public Node getNode() {
-        return node;
-    }
+  public Node getNode() {
+    return node;
+  }
 
-    public void setNode(Node node) {
-        this.node = node;
-    }
+  public void setNode(Node node) {
+    this.node = node;
+  }
 
-    public String getDefaultOrganizationId() {
-        return defaultOrganizationId;
-    }
+  public String getDefaultOrganizationId() {
+    return defaultOrganizationId;
+  }
 
-    public void setDefaultOrganizationId(String defaultOrganizationId) {
-        this.defaultOrganizationId = defaultOrganizationId;
-    }
+  public void setDefaultOrganizationId(String defaultOrganizationId) {
+    this.defaultOrganizationId = defaultOrganizationId;
+  }
 
-    public String getDefaultEnvironmentId() {
-        return defaultEnvironmentId;
-    }
+  public String getDefaultEnvironmentId() {
+    return defaultEnvironmentId;
+  }
 
-    public void setDefaultEnvironmentId(String defaultEnvironmentId) {
-        this.defaultEnvironmentId = defaultEnvironmentId;
-    }
+  public void setDefaultEnvironmentId(String defaultEnvironmentId) {
+    this.defaultEnvironmentId = defaultEnvironmentId;
+  }
 
-    public Map<String, String> getAdditionalInformation() {
-        return additionalInformation;
-    }
+  public Map<String, String> getAdditionalInformation() {
+    return additionalInformation;
+  }
 
-    public void setAdditionalInformation(Map<String, String> additionalInformation) {
-        this.additionalInformation = additionalInformation;
-    }
+  public void setAdditionalInformation(
+    Map<String, String> additionalInformation
+  ) {
+    this.additionalInformation = additionalInformation;
+  }
 }

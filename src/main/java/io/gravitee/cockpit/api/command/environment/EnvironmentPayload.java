@@ -16,7 +16,6 @@
 package io.gravitee.cockpit.api.command.environment;
 
 import io.gravitee.cockpit.api.command.Payload;
-
 import java.util.List;
 
 /**
@@ -25,63 +24,63 @@ import java.util.List;
  */
 public class EnvironmentPayload implements Payload {
 
-    private String id;
+  private String id;
 
-    private List<String> hrids;
+  private List<String> hrids;
 
-    private String organizationId;
+  private String organizationId;
 
-    private String name;
+  private String name;
 
-    private String description;
+  private String description;
 
-    private List<String> domainRestrictions;
+  private List<String> domainRestrictions;
 
-    public String getId() {
-        return id;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  public String getDescription() {
+    return description;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public List<String> getDomainRestrictions() {
-        return domainRestrictions;
-    }
+  public List<String> getDomainRestrictions() {
+    return domainRestrictions;
+  }
 
-    public void setDomainRestrictions(List<String> domainRestrictions) {
-        this.domainRestrictions = domainRestrictions;
-    }
+  public void setDomainRestrictions(List<String> domainRestrictions) {
+    this.domainRestrictions = domainRestrictions;
+  }
 
-    public String getOrganizationId() {
-        return organizationId;
-    }
+  public String getOrganizationId() {
+    return organizationId;
+  }
 
-    public void setOrganizationId(String organizationId) {
-        this.organizationId = organizationId;
-    }
+  public void setOrganizationId(String organizationId) {
+    this.organizationId = organizationId;
+  }
 
-    public List<String> getHrids() {
-        return hrids;
-    }
+  public List<String> getHrids() {
+    return hrids;
+  }
 
-    public void setHrids(List<String> hrids) {
-        this.hrids = hrids;
-    }
+  public void setHrids(List<String> hrids) {
+    this.hrids = hrids;
+  }
 }

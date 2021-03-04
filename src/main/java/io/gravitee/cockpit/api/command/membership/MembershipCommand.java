@@ -23,12 +23,12 @@ import io.gravitee.cockpit.api.command.Command;
  */
 public class MembershipCommand extends Command<MembershipPayload> {
 
-    public MembershipCommand() {
-        super(Type.MEMBERSHIP_COMMAND);
-    }
+  public MembershipCommand() {
+    super(Type.MEMBERSHIP_COMMAND);
+  }
 
-    public MembershipCommand(MembershipPayload payload) {
-        this();
-        this.payload = payload;
-    }
+  public MembershipCommand(MembershipPayload payload) {
+    this();
+    this.payload = payload;
+  }
 }

@@ -24,8 +24,7 @@ import io.gravitee.cockpit.api.command.Payload;
  */
 public class GoodbyeCommand extends Command<Payload> {
 
-    public GoodbyeCommand() {
-        super(Type.GOODBYE_COMMAND);
-    }
-
+  public GoodbyeCommand() {
+    super(Type.GOODBYE_COMMAND);
+  }
 }

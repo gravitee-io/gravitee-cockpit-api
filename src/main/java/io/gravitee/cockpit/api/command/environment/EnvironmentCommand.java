@@ -24,12 +24,12 @@ import io.gravitee.common.utils.UUID;
  */
 public class EnvironmentCommand extends Command<EnvironmentPayload> {
 
-    public EnvironmentCommand() {
-        super(Type.ENVIRONMENT_COMMAND);
-    }
+  public EnvironmentCommand() {
+    super(Type.ENVIRONMENT_COMMAND);
+  }
 
-    public EnvironmentCommand(EnvironmentPayload payload){
-        this();
-        this.payload = payload;
-    }
+  public EnvironmentCommand(EnvironmentPayload payload) {
+    this();
+    this.payload = payload;
+  }
 }

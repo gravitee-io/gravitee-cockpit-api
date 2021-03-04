@@ -20,37 +20,37 @@ package io.gravitee.cockpit.api.command.node;
  * @author GraviteeSource Team
  */
 public class NodePlugin {
-    /**
-     * The name of the plugin
-     */
-    private String name;
 
-    /**
-     * The version of the plugin
-     */
-    private String version;
+  /**
+   * The name of the plugin
+   */
+  private String name;
 
-    public NodePlugin() {
-    }
+  /**
+   * The version of the plugin
+   */
+  private String version;
 
-    public NodePlugin(String name, String version) {
-        this.name = name;
-        this.version = version;
-    }
+  public NodePlugin() {}
 
-    public String getName() {
-        return name;
-    }
+  public NodePlugin(String name, String version) {
+    this.name = name;
+    this.version = version;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public String getVersion() {
-        return version;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
 }

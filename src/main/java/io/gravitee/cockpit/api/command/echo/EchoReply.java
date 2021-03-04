@@ -17,26 +17,25 @@ package io.gravitee.cockpit.api.command.echo;
 
 import io.gravitee.cockpit.api.command.CommandStatus;
 import io.gravitee.cockpit.api.command.Reply;
-
 import java.util.Map;
 
 public class EchoReply extends Reply {
 
-    private Map<String, String> content;
+  private Map<String, String> content;
 
-    public EchoReply() {
-        super(Type.ECHO_REPLY);
-    }
+  public EchoReply() {
+    super(Type.ECHO_REPLY);
+  }
 
-    public EchoReply(String commandId, CommandStatus commandStatus) {
-        super(Type.ECHO_REPLY, commandId, commandStatus);
-    }
+  public EchoReply(String commandId, CommandStatus commandStatus) {
+    super(Type.ECHO_REPLY, commandId, commandStatus);
+  }
 
-    public Map<String, String> getContent() {
-        return content;
-    }
+  public Map<String, String> getContent() {
+    return content;
+  }
 
-    public void setContent(Map<String, String> content) {
-        this.content = content;
-    }
+  public void setContent(Map<String, String> content) {
+    this.content = content;
+  }
 }

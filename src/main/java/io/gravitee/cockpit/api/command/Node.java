@@ -21,43 +21,43 @@ package io.gravitee.cockpit.api.command;
  */
 public class Node {
 
-    private String application;
+  private String application;
 
-    private String installationId;
+  private String installationId;
 
-    private String hostname;
+  private String hostname;
 
-    private Object license;
+  private Object license;
 
-    public String getApplication() {
-        return application;
-    }
+  public String getApplication() {
+    return application;
+  }
 
-    public void setApplication(String application) {
-        this.application = application;
-    }
+  public void setApplication(String application) {
+    this.application = application;
+  }
 
-    public String getInstallationId() {
-        return installationId;
-    }
+  public String getInstallationId() {
+    return installationId;
+  }
 
-    public void setInstallationId(String installationId) {
-        this.installationId = installationId;
-    }
+  public void setInstallationId(String installationId) {
+    this.installationId = installationId;
+  }
 
-    public String getHostname() {
-        return hostname;
-    }
+  public String getHostname() {
+    return hostname;
+  }
 
-    public void setHostname(String hostname) {
-        this.hostname = hostname;
-    }
+  public void setHostname(String hostname) {
+    this.hostname = hostname;
+  }
 
-    public Object getLicense() {
-        return license;
-    }
+  public Object getLicense() {
+    return license;
+  }
 
-    public void setLicense(Object license) {
-        this.license = license;
-    }
+  public void setLicense(Object license) {
+    this.license = license;
+  }
 }

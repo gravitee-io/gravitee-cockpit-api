@@ -16,7 +16,6 @@
 package io.gravitee.cockpit.api.command.user;
 
 import io.gravitee.cockpit.api.command.Payload;
-
 import java.util.List;
 import java.util.Map;
 
@@ -26,83 +25,85 @@ import java.util.Map;
  */
 public class UserPayload implements Payload {
 
-    private String id;
+  private String id;
 
-    private String username;
+  private String username;
 
-    private String email;
+  private String email;
 
-    private String firstName;
+  private String firstName;
 
-    private String lastName;
+  private String lastName;
 
-    private String picture;
+  private String picture;
 
-    private Map<String, Object> additionalInformation;
+  private Map<String, Object> additionalInformation;
 
-    private String organizationId;
+  private String organizationId;
 
-    public String getId() {
-        return id;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public String getUsername() {
-        return username;
-    }
+  public String getUsername() {
+    return username;
+  }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public String getFirstName() {
-        return firstName;
-    }
+  public String getFirstName() {
+    return firstName;
+  }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
 
-    public String getLastName() {
-        return lastName;
-    }
+  public String getLastName() {
+    return lastName;
+  }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 
-    public String getPicture() {
-        return picture;
-    }
+  public String getPicture() {
+    return picture;
+  }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
+  public void setPicture(String picture) {
+    this.picture = picture;
+  }
 
-    public Map<String, Object> getAdditionalInformation() {
-        return additionalInformation;
-    }
+  public Map<String, Object> getAdditionalInformation() {
+    return additionalInformation;
+  }
 
-    public void setAdditionalInformation(Map<String, Object> additionalInformation) {
-        this.additionalInformation = additionalInformation;
-    }
+  public void setAdditionalInformation(
+    Map<String, Object> additionalInformation
+  ) {
+    this.additionalInformation = additionalInformation;
+  }
 
-    public String getOrganizationId() {
-        return organizationId;
-    }
+  public String getOrganizationId() {
+    return organizationId;
+  }
 
-    public void setOrganizationId(String organizationId) {
-        this.organizationId = organizationId;
-    }
+  public void setOrganizationId(String organizationId) {
+    this.organizationId = organizationId;
+  }
 }

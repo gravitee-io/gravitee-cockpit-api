@@ -26,6 +26,5 @@ import io.reactivex.Maybe;
  * @author GraviteeSource Team
  */
 public interface CockpitConnector extends Service<CockpitConnector> {
-
-    Maybe<Reply> sendCommand(Command<? extends Payload> command);
+  Maybe<Reply> sendCommand(Command<? extends Payload> command);
 }

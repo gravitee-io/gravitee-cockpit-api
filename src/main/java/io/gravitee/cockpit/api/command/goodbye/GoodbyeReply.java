@@ -24,26 +24,26 @@ import io.gravitee.cockpit.api.command.Reply;
  */
 public class GoodbyeReply extends Reply {
 
-    private String installationId;
+  private String installationId;
 
-    public GoodbyeReply() {
-        this(null, null);
-    }
+  public GoodbyeReply() {
+    this(null, null);
+  }
 
-    public GoodbyeReply(String commandId, CommandStatus commandStatus) {
-        super(Type.GOODBYE_REPLY, commandId, commandStatus);
-    }
+  public GoodbyeReply(String commandId, CommandStatus commandStatus) {
+    super(Type.GOODBYE_REPLY, commandId, commandStatus);
+  }
 
-    @Override
-    public boolean stopOnErrorStatus() {
-        return true;
-    }
+  @Override
+  public boolean stopOnErrorStatus() {
+    return true;
+  }
 
-    public String getInstallationId() {
-        return installationId;
-    }
+  public String getInstallationId() {
+    return installationId;
+  }
 
-    public void setInstallationId(String installationId) {
-        this.installationId = installationId;
-    }
+  public void setInstallationId(String installationId) {
+    this.installationId = installationId;
+  }
 }

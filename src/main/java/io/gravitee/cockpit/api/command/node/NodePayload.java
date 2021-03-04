@@ -20,120 +20,122 @@ import java.util.List;
 
 public class NodePayload implements Payload {
 
-    public enum Status { STARTED, STOPPED };
+  public enum Status {
+    STARTED,
+    STOPPED,
+  }
 
-    /**
-     * The ID of the installation this node belongs to
-     */
-    private String installationId;
+  /**
+   * The ID of the installation this node belongs to
+   */
+  private String installationId;
 
-    /**
-     * The node ID
-     */
-    private String nodeId;
+  /**
+   * The node ID
+   */
+  private String nodeId;
 
-    /**
-     * The name of the node
-     */
-    private String name;
+  /**
+   * The name of the node
+   */
+  private String name;
 
-    /**
-     * The version of the node
-     */
-    private String version;
+  /**
+   * The version of the node
+   */
+  private String version;
 
-    /**
-     * The tenant of the node
-     */
-    private String tenant;
+  /**
+   * The tenant of the node
+   */
+  private String tenant;
 
-    /**
-     * The list of sharding tags the node is associated to
-     */
-    private List<String> shardingTags;
+  /**
+   * The list of sharding tags the node is associated to
+   */
+  private List<String> shardingTags;
 
-    /**
-     * The list of plugins of the node
-     */
-    private List<NodePlugin> plugins;
+  /**
+   * The list of plugins of the node
+   */
+  private List<NodePlugin> plugins;
 
-    /**
-     * The version of the JDK
-     */
-    private String jdkVersion;
+  /**
+   * The version of the JDK
+   */
+  private String jdkVersion;
 
-    private Status status;
+  private Status status;
 
+  public String getInstallationId() {
+    return installationId;
+  }
 
-    public String getInstallationId() {
-        return installationId;
-    }
+  public void setInstallationId(String installationId) {
+    this.installationId = installationId;
+  }
 
-    public void setInstallationId(String installationId) {
-        this.installationId = installationId;
-    }
+  public String getNodeId() {
+    return nodeId;
+  }
 
-    public String getNodeId() {
-        return nodeId;
-    }
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
 
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getVersion() {
+    return version;
+  }
 
-    public String getVersion() {
-        return version;
-    }
+  public void setVersion(String version) {
+    this.version = version;
+  }
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
+  public String getTenant() {
+    return tenant;
+  }
 
-    public String getTenant() {
-        return tenant;
-    }
+  public void setTenant(String tenant) {
+    this.tenant = tenant;
+  }
 
-    public void setTenant(String tenant) {
-        this.tenant = tenant;
-    }
+  public List<String> getShardingTags() {
+    return shardingTags;
+  }
 
-    public List<String> getShardingTags() {
-        return shardingTags;
-    }
+  public void setShardingTags(List<String> shardingTags) {
+    this.shardingTags = shardingTags;
+  }
 
-    public void setShardingTags(List<String> shardingTags) {
-        this.shardingTags = shardingTags;
-    }
+  public List<NodePlugin> getPlugins() {
+    return plugins;
+  }
 
-    public List<NodePlugin> getPlugins() {
-        return plugins;
-    }
+  public void setPlugins(List<NodePlugin> plugins) {
+    this.plugins = plugins;
+  }
 
-    public void setPlugins(List<NodePlugin> plugins) {
-        this.plugins = plugins;
-    }
+  public String getJdkVersion() {
+    return jdkVersion;
+  }
 
-    public String getJdkVersion() {
-        return jdkVersion;
-    }
+  public void setJdkVersion(String jdkVersion) {
+    this.jdkVersion = jdkVersion;
+  }
 
-    public void setJdkVersion(String jdkVersion) {
-        this.jdkVersion = jdkVersion;
-    }
+  public Status getStatus() {
+    return status;
+  }
 
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
+  public void setStatus(Status status) {
+    this.status = status;
+  }
 }

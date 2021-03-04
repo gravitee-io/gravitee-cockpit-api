@@ -24,12 +24,12 @@ import io.gravitee.cockpit.api.command.organization.OrganizationPayload;
  */
 public class UserCommand extends Command<UserPayload> {
 
-    public UserCommand() {
-        super(Type.USER_COMMAND);
-    }
+  public UserCommand() {
+    super(Type.USER_COMMAND);
+  }
 
-    public UserCommand(UserPayload payload) {
-        this();
-        this.payload = payload;
-    }
+  public UserCommand(UserPayload payload) {
+    this();
+    this.payload = payload;
+  }
 }

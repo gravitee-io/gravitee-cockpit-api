@@ -16,7 +16,6 @@
 package io.gravitee.cockpit.api.command.membership;
 
 import io.gravitee.cockpit.api.command.Payload;
-
 import java.util.List;
 
 /**
@@ -25,53 +24,53 @@ import java.util.List;
  */
 public class MembershipPayload implements Payload {
 
-    private String organizationId;
+  private String organizationId;
 
-    private String referenceType;
+  private String referenceType;
 
-    private String referenceId;
+  private String referenceId;
 
-    private String userId;
+  private String userId;
 
-    private String role;
+  private String role;
 
-    public String getReferenceType() {
-        return referenceType;
-    }
+  public String getReferenceType() {
+    return referenceType;
+  }
 
-    public void setReferenceType(String referenceType) {
-        this.referenceType = referenceType;
-    }
+  public void setReferenceType(String referenceType) {
+    this.referenceType = referenceType;
+  }
 
-    public String getReferenceId() {
-        return referenceId;
-    }
+  public String getReferenceId() {
+    return referenceId;
+  }
 
-    public void setReferenceId(String referenceId) {
-        this.referenceId = referenceId;
-    }
+  public void setReferenceId(String referenceId) {
+    this.referenceId = referenceId;
+  }
 
-    public String getOrganizationId() {
-        return organizationId;
-    }
+  public String getOrganizationId() {
+    return organizationId;
+  }
 
-    public void setOrganizationId(String organizationId) {
-        this.organizationId = organizationId;
-    }
+  public void setOrganizationId(String organizationId) {
+    this.organizationId = organizationId;
+  }
 
-    public String getRole() {
-        return role;
-    }
+  public String getRole() {
+    return role;
+  }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
+  public void setRole(String role) {
+    this.role = role;
+  }
 
-    public String getUserId() {
-        return userId;
-    }
+  public String getUserId() {
+    return userId;
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
 }

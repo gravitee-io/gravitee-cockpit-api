@@ -15,8 +15,8 @@
  */
 package io.gravitee.cockpit.api.command.organization;
 
-import io.gravitee.cockpit.api.command.Reply;
 import io.gravitee.cockpit.api.command.CommandStatus;
+import io.gravitee.cockpit.api.command.Reply;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
@@ -24,11 +24,11 @@ import io.gravitee.cockpit.api.command.CommandStatus;
  */
 public class OrganizationReply extends Reply {
 
-    public OrganizationReply() {
-        this(null, null);
-    }
+  public OrganizationReply() {
+    this(null, null);
+  }
 
-    public OrganizationReply(String commandId, CommandStatus commandStatus) {
-        super(Type.ORGANIZATION_REPLY, commandId, commandStatus);
-    }
+  public OrganizationReply(String commandId, CommandStatus commandStatus) {
+    super(Type.ORGANIZATION_REPLY, commandId, commandStatus);
+  }
 }
