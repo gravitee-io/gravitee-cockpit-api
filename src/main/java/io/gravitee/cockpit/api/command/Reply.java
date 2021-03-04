@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.gravitee.cockpit.api.command.echo.EchoReply;
 import io.gravitee.cockpit.api.command.environment.EnvironmentReply;
 import io.gravitee.cockpit.api.command.goodbye.GoodbyeReply;
+import io.gravitee.cockpit.api.command.healthcheck.HealthcheckReply;
 import io.gravitee.cockpit.api.command.hello.HelloReply;
 import io.gravitee.cockpit.api.command.ignored.IgnoredReply;
 import io.gravitee.cockpit.api.command.installation.InstallationReply;
@@ -63,6 +64,10 @@ import io.gravitee.cockpit.api.command.user.UserReply;
     @JsonSubTypes.Type(value = GoodbyeReply.class, name = "GOODBYE_REPLY"),
     @JsonSubTypes.Type(value = EchoReply.class, name = "ECHO_REPLY"),
     @JsonSubTypes.Type(value = NodeReply.class, name = "NODE_REPLY"),
+    @JsonSubTypes.Type(
+      value = HealthcheckReply.class,
+      name = "HEALTHCHECK_REPLY"
+    ),
   }
 )
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -80,6 +85,7 @@ public abstract class Reply {
     INSTALLATION_REPLY,
     ECHO_REPLY,
     NODE_REPLY,
+    HEALTHCHECK_REPLY,
   }
 
   protected String commandId;
