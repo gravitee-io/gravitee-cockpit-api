@@ -16,7 +16,6 @@
 package io.gravitee.cockpit.api.command.installation;
 
 import io.gravitee.cockpit.api.command.Payload;
-
 import java.util.HashMap;
 import java.util.Map;
 

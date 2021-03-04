@@ -35,75 +35,90 @@ import io.gravitee.cockpit.api.command.user.UserReply;
  * @author GraviteeSource Team
  */
 @JsonTypeInfo(
-        use = JsonTypeInfo.Id.NAME,
-        include = JsonTypeInfo.As.EXISTING_PROPERTY,
-        property = "type")
-@JsonSubTypes({
-        @JsonSubTypes.Type(value = IgnoredReply.class, name = "IGNORED_REPLY"),
-        @JsonSubTypes.Type(value = OrganizationReply.class, name = "ORGANIZATION_REPLY"),
-        @JsonSubTypes.Type(value = EnvironmentReply.class, name = "ENVIRONMENT_REPLY"),
-        @JsonSubTypes.Type(value = UserReply.class, name = "USER_REPLY"),
-        @JsonSubTypes.Type(value = MembershipReply.class, name = "MEMBERSHIP_REPLY"),
-        @JsonSubTypes.Type(value = InstallationReply.class, name = "INSTALLATION_REPLY"),
-        @JsonSubTypes.Type(value = HelloReply.class, name = "HELLO_REPLY"),
-        @JsonSubTypes.Type(value = GoodbyeReply.class, name = "GOODBYE_REPLY"),
-        @JsonSubTypes.Type(value = EchoReply.class, name = "ECHO_REPLY"),
-        @JsonSubTypes.Type(value = NodeReply.class, name = "NODE_REPLY"),
-})
+  use = JsonTypeInfo.Id.NAME,
+  include = JsonTypeInfo.As.EXISTING_PROPERTY,
+  property = "type"
+)
+@JsonSubTypes(
+  {
+    @JsonSubTypes.Type(value = IgnoredReply.class, name = "IGNORED_REPLY"),
+    @JsonSubTypes.Type(
+      value = OrganizationReply.class,
+      name = "ORGANIZATION_REPLY"
+    ),
+    @JsonSubTypes.Type(
+      value = EnvironmentReply.class,
+      name = "ENVIRONMENT_REPLY"
+    ),
+    @JsonSubTypes.Type(value = UserReply.class, name = "USER_REPLY"),
+    @JsonSubTypes.Type(
+      value = MembershipReply.class,
+      name = "MEMBERSHIP_REPLY"
+    ),
+    @JsonSubTypes.Type(
+      value = InstallationReply.class,
+      name = "INSTALLATION_REPLY"
+    ),
+    @JsonSubTypes.Type(value = HelloReply.class, name = "HELLO_REPLY"),
+    @JsonSubTypes.Type(value = GoodbyeReply.class, name = "GOODBYE_REPLY"),
+    @JsonSubTypes.Type(value = EchoReply.class, name = "ECHO_REPLY"),
+    @JsonSubTypes.Type(value = NodeReply.class, name = "NODE_REPLY"),
+  }
+)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class Reply {
 
-     public enum Type {
-          IGNORED_REPLY,
-          ORGANIZATION_REPLY,
-          ENVIRONMENT_REPLY,
-          HELLO_REPLY,
-          GOODBYE_REPLY,
-          USER_REPLY,
-          MEMBERSHIP_REPLY,
-          INSTALLATION_REPLY,
-          ECHO_REPLY,
-          NODE_REPLY
-     }
+  public enum Type {
+    IGNORED_REPLY,
+    ORGANIZATION_REPLY,
+    ENVIRONMENT_REPLY,
+    HELLO_REPLY,
+    GOODBYE_REPLY,
+    USER_REPLY,
+    MEMBERSHIP_REPLY,
+    INSTALLATION_REPLY,
+    ECHO_REPLY,
+    NODE_REPLY,
+  }
 
-     protected String commandId;
+  protected String commandId;
 
-     protected Type type;
+  protected Type type;
 
-     protected CommandStatus commandStatus;
+  protected CommandStatus commandStatus;
 
-     public Reply(Type type) {
-          this.type = type;
-     }
+  public Reply(Type type) {
+    this.type = type;
+  }
 
-     public Reply(Type type, String commandId, CommandStatus commandStatus) {
-          this.type = type;
-          this.commandId = commandId;
-          this.commandStatus = commandStatus;
-     }
+  public Reply(Type type, String commandId, CommandStatus commandStatus) {
+    this.type = type;
+    this.commandId = commandId;
+    this.commandStatus = commandStatus;
+  }
 
-     public String getCommandId() {
-          return commandId;
-     }
+  public String getCommandId() {
+    return commandId;
+  }
 
-     public void setCommandId(String commandId) {
-          this.commandId = commandId;
-     }
+  public void setCommandId(String commandId) {
+    this.commandId = commandId;
+  }
 
-     public Type getType() {
-          return type;
-     }
+  public Type getType() {
+    return type;
+  }
 
-     public CommandStatus getCommandStatus() {
-          return commandStatus;
-     }
+  public CommandStatus getCommandStatus() {
+    return commandStatus;
+  }
 
-     public void setCommandStatus(CommandStatus commandStatus) {
-          this.commandStatus = commandStatus;
-     }
+  public void setCommandStatus(CommandStatus commandStatus) {
+    this.commandStatus = commandStatus;
+  }
 
-     public boolean stopOnErrorStatus() {
-          return false;
-     }
+  public boolean stopOnErrorStatus() {
+    return false;
+  }
 }

@@ -24,17 +24,16 @@ import io.gravitee.cockpit.api.command.Reply;
  */
 public class IgnoredReply extends Reply {
 
-    public IgnoredReply() {
-        this(null);
-    }
+  public IgnoredReply() {
+    this(null);
+  }
 
-    public IgnoredReply(String commandId) {
-        super(Type.IGNORED_REPLY, commandId, CommandStatus.ERROR);
-    }
+  public IgnoredReply(String commandId) {
+    super(Type.IGNORED_REPLY, commandId, CommandStatus.ERROR);
+  }
 
-    @Override
-    public boolean stopOnErrorStatus() {
-        return true;
-    }
-
+  @Override
+  public boolean stopOnErrorStatus() {
+    return true;
+  }
 }

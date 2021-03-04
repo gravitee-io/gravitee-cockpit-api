@@ -24,12 +24,12 @@ import io.gravitee.common.utils.UUID;
  */
 public class HelloCommand extends Command<HelloPayload> {
 
-    public HelloCommand() {
-        super(Type.HELLO_COMMAND);
-    }
+  public HelloCommand() {
+    super(Type.HELLO_COMMAND);
+  }
 
-    public HelloCommand(HelloPayload payload) {
-        this();
-        this.payload = payload;
-    }
+  public HelloCommand(HelloPayload payload) {
+    this();
+    this.payload = payload;
+  }
 }

@@ -18,7 +18,8 @@ package io.gravitee.cockpit.api.command.echo;
 import io.gravitee.cockpit.api.command.Command;
 
 public class EchoCommand extends Command<EchoPayload> {
-    public EchoCommand() {
-        super(Type.ECHO_COMMAND);
-    }
+
+  public EchoCommand() {
+    super(Type.ECHO_COMMAND);
+  }
 }

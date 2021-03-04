@@ -18,7 +18,8 @@ package io.gravitee.cockpit.api.command.node;
 import io.gravitee.cockpit.api.command.Command;
 
 public class NodeCommand extends Command<NodePayload> {
-    public NodeCommand() {
-        super(Type.NODE_COMMAND);
-    }
+
+  public NodeCommand() {
+    super(Type.NODE_COMMAND);
+  }
 }

@@ -40,12 +40,12 @@ public interface CommandProducer<T, U> {
     return Single.just(command);
   }
 
-    /**
-     * Method invoke after a reply has been received. This allows to a command producer to execute some operations after a command has been processed and a reply is received.
-     *
-     * @param reply the reply.
-     * @return the same reply altered if necessary.
-     */
+  /**
+   * Method invoke after a reply has been received. This allows to a command producer to execute some operations after a command has been processed and a reply is received.
+   *
+   * @param reply the reply.
+   * @return the same reply altered if necessary.
+   */
   default Single<U> handleReply(U reply) {
     return Single.just(reply);
   }

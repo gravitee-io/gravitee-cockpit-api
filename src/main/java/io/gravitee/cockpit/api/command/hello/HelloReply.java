@@ -15,8 +15,8 @@
  */
 package io.gravitee.cockpit.api.command.hello;
 
-import io.gravitee.cockpit.api.command.Reply;
 import io.gravitee.cockpit.api.command.CommandStatus;
+import io.gravitee.cockpit.api.command.Reply;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
@@ -24,36 +24,36 @@ import io.gravitee.cockpit.api.command.CommandStatus;
  */
 public class HelloReply extends Reply {
 
-    private String installationId;
+  private String installationId;
 
-    private String installationStatus;
+  private String installationStatus;
 
-    public HelloReply() {
-        this(null, null);
-    }
+  public HelloReply() {
+    this(null, null);
+  }
 
-    public HelloReply(String commandId, CommandStatus commandStatus) {
-        super(Type.HELLO_REPLY, commandId, commandStatus);
-    }
+  public HelloReply(String commandId, CommandStatus commandStatus) {
+    super(Type.HELLO_REPLY, commandId, commandStatus);
+  }
 
-    @Override
-    public boolean stopOnErrorStatus() {
-        return true;
-    }
+  @Override
+  public boolean stopOnErrorStatus() {
+    return true;
+  }
 
-    public String getInstallationId() {
-        return installationId;
-    }
+  public String getInstallationId() {
+    return installationId;
+  }
 
-    public void setInstallationId(String installationId) {
-        this.installationId = installationId;
-    }
+  public void setInstallationId(String installationId) {
+    this.installationId = installationId;
+  }
 
-    public String getInstallationStatus() {
-        return installationStatus;
-    }
+  public String getInstallationStatus() {
+    return installationStatus;
+  }
 
-    public void setInstallationStatus(String installationStatus) {
-        this.installationStatus = installationStatus;
-    }
+  public void setInstallationStatus(String installationStatus) {
+    this.installationStatus = installationStatus;
+  }
 }

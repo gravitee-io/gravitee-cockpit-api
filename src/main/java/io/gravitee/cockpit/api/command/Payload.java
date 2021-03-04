@@ -19,6 +19,4 @@ package io.gravitee.cockpit.api.command;
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
  * @author GraviteeSource Team
  */
-public interface Payload {
-
-}
+public interface Payload {}

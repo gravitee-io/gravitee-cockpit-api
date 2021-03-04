@@ -24,11 +24,11 @@ import io.gravitee.cockpit.api.command.Reply;
  */
 public class UserReply extends Reply {
 
-    public UserReply() {
-        this(null, null);
-    }
+  public UserReply() {
+    this(null, null);
+  }
 
-    public UserReply(String commandId, CommandStatus commandStatus) {
-        super(Type.USER_REPLY, commandId, commandStatus);
-    }
+  public UserReply(String commandId, CommandStatus commandStatus) {
+    super(Type.USER_REPLY, commandId, commandStatus);
+  }
 }

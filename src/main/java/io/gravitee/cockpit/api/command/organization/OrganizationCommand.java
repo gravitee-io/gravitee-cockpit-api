@@ -24,12 +24,12 @@ import io.gravitee.common.utils.UUID;
  */
 public class OrganizationCommand extends Command<OrganizationPayload> {
 
-    public OrganizationCommand() {
-        super(Type.ORGANIZATION_COMMAND);
-    }
+  public OrganizationCommand() {
+    super(Type.ORGANIZATION_COMMAND);
+  }
 
-    public OrganizationCommand(OrganizationPayload payload) {
-        this();
-        this.payload = payload;
-    }
+  public OrganizationCommand(OrganizationPayload payload) {
+    this();
+    this.payload = payload;
+  }
 }

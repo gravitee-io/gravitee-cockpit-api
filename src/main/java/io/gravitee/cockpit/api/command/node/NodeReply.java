@@ -19,11 +19,12 @@ import io.gravitee.cockpit.api.command.CommandStatus;
 import io.gravitee.cockpit.api.command.Reply;
 
 public class NodeReply extends Reply {
-    public NodeReply() {
-        super(Type.NODE_REPLY);
-    }
 
-    public NodeReply(String commandId, CommandStatus commandStatus) {
-        super(Type.NODE_REPLY, commandId, commandStatus);
-    }
+  public NodeReply() {
+    super(Type.NODE_REPLY);
+  }
+
+  public NodeReply(String commandId, CommandStatus commandStatus) {
+    super(Type.NODE_REPLY, commandId, commandStatus);
+  }
 }

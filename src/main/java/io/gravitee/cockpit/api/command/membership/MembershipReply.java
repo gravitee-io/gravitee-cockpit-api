@@ -24,11 +24,11 @@ import io.gravitee.cockpit.api.command.Reply;
  */
 public class MembershipReply extends Reply {
 
-    public MembershipReply() {
-        this(null, null);
-    }
+  public MembershipReply() {
+    this(null, null);
+  }
 
-    public MembershipReply(String commandId, CommandStatus commandStatus) {
-        super(Type.MEMBERSHIP_REPLY, commandId, commandStatus);
-    }
+  public MembershipReply(String commandId, CommandStatus commandStatus) {
+    super(Type.MEMBERSHIP_REPLY, commandId, commandStatus);
+  }
 }

@@ -22,27 +22,25 @@ import java.util.List;
  * @author GraviteeSource Team
  */
 public enum CommandStatus {
+  PENDING,
+  SUCCEEDED,
+  ERROR;
 
-    PENDING,
-    SUCCEEDED,
-    ERROR;
+  public static CommandStatus merge(List<CommandStatus> commandStatuses) {
+    boolean pending = false;
 
-    public static CommandStatus merge(List<CommandStatus> commandStatuses) {
-
-        boolean pending = false;
-
-        for (CommandStatus commandStatus : commandStatuses) {
-            if(commandStatus == ERROR) {
-                return ERROR;
-            } else if(commandStatus == PENDING) {
-                pending = true;
-            }
-        }
-
-        if(pending) {
-            return PENDING;
-        }
-
-        return SUCCEEDED;
+    for (CommandStatus commandStatus : commandStatuses) {
+      if (commandStatus == ERROR) {
+        return ERROR;
+      } else if (commandStatus == PENDING) {
+        pending = true;
+      }
     }
+
+    if (pending) {
+      return PENDING;
+    }
+
+    return SUCCEEDED;
+  }
 }

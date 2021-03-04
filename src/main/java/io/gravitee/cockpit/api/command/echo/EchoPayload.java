@@ -16,18 +16,17 @@
 package io.gravitee.cockpit.api.command.echo;
 
 import io.gravitee.cockpit.api.command.Payload;
-
 import java.util.Map;
 
 public class EchoPayload implements Payload {
 
-    private Map<String, String> content;
+  private Map<String, String> content;
 
-    public Map<String, String> getContent() {
-        return content;
-    }
+  public Map<String, String> getContent() {
+    return content;
+  }
 
-    public void setContent(Map<String, String> content) {
-        this.content = content;
-    }
+  public void setContent(Map<String, String> content) {
+    this.content = content;
+  }
 }
