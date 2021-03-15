@@ -24,6 +24,7 @@ import io.gravitee.cockpit.api.command.goodbye.GoodbyeCommand;
 import io.gravitee.cockpit.api.command.healthcheck.HealthcheckCommand;
 import io.gravitee.cockpit.api.command.hello.HelloCommand;
 import io.gravitee.cockpit.api.command.installation.InstallationCommand;
+import io.gravitee.cockpit.api.command.membership.DeleteMembershipCommand;
 import io.gravitee.cockpit.api.command.membership.MembershipCommand;
 import io.gravitee.cockpit.api.command.node.NodeCommand;
 import io.gravitee.cockpit.api.command.organization.OrganizationCommand;
@@ -54,6 +55,10 @@ import io.gravitee.common.utils.UUID;
     @JsonSubTypes.Type(
       value = MembershipCommand.class,
       name = "MEMBERSHIP_COMMAND"
+    ),
+    @JsonSubTypes.Type(
+      value = DeleteMembershipCommand.class,
+      name = "DELETE_MEMBERSHIP_COMMAND"
     ),
     @JsonSubTypes.Type(
       value = InstallationCommand.class,
@@ -88,6 +93,7 @@ public abstract class Command<T extends Payload> {
     GOODBYE_COMMAND,
     USER_COMMAND,
     MEMBERSHIP_COMMAND,
+    DELETE_MEMBERSHIP_COMMAND,
     INSTALLATION_COMMAND,
     ECHO_COMMAND,
     NODE_COMMAND,
