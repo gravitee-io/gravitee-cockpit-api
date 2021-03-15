@@ -26,6 +26,7 @@ import io.gravitee.cockpit.api.command.healthcheck.HealthcheckReply;
 import io.gravitee.cockpit.api.command.hello.HelloReply;
 import io.gravitee.cockpit.api.command.ignored.IgnoredReply;
 import io.gravitee.cockpit.api.command.installation.InstallationReply;
+import io.gravitee.cockpit.api.command.membership.DeleteMembershipReply;
 import io.gravitee.cockpit.api.command.membership.MembershipReply;
 import io.gravitee.cockpit.api.command.node.NodeReply;
 import io.gravitee.cockpit.api.command.organization.OrganizationReply;
@@ -57,6 +58,10 @@ import io.gravitee.cockpit.api.command.user.UserReply;
       name = "MEMBERSHIP_REPLY"
     ),
     @JsonSubTypes.Type(
+      value = DeleteMembershipReply.class,
+      name = "DELETE_MEMBERSHIP_REPLY"
+    ),
+    @JsonSubTypes.Type(
       value = InstallationReply.class,
       name = "INSTALLATION_REPLY"
     ),
@@ -82,6 +87,7 @@ public abstract class Reply {
     GOODBYE_REPLY,
     USER_REPLY,
     MEMBERSHIP_REPLY,
+    DELETE_MEMBERSHIP_REPLY,
     INSTALLATION_REPLY,
     ECHO_REPLY,
     NODE_REPLY,
