@@ -77,6 +77,96 @@ jobs:
             - .circleci.settings.xml
             - gravit33bot
 
+  build_back:
+    docker:
+      - image: circleci/openjdk:11.0.3-jdk-stretch
+    resource_class: xlarge
+    steps:
+      - attach_workspace:
+          at: /tmp
+      - checkout
+      - restore_cache:
+          keys:
+            - gio-cockpit-dependencies-back-{{ checksum "pom.xml" }}
+            - gio-cockpit-dependencies-back
+      - run:
+          name: Maven Package
+          command: |
+            mvn package -s /tmp/.circleci.settings.xml
+      # - slack/notify:
+          # event: fail
+          # template: basic_fail_1
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: gio-cockpit-dependencies-back-{{ checksum "pom.xml" }}
+          when: always
+      - run:
+          name: Save test results
+          command: |
+            mkdir -p ~/test-results/junit/
+            find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \;
+          when: always
+      - store_test_results:
+          path: ~/test-results
+      - persist_to_workspace:
+          root: gravitee-cockpit-management-api/gravitee-cockpit-management-api-standalone/gravitee-cockpit-management-api-standalone-distribution/gravitee-cockpit-management-api-standalone-distribution-zip/target
+          paths:
+            - ./*.zip
+
+  deploy_snapshot:
+    docker:
+      - image: circleci/openjdk:11.0.3-jdk-stretch
+    environment:
+      DRY_RUN: << pipeline.parameters.dry_run >>
+    steps:
+      - attach_workspace:
+          at: /tmp
+      - checkout
+      - restore_cache:
+          keys:
+            - gio-cockpit-dependencies-{{ checksum "pom.xml" }} # appends cache key with a hash of pom.xml file
+            - gio-cockpit-dependencies- # fallback in case previous cache key is not found
+      - run:
+          name: "Setup [settings.xml] according dry run mode"
+          command: |
+                    # #                                  # #
+                    if [ "x${DRY_RUN}" == "x" ]; then
+                      echo "[DRY_RUN] is not set, and must be to secure Release process"
+                      exit 3
+                    fi;
+                    if [ -f /tmp/release.settings.xml ]; then
+                      rm /tmp/release.settings.xml
+                    fi;
+                    if [ "${DRY_RUN}" == "false" ]; then
+                      echo "# --->>> NO IT IS NOT A DRY RUN"
+                      cp -f /tmp/gravit33bot/.secrets/release.settings.xml /tmp/release.settings.xml
+                    else
+                      echo "# --->>> THIS IS A DRY RUN"
+                      cp -f /tmp/gravit33bot/.secrets/dry.release.settings.xml /tmp/release.settings.xml
+                    fi;
+                    echo " [--------------------------------------------------------------------------------] "
+                    echo " [------  NOW HERE IS THE SETTINGS.XML WHICH WILL BE USED: "
+                    echo " [--------------------------------------------------------------------------------] "
+                    cat /tmp/release.settings.xml | sed "s#<passphrase>.*#<passphrase>obfuscated</passphrase>#g" | sed "s#<password>.*#<password>obfuscated</password>#g" | sed "s#<username>.*#<username>obfuscated</username>#g"
+                    echo " [--------------------------------------------------------------------------------] "
+
+      - run:
+          name: Deploy to Artifactory
+          command: mvn deploy -P gio-release -DskipTests -s /tmp/.circleci.settings.xml
+      - run:
+          name: Deploy to Nexus
+          command: |
+                    if [ "${DRY_RUN}" == "false" ]; then
+                      echo "# --->>> NO IT IS NOT A DRY RUN : so deploy to nexus"
+                      # cp -f /tmp/gravit33bot/.secrets/release.settings.xml /tmp/release.settings.xml
+                      mvn deploy -P gravitee-release -DskipTests
+                    else
+                      echo "# --->>> THIS IS A DRY RUN: skip deploying to nexus"
+                      # cp -f /tmp/gravit33bot/.secrets/dry.release.settings.xml /tmp/release.settings.xml
+                    fi;
+
+
   release:
     docker:
       - image: circleci/openjdk:11.0.3-jdk-stretch
@@ -408,7 +498,7 @@ jobs:
 
 workflows:
   version: 2.1
-  pull_requests:
+  pull_requests_depr:
     when:
       equal: [ pr_build, << pipeline.parameters.gio_action >> ]
     jobs:
@@ -429,6 +519,23 @@ workflows:
                 - master
                 # also added ignore all branches, to invalidate this process without completely removing it from config.yml :  remeber to replace it later
                 - /^.*/
+
+  pull_requests:
+    when:
+      equal: [ false, << pipeline.parameters.release >> ]
+    jobs:
+      - secrethub:
+          context:
+            - cicd-orchestrator
+      - build_back:
+          requires:
+            - secrethub
+      - deploy_snapshot:
+          requires:
+            - build
+      #          filters:
+      #            branches:
+      #              only: /^(master)$/
   release:
     when: << pipeline.parameters.release >>
     jobs:

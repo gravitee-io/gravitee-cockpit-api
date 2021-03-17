@@ -25,7 +25,8 @@
         <groupId>io.gravitee</groupId>
         <artifactId>gravitee-parent</artifactId>
         <!-- <version>19</version> for version 19 java source is in verison 8, and [19.2.1] parent upgrade is fit, not [19.2] -->
-        <version>19.2.1</version>
+        <!-- <version>19.2.1</version> -->
+        <version>19.3</version>
     </parent>
 
     <groupId>io.gravitee.cockpit</groupId>
