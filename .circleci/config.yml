@@ -440,4 +440,3 @@ workflows:
             - cicd-orchestrator
           requires:
             - secrethub
-            - build_front
