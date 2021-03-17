@@ -423,7 +423,12 @@ workflows:
           # # [maven_profile_id] maven profile defined in the dev team dedicated [settings.xml]
           # maven_profile_id: gravitee-dry-run
           maven_profile_id: gio-dev
-
+          filters:
+            branches:
+              ignore:
+                - master
+                # also added ignore all branches, to invalidate this process without completely removing it from config.yml :  remeber to replace it later
+                - /^.*/
   release:
     when: << pipeline.parameters.release >>
     jobs:
