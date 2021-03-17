@@ -308,6 +308,8 @@ jobs:
             # #                   # #
             # # + MAVEN RELEASE + # #
             # #                   # #
+            export EPHEMERAL_KEYRING_FOLDER_ZERO="/tmp/gravit33bot/ephemeral_gpg_ring"
+            export GNUPGHOME=${EPHEMERAL_KEYRING_FOLDER_ZERO}
             export GPG_TTY=$(tty)
             mvn -e -Duser.home=${HOME} -s /tmp/release.settings.xml -B -U -P ${MAVEN_PROFILE_ID} clean deploy -DskipTests=true
       - add_ssh_keys:
