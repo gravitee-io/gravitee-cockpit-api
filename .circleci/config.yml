@@ -9,6 +9,10 @@ parameters:
     type: boolean
     default: true
     description: "Run in dry run mode?"
+  release:
+    type: boolean
+    default: false
+    description: "Release"
   maven_profile_id:
     type: string
     default: "gravitee-dry-run"
@@ -23,7 +27,384 @@ parameters:
     description: "SecretHub Repo to use to fetch secrets ?"
 
 orbs:
+  secrethub: secrethub/cli@1.1.0
+  slack: circleci/slack@4.2.1
   gravitee: gravitee-io/gravitee@dev:1.0.4
+
+jobs:
+  secrethub:
+    docker:
+      - image: 'cimg/base:stable'
+    environment:
+      DEV_MAVEN_SETTINGS: 'secrethub://graviteeio/cicd/graviteebot/infra/maven/dry-run/artifactory/settings.dev.xml'
+      RELEASE_MAVEN_SETTINGS: 'secrethub://graviteeio/cicd/graviteebot/infra/maven/dry-run/artifactory/settings.non.dry.run.xml'
+      DRY_RELEASE_MAVEN_SETTINGS: 'secrethub://graviteeio/cicd/graviteebot/infra/maven/dry-run/artifactory/settings.xml'
+      GIO_GPG_PUB_KEY: 'secrethub://graviteeio/cicd/graviteebot/gpg/armor_format_pub_key'
+      GIO_GPG_PRV_KEY: 'secrethub://graviteeio/cicd/graviteebot/gpg/armor_format_private_key'
+      GIT_USER_NAME: 'secrethub://graviteeio/cicd/graviteebot/git/user/name'
+      GIT_USER_EMAIL: 'secrethub://graviteeio/cicd/graviteebot/git/user/email'
+      DOCKERHUB_USER_NAME: 'secrethub://graviteeio/cicd/graviteebot/infra/dockerhub-user-name'
+      DOCKERHUB_USER_TOKEN: 'secrethub://graviteeio/cicd/graviteebot/infra/dockerhub-user-token'
+    steps:
+      - secrethub/exec:
+          command: |
+                    echo $DEV_MAVEN_SETTINGS > /tmp/.circleci.settings.xml
+                    mkdir -p /tmp/gravit33bot/.secrets/.gungpg
+                    echo $RELEASE_MAVEN_SETTINGS > /tmp/gravit33bot/.secrets/release.settings.xml
+                    echo $DRY_RELEASE_MAVEN_SETTINGS > /tmp/gravit33bot/.secrets/dry.release.settings.xml
+                    echo $GIO_GPG_PUB_KEY > /tmp/gravit33bot/.secrets/.gungpg/graviteebot.gpg.pub.key
+                    echo $GIO_GPG_PRV_KEY > /tmp/gravit33bot/.secrets/.gungpg/graviteebot.gpg.priv.key
+                    echo $GIT_USER_NAME > /tmp/gravit33bot/git_user_name
+                    echo $GIT_USER_EMAIL > /tmp/gravit33bot/git_user_email
+                    mkdir -p /tmp/gravit33bot/.secrets/dockerhub
+                    echo $DOCKERHUB_USER_NAME > /tmp/gravit33bot/.secrets/dockerhub/user_name
+                    echo $DOCKERHUB_USER_TOKEN > /tmp/gravit33bot/.secrets/dockerhub/user_token
+      - run:
+          name: "Re-format GPG Keys"
+          command: |
+                    # Re-format private and public GPG Keys
+                    export PUB_KEY_CONTENT=$(cat /tmp/gravit33bot/.secrets/.gungpg/graviteebot.gpg.pub.key | awk -F '-----BEGIN PGP PUBLIC KEY BLOCK-----' '{print $2}' | awk -F '-----END PGP PUBLIC KEY BLOCK-----' '{print $1}')
+                    echo '-----BEGIN PGP PUBLIC KEY BLOCK-----' > /tmp/gravit33bot/.secrets/.gungpg/graviteebot.gpg.pub.key
+                    echo "$PUB_KEY_CONTENT" | tr ' ' '\n' | tee -a /tmp/gravit33bot/.secrets/.gungpg/graviteebot.gpg.pub.key
+                    sed -i '$ s/$/-----END PGP PUBLIC KEY BLOCK-----/' /tmp/gravit33bot/.secrets/.gungpg/graviteebot.gpg.pub.key
+                    export PRIV_KEY_CONTENT=$(cat /tmp/gravit33bot/.secrets/.gungpg/graviteebot.gpg.priv.key | awk -F '-----BEGIN PGP PRIVATE KEY BLOCK-----' '{print $2}' | awk -F '-----END PGP PUBLIC KEY BLOCK-----' '{print $1}')
+                    echo '-----BEGIN PGP PRIVATE KEY BLOCK-----' > /tmp/gravit33bot/.secrets/.gungpg/graviteebot.gpg.priv.key
+                    echo "$PRIV_KEY_CONTENT" | tr ' ' '\n' | tee -a /tmp/gravit33bot/.secrets/.gungpg/graviteebot.gpg.priv.key
+                    sed -i '$ s/$/-----END PGP PRIVATE KEY BLOCK-----/' /tmp/gravit33bot/.secrets/.gungpg/graviteebot.gpg.priv.key
+      - persist_to_workspace:
+          root: /tmp
+          paths:
+            - .circleci.settings.xml
+            - gravit33bot
+
+  release:
+    docker:
+      - image: circleci/openjdk:11.0.3-jdk-stretch
+      # - image: circleci/openjdk:11.0.3-jdk-stretch-node
+      # # due to issue of Open JDK 11 with Javadoc see https://bugs.openjdk.java.net/browse/JDK-8212233
+      # - image: circleci/openjdk:13.0.2-jdk-buster
+    resource_class: xlarge
+    environment:
+      DRY_RUN: << pipeline.parameters.dry_run >>
+      MAVEN_PROFILE_ID: "gio-release"
+    steps:
+      - checkout
+      - attach_workspace:
+          at: /tmp
+      # --------------------------------------------------------------------------------
+      # --------------------------------------------------------------------------------
+      # FIRST THE RELEASE OF THE BACKEND : just like [build_back:], only with
+      # everything that's required by the release process, around the [mvn package]"
+      # --------------------------------------------------------------------------------
+      # --------------------------------------------------------------------------------
+      - run:
+          name: "Prepare GPG Keyring"
+          command: |
+                    echo "Checking content of [/tmp]"
+                    ls -allh /tmp/
+                    echo "Checking retrieved from workspace GPG Keys are in [/tmp/gravit33bot/.secrets/.gungpg/]"
+                    ls -allh /tmp/gravit33bot/.secrets/.gungpg/
+                    # #                         # #
+                    # # + Prepare GPG Keyring + # #
+                    # #                         # #
+                    export EPHEMERAL_KEYRING_FOLDER_ZERO="/tmp/gravit33bot/ephemeral_gpg_ring"
+                    export GNUPGHOME=${EPHEMERAL_KEYRING_FOLDER_ZERO}
+                    mkdir -p ${GNUPGHOME}
+                    echo "GPG init keyring : "
+                    gpg --list-keys
+      - gravitee/gpg_config:
+          gnupghome_path: "/tmp/gravit33bot/ephemeral_gpg_ring"
+          path_to_gpg_pub_key_file: "/tmp/gravit33bot/.secrets/.gungpg/graviteebot.gpg.pub.key"
+          path_to_gpg_private_key_file: "/tmp/gravit33bot/.secrets/.gungpg/graviteebot.gpg.priv.key"
+          gpg_signing_key_id: 870B61A8E14DC301
+
+      - run:
+          name: "Maven gpg plugin integration"
+          command: |
+                    # #                                  # #
+                    # # + maven gpg plugin integration + # #
+                    # #                                  # #
+                    # export GPG_TTY=$(tty)
+                    mkdir -p ~/.gnupg/
+                    touch ~/.gnupg/gpg.conf
+                    echo 'no-tty' > ~/.gnupg/gpg.conf
+                    cat ~/.gnupg/gpg.conf
+                    sed -i "s~#no-tty~no-tty~g" ~/.gnupg/gpg.conf
+                    echo "# ----------------------------------------------------------------"
+                    echo " Content of the [~/.gnupg/gpg.conf] : "
+                    echo "# ----------------------------------------------------------------"
+                    cat ~/.gnupg/gpg.conf
+                    echo "# ----------------------------------------------------------------"
+                    # ---
+                    # will test later if conf has to be in GNUPGHOME
+                    exit 0
+                    touch ${EPHEMERAL_KEYRING_FOLDER_ZERO}/gpg.conf
+                    echo 'no-tty' > ${EPHEMERAL_KEYRING_FOLDER_ZERO}/gpg.conf
+                    sed -i "s~#no-tty~no-tty~g" ~/.gnupg/gpg.conf
+                    echo "# ----------------------------------------------------------------"
+                    echo " Content of the [${EPHEMERAL_KEYRING_FOLDER_ZERO}/gpg.conf] : "
+                    echo "# ----------------------------------------------------------------"
+                    cat ${EPHEMERAL_KEYRING_FOLDER_ZERO}/gpg.conf
+                    echo "# ----------------------------------------------------------------"
+      - run:
+          name: "Setup [settings.xml] according dry run mode"
+          command: |
+                    # #                                  # #
+                    if [ "x${DRY_RUN}" == "x" ]; then
+                      echo "[DRY_RUN] is not set, and must be to secure Release process"
+                      exit 3
+                    fi;
+                    if [ -f /tmp/release.settings.xml ]; then
+                      rm /tmp/release.settings.xml
+                    fi;
+                    if [ "${DRY_RUN}" == "false" ]; then
+                      echo "# --->>> NO IT IS NOT A DRY RUN"
+                      cp -f /tmp/gravit33bot/.secrets/dry.release.settings.xml /tmp/release.settings.xml
+                    else
+                      echo "# --->>> THIS IS A DRY RUN"
+                      cp -f /tmp/gravit33bot/.secrets/release.settings.xml /tmp/release.settings.xml
+                    fi;
+                    echo " [--------------------------------------------------------------------------------] "
+                    echo " [------  NOW HERE IS THE SETTINGS.XML WHICH WILL BE USED: "
+                    echo " [--------------------------------------------------------------------------------] "
+                    cat /tmp/release.settings.xml | sed "s#<passphrase>.*#<passphrase>obfuscated</passphrase>#g" | sed "s#<password>.*#<password>obfuscated</password>#g" | sed "s#<username>.*#<username>obfuscated</username>#g"
+                    echo " [--------------------------------------------------------------------------------] "
+      - run:
+          name: Maven Prepare Release (done by devops team)
+          command: |
+            # #                           # #
+            # # + PREPARE MAVEN RELEASE + # #
+            # #                           # #
+            # 1./  Update maven dependencies versions from properties
+            mvn -Duser.home=${HOME} -s /tmp/release.settings.xml -B -U versions:update-properties -Dmaven.version.rules.serverId=artifactory-gravitee-releases -Dincludes=io.gravitee.*:* -DallowMajorUpdates=false -DallowMinorUpdates=false -DallowIncrementalUpdates=true -DgenerateBackupPoms=false
+            # 2./ Now  calculate the maven project verison with the maven exec plugin
+            export MVN_PRJ_VERSION=$(mvn -Duser.home=${HOME} -s /tmp/release.settings.xml -Dexec.executable='echo' -Dexec.args='${project.version}' --non-recursive exec:exec -q | tee -a /tmp/maven.logs; echo "$?" > /tmp/maven.exit.code)
+            cat /tmp/maven.logs && rm /tmp/maven.logs
+            export MVN_EXIT_CODE=$(cat /tmp/maven.exit.code)
+            echo "The exit code of the [mvn -Duser.home=\${HOME} -s /tmp/release.settings.xml -Dexec.executable='echo' -Dexec.args='\${project.version}' --non-recursive exec:exec -q] maven command is [${MVN_EXIT_CODE}] "
+            if ! [ "${MVN_EXIT_CODE}" == "0" ]; then
+              echo "[$0] The exit code of the [mvn -Duser.home=\${HOME} -s /tmp/release.settings.xml -Dexec.executable='echo' -Dexec.args='\${project.version}' --non-recursive exec:exec -q] maven command is [${MVN_EXIT_CODE}] (not zero, an error occured) "
+              exit ${MVN_EXIT_CODE}
+            fi;
+            rm /tmp/maven.exit.code
+            echo " [--------------------------------------------------------------------------------] "
+            echo "    Resolved Maven Project version : [${MVN_PRJ_VERSION}]"
+            echo " [--------------------------------------------------------------------------------] "
+            # But MVN_PRJ_VERSION has the '-SNAPSHOT' suffix, we need to strip it off, to pass that exact verion to maven version plugin
+            export MVN_PRJ_VERSION=$(echo "${MVN_PRJ_VERSION}" | awk -F '-SNAPSHOT' '{print $1}')
+            echo " [--------------------------------------------------------------------------------] "
+            echo "   trimmed [-SNAPSHOT] suffix from Maven Project version : [${MVN_PRJ_VERSION}]"
+            echo " [--------------------------------------------------------------------------------] "
+            # export MVN_PRJ_VERSION=$(cat /tmp/gio.maven.project.release.version)
+            echo "${MVN_PRJ_VERSION}" > /tmp/gio.maven.project.release.version
+            export MVN_PRJ_VERSION_MAJOR=$(cat /tmp/gio.maven.project.release.version | awk -F '.' '{print $1}')
+            export MVN_PRJ_VERSION_MINOR=$(cat /tmp/gio.maven.project.release.version | awk -F '.' '{print $2}')
+            export MVN_PRJ_VERSION_PATCH=$(cat /tmp/gio.maven.project.release.version | awk -F '.' '{print $3}')
+            # 2./ and then we can run the [mvn -Duser.home=${HOME} -s /tmp/release.settings.xml -B versions:set -DnewVersion=1.3.1 -DgenerateBackupPoms=false]
+            mvn -Duser.home=${HOME} -s /tmp/release.settings.xml -B versions:set -DnewVersion=${MVN_PRJ_VERSION} -DgenerateBackupPoms=false
+            echo " [--------------------------------------------------------------------------------] "
+            echo "                         END OF MAVEN PREPARE RELEASE   "
+            echo "                              THE [pom.xml] IS NOW :  "
+            echo " [--------------------------------------------------------------------------------] "
+            cat ./pom.xml
+            echo " [--------------------------------------------------------------------------------] "
+      - run:
+          name: Maven Deploy to private Artifactory (done by devops team)
+          command: |
+            if [ "x${DRY_RUN}" == "x" ]; then
+              echo "[DRY_RUN] is not set, and must be to secure Release process"
+              exit 3
+            fi;
+            # #                   # #
+            # # + MAVEN RELEASE + # #
+            # #                   # #
+            export GPG_TTY=$(tty)
+            mvn -e -Duser.home=${HOME} -s /tmp/release.settings.xml -B -U -P ${MAVEN_PROFILE_ID} clean deploy -DskipTests=true
+      - add_ssh_keys:
+          fingerprints:
+            - "ac:88:23:8f:c6:0f:7d:f0:fc:df:73:20:34:56:02:6c"
+      - run:
+          name: Git config
+          command: |
+                    ls -allh /tmp/gravit33bot/git_user_name
+                    ls -allh /tmp/gravit33bot/git_user_email
+                    export GIT_USER_NAME=$(cat /tmp/gravit33bot/git_user_name)
+                    export GIT_USER_EMAIL=$(cat /tmp/gravit33bot/git_user_email)
+                    echo "checking existence of SSH Key based on "
+                    ls -allh ${HOME}/.ssh/id_rsa_ac88238fc60f7df0fcdf73203456026c
+                    export LOCAL_SSH_PRVIKEY="${HOME}/.ssh/id_rsa_ac88238fc60f7df0fcdf73203456026c"
+                    export GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa_ac88238fc60f7df0fcdf73203456026c'
+                    ssh-add -D
+                    ssh-add "${LOCAL_SSH_PRVIKEY}"
+                    echo "[$0 - Git config] [GIT_USER_NAME=[${GIT_USER_NAME}]] "
+                    echo "[$0 - Git config] [GIT_USER_EMAIL=[${GIT_USER_EMAIL}]] "
+                    echo "[$0 - Git config] [GIT_SSH_COMMAND=[${GIT_SSH_COMMAND}]] "
+                    if [ "x${GIT_USER_NAME}" == "x" ]; then
+                      echo "[$0 - Git config] You did not set the [GIT_USER_NAME] env. var."
+                      Usage
+                      exit 1
+                    fi;
+                    if [ "x${GIT_USER_EMAIL}" == "x" ]; then
+                      echo "[$0 - Git config] The [GIT_USER_EMAIL] env. var. was not properly set from secret manager"
+                      Usage
+                      exit 1
+                    fi;
+                    if [ "x${GIT_USER_SIGNING_KEY}" == "x" ]; then
+                      echo "[$0 - Git config] the [GIT_USER_SIGNING_KEY] env. var. was not set, So [${GIT_USER_NAME}]] won't be signed"
+                      git config --global commit.gpgsign false
+                    else
+                      echo "[$0 - Git config] [${GIT_USER_NAME}] commits will be signed with signature [${GIT_USER_SIGNING_KEY}]"
+                      git config --global commit.gpgsign true
+                      git config --global user.signingkey ${GIT_USER_SIGNING_KEY}
+                    fi;
+                    git config --global user.name "${GIT_USER_NAME}"
+                    git config --global user.email "${GIT_USER_EMAIL}"
+                    git config --global --list
+                    echo "[$0 - Git config] completed "
+      - run:
+          name: Git release (done by devops team)
+          command: |
+            if [ "x${DRY_RUN}" == "x" ]; then
+              echo "[DRY_RUN] is not set, and must be to secure Release process"
+              exit 3
+            fi;
+            # #                   # #
+            # # + GIT RELEASE +   # #
+            # #                   # #
+            # We need the maven project version (already figured out by maven prepare release step)
+            # checking that [/tmp/gio.maven.project.release.version] figured out by maven prepare release step is still there
+            echo "############################################################"
+            echo "   Checking that [/tmp/gio.maven.project.release.version]   "
+            echo "   figured out by maven prepare release step is             "
+            echo "             still there                                    "
+            echo "############################################################"
+            ls -allh /tmp/gio.maven.project.release.version
+            export MVN_PRJ_VERSION=$(cat /tmp/gio.maven.project.release.version)
+            export MVN_PRJ_VERSION_MAJOR=$(cat /tmp/gio.maven.project.release.version | awk -F '.' '{print $1}')
+            export MVN_PRJ_VERSION_MINOR=$(cat /tmp/gio.maven.project.release.version | awk -F '.' '{print $2}')
+            export MVN_PRJ_VERSION_PATCH=$(cat /tmp/gio.maven.project.release.version | awk -F '.' '{print $3}')
+            echo " [--------------------------------------------------------------------------------] "
+            echo " [--------------------------------------------------------------------------------] "
+            echo " [--------------------------------------------------------------------------------] "
+            echo " [--------------------------------------------------------------------------------] "
+            echo "                            FOR THE GIT RELEASE  "
+            echo "                              THE [pom.xml] IS :  "
+            echo " [--------------------------------------------------------------------------------] "
+            cat ./pom.xml
+            echo " [--------------------------------------------------------------------------------] "
+            echo " [--------------------------------------------------------------------------------] "
+            echo "      MVN_PRJ_VERSION=[${MVN_PRJ_VERSION}]"
+            echo "      MVN_PRJ_VERSION_MAJOR=[${MVN_PRJ_VERSION_MAJOR}]"
+            echo "      MVN_PRJ_VERSION_MINOR=[${MVN_PRJ_VERSION_MINOR}]"
+            echo "      MVN_PRJ_VERSION_PATCH=[${MVN_PRJ_VERSION_PATCH}]"
+            echo " [--------------------------------------------------------------------------------] "
+            echo " [--------------------------------------------------------------------------------] "
+            echo " [--------------------------------------------------------------------------------] "
+            export CURRENT_GIT_BRANCH=$(git status | grep 'On branch' | awk '{print $3}')
+            echo "# -------------------------------------------------------------------------------- #"
+            echo "# ---- GIT TAG RELEASE  "
+            echo "# ---- CURRENT_GIT_BRANCH=[${CURRENT_GIT_BRANCH}]  "
+            echo "# ---- TAG WILL BE [${MVN_PRJ_VERSION}]  "
+            echo "# -------------------------------------------------------------------------------- #"
+            # // commit, tag the release
+            # https://github.com/gravitee-io/jenkins-scripts/blob/master/src/main/groovy/releasemaven.groovy#L64
+            git add --update
+            git commit -m "${MVN_PRJ_VERSION}"
+            git tag ${MVN_PRJ_VERSION}
+            # same as ${c.version.getNextBranchName()}
+            export MAINTENANCE_GIT_BRANCH="${MVN_PRJ_VERSION_MAJOR}.${MVN_PRJ_VERSION_MINOR}.x"
+            # same as c.version.nextFixSnapshotVersion()
+            export NEXT_PATCH_VERSION=$((${MVN_PRJ_VERSION_PATCH}+1))
+            export NEXT_PATCH_SNAPSHOT_VERSION="${MVN_PRJ_VERSION_MAJOR}.${MVN_PRJ_VERSION_MINOR}.${NEXT_PATCH_VERSION}-SNAPSHOT"
+            export GIT_BRANCH_FILTER=$(git branch -a | grep "${MAINTENANCE_GIT_BRANCH}")
+            echo "# -------------------------------------------------------------------------------- #"
+            echo "# ---- CREATE MAINTENANCE GIT BRANCH IF IT DOES NOT EXISTS  "
+            echo "# ----   "
+            echo "# ---- (On MAINTENANCE GIT BRANCH we prepare next patch version, regardless of      "
+            echo "# ---- whether the release is a maintenance release, or a   "
+            echo "# ---- minor release, with new features )  "
+            echo "# -------------------------------------------------------------------------------- #"
+            if [ "x${GIT_BRANCH_FILTER}" == "x" ]; then
+              echo "# ---- git Maintenance branch [${MAINTENANCE_GIT_BRANCH}] does not exist, creating it"
+              git checkout -b ${MAINTENANCE_GIT_BRANCH}
+              echo "# -------------------------------------------------------------------------------- #"
+              echo "# ---- PREPARE NEXT VERSION ON [MAINTENANCE_GIT_BRANCH]  "
+              echo "# ---- resetting version in [pom.xml] to [${NEXT_PATCH_SNAPSHOT_VERSION}]"
+              mvn -Duser.home=${HOME} -s /tmp/release.settings.xml -B versions:set -DnewVersion=${NEXT_PATCH_SNAPSHOT_VERSION} -DgenerateBackupPoms=false
+              git add --update
+              git commit -m 'chore(): Prepare next version'
+              echo "# ---- NOW WE HAVE A NEW VERSION IN [POM.XML], on MAINTENANCE_GIT_BRANCH=[${MAINTENANCE_GIT_BRANCH}]"
+              echo "# ---- "
+              echo "# ---- here is the full content of the [pom.xml] on MAINTENANCE_GIT_BRANCH=[${MAINTENANCE_GIT_BRANCH}] : "
+              echo "# -------------------------------------------------------------------------------- #"
+              cat ./pom.xml
+              echo "# -------------------------------------------------------------------------------- #"
+              if [ "${DRY_RUN}" == "false" ]; then
+                # --->>> NO IT IS NOT A DRY RUN
+                echo "# --->>> NO IT IS NOT A DRY RUN : GIT PUSH"
+                git push -u origin ${MAINTENANCE_GIT_BRANCH}
+                git push --tags origin ${MAINTENANCE_GIT_BRANCH}
+              else
+                # --->>> IT IS A DRY RUN
+                echo "# --->>> THIS IS A DRY RUN : SKIPPPING GIT PUSH"
+              fi;
+              #
+              git checkout ${CURRENT_GIT_BRANCH}
+            else
+              echo "git Maintenance branch [${MAINTENANCE_GIT_BRANCH}] does exist, no need to create it, also CURRENT_GIT_BRANCH=[${CURRENT_GIT_BRANCH}] and MAINTENANCE_GIT_BRANCH=[${MAINTENANCE_GIT_BRANCH}] are supposed to be equal."
+            fi;
+            echo "# -------------------------------------------------------------------------------- #"
+            echo "# ---- PREPARE NEXT VERSION ON MASTER or MAINTENANCE BRANCH  "
+            echo "# ---- "
+            echo "# ---- CURRENT_GIT_BRANCH=[${CURRENT_GIT_BRANCH}]  "
+            echo "# ---- MAINTENANCE_GIT_BRANCH=[${MAINTENANCE_GIT_BRANCH}]"
+            echo "# ---- If this is a maintainance release, CURRENT_GIT_BRANCH and MAINTENANCE_GIT_BRANCH are supposed to be equal)."
+            echo "# ---- If this is a minor release, CURRENT_GIT_BRANCH and MAINTENANCE_GIT_BRANCH are supposed to be different)."
+            echo "# -------------------------------------------------------------------------------- #"
+            export NEXT_MINOR_VERSION=$((${MVN_PRJ_VERSION_MINOR}+1))
+            export NEXT_SNAPSHOT_VERSION="${MVN_PRJ_VERSION_MAJOR}.${NEXT_MINOR_VERSION}.${MVN_PRJ_VERSION_PATCH}-SNAPSHOT"
+            if [ "${MVN_PRJ_VERSION_PATCH}" == "0" ]; then
+              echo "# ---- [${MVN_PRJ_VERSION}] is not a maintenance release, so we increment MINOR VERSION from [${MVN_PRJ_VERSION_MINOR}] to [${NEXT_MINOR_VERSION}], and prepared next version will be [${NEXT_SNAPSHOT_VERSION}] "
+              mvn -Duser.home=${HOME} -s /tmp/release.settings.xml -B versions:set -DnewVersion=${NEXT_SNAPSHOT_VERSION} -DgenerateBackupPoms=false
+            else
+              #
+              echo "# ---- [${MVN_PRJ_VERSION}] is a maintenance release, so we increment PATCH VERSION from [${MVN_PRJ_VERSION_PATCH}] to [${NEXT_PATCH_VERSION}], and prepared next version will be [${NEXT_PATCH_SNAPSHOT_VERSION}] "
+              echo "resetting version in [pom.xml] to [${NEXT_PATCH_SNAPSHOT_VERSION}]"
+              mvn -Duser.home=${HOME} -s /tmp/release.settings.xml -B versions:set -DnewVersion=${NEXT_PATCH_SNAPSHOT_VERSION} -DgenerateBackupPoms=false
+            fi;
+            echo "# -------------------------------------------------------------------------------- #"
+            echo "# ---- NOW WE HAVE A NEW VERSION IN [POM.XML], on CURRENT_GIT_BRANCH=[${CURRENT_GIT_BRANCH}]"
+            echo "# ---- "
+            echo "# ---- here is the full content of the [pom.xml] on CURRENT_GIT_BRANCH=[${CURRENT_GIT_BRANCH}] : "
+            echo "# -------------------------------------------------------------------------------- #"
+            cat ./pom.xml
+            echo "# -------------------------------------------------------------------------------- #"
+            echo "# -------------------------------------------------------------------------------- #"
+            echo "# ---- NOW WE COMMIT THE PREPARED NEXT VERSION, on CURRENT_GIT_BRANCH=[${CURRENT_GIT_BRANCH}]"
+            echo "# ---- "
+            echo "# ---- CURRENT_GIT_BRANCH=[${CURRENT_GIT_BRANCH}]  "
+            echo "# ---- MAINTENANCE_GIT_BRANCH=[${MAINTENANCE_GIT_BRANCH}]"
+            echo "# ---- If this is a maintainance release, [CURRENT_GIT_BRANCH] and [MAINTENANCE_GIT_BRANCH] are supposed to be equal."
+            echo "# ---- If this is a minor release, [CURRENT_GIT_BRANCH] and [MAINTENANCE_GIT_BRANCH] are supposed to be different."
+            echo "# -------------------------------------------------------------------------------- #"
+            git add --update
+            git commit -m 'chore(): Prepare next version'
+            echo "# -------------------------------------------------------------------------------- #"
+            echo "# ---- FINALLY WE GIT PUSH PREPARED NEXT VERSION "
+            echo "# ---- IF AND ONLY IF THIS IS NOT A DRY RUN : "
+            echo "# -------------------------------------------------------------------------------- #"
+            if [ "${DRY_RUN}" == "false" ]; then
+              # --->>> NO IT IS NOT A DRY RUN
+              echo "# --->>> NO IT IS NOT A DRY RUN"
+              echo " note that CURRENT_GIT_BRANCH=[${CURRENT_GIT_BRANCH}]"
+              echo " note that CURRENT_GIT_BRANCH=[${MAINTENANCE_GIT_BRANCH}]"
+              echo " so that CURRENT_GIT_BRANCH=MAINTENANCE_GIT_BRANCH"
+              git push -u origin ${CURRENT_GIT_BRANCH}
+              git push --tags origin ${CURRENT_GIT_BRANCH}
+            else
+              echo "# --->>> THIS IS A DRY RUN"
+            fi;
+            echo "# -------------------------------------------------------------------------------- #"
 
 workflows:
   version: 2.1
@@ -42,27 +423,16 @@ workflows:
           # # [maven_profile_id] maven profile defined in the dev team dedicated [settings.xml]
           # maven_profile_id: gravitee-dry-run
           maven_profile_id: gio-dev
-  mvn_release:
-    when:
-      and:
-        - equal: [ release, << pipeline.parameters.gio_action >> ]
-        - not: << pipeline.parameters.dry_run >>
+
+  release:
+    when: << pipeline.parameters.release >>
     jobs:
-      - gravitee/release:
-          context: cicd-orchestrator
-          dry_run: << pipeline.parameters.dry_run >>
-          secrethub_org: << pipeline.parameters.secrethub_org >>
-          secrethub_repo: << pipeline.parameters.secrethub_repo >>
-          maven_profile_id: << pipeline.parameters.maven_profile_id >>
-  release_dry_run:
-    when:
-      and:
-        - equal: [ release, << pipeline.parameters.gio_action >> ]
-        - << pipeline.parameters.dry_run >>
-    jobs:
-      - gravitee/release:
-          context: cicd-orchestrator
-          dry_run: << pipeline.parameters.dry_run >>
-          secrethub_org: << pipeline.parameters.secrethub_org >>
-          secrethub_repo: << pipeline.parameters.secrethub_repo >>
-          maven_profile_id: << pipeline.parameters.maven_profile_id >>
+      - secrethub:
+          context:
+            - cicd-orchestrator
+      - release:
+          context:
+            - cicd-orchestrator
+          requires:
+            - secrethub
+            - build_front
