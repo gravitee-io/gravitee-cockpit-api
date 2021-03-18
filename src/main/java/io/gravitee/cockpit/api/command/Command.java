@@ -28,6 +28,7 @@ import io.gravitee.cockpit.api.command.membership.DeleteMembershipCommand;
 import io.gravitee.cockpit.api.command.membership.MembershipCommand;
 import io.gravitee.cockpit.api.command.node.NodeCommand;
 import io.gravitee.cockpit.api.command.organization.OrganizationCommand;
+import io.gravitee.cockpit.api.command.unknown.UnknownCommand;
 import io.gravitee.cockpit.api.command.user.UserCommand;
 import io.gravitee.common.utils.UUID;
 
@@ -39,7 +40,8 @@ import io.gravitee.common.utils.UUID;
 @JsonTypeInfo(
   use = JsonTypeInfo.Id.NAME,
   include = JsonTypeInfo.As.EXISTING_PROPERTY,
-  property = "type"
+  property = "type",
+  defaultImpl = UnknownCommand.class
 )
 @JsonSubTypes(
   {
@@ -87,6 +89,7 @@ public abstract class Command<T extends Payload> {
   protected Type type;
 
   public enum Type {
+    UNKNOWN_COMMAND,
     ORGANIZATION_COMMAND,
     ENVIRONMENT_COMMAND,
     HELLO_COMMAND,
