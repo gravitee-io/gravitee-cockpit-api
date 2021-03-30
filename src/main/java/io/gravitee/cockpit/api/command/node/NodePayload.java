@@ -20,15 +20,18 @@ import java.util.List;
 
 public class NodePayload implements Payload {
 
+  public String getApplication() {
+    return application;
+  }
+
+  public void setApplication(String application) {
+    this.application = application;
+  }
+
   public enum Status {
     STARTED,
     STOPPED,
   }
-
-  /**
-   * The ID of the installation this node belongs to
-   */
-  private String installationId;
 
   /**
    * The node ID
@@ -41,6 +44,12 @@ public class NodePayload implements Payload {
   private String name;
 
   /**
+   * The type of application.
+   * Can be one of the following gio-apim-apis, gio-am-management, gio-am-gateway, gio-apim-gateway
+   */
+  private String application;
+
+  /**
    * The version of the node
    */
   private String version;
@@ -49,6 +58,11 @@ public class NodePayload implements Payload {
    * The tenant of the node
    */
   private String tenant;
+
+  /**
+   * The zone of the node
+   */
+  private String zone;
 
   /**
    * The list of sharding tags the node is associated to
@@ -65,15 +79,12 @@ public class NodePayload implements Payload {
    */
   private String jdkVersion;
 
+  /**
+   * The date when the node status changed.
+   */
+  private long evaluatedAt;
+
   private Status status;
-
-  public String getInstallationId() {
-    return installationId;
-  }
-
-  public void setInstallationId(String installationId) {
-    this.installationId = installationId;
-  }
 
   public String getNodeId() {
     return nodeId;
@@ -107,6 +118,14 @@ public class NodePayload implements Payload {
     this.tenant = tenant;
   }
 
+  public String getZone() {
+    return zone;
+  }
+
+  public void setZone(String zone) {
+    this.zone = zone;
+  }
+
   public List<String> getShardingTags() {
     return shardingTags;
   }
@@ -137,5 +156,13 @@ public class NodePayload implements Payload {
 
   public void setStatus(Status status) {
     this.status = status;
+  }
+
+  public long getEvaluatedAt() {
+    return evaluatedAt;
+  }
+
+  public void setEvaluatedAt(long evaluatedAt) {
+    this.evaluatedAt = evaluatedAt;
   }
 }

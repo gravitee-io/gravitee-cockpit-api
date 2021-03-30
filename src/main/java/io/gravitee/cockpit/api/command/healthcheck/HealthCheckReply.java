@@ -15,15 +15,20 @@
  */
 package io.gravitee.cockpit.api.command.healthcheck;
 
-import io.gravitee.cockpit.api.command.Command;
+import io.gravitee.cockpit.api.command.CommandStatus;
+import io.gravitee.cockpit.api.command.Reply;
 
 /**
  * @author Lorie Pisicchio (lorie.pisicchio at graviteesource.com)
  * @author GraviteeSource Team
  */
-public class HealthcheckCommand extends Command<HealthcheckPayload> {
+public class HealthCheckReply extends Reply {
 
-  public HealthcheckCommand() {
-    super(Type.HEALTHCHECK_COMMAND);
+  public HealthCheckReply() {
+    super(Type.HEALTHCHECK_REPLY);
+  }
+
+  public HealthCheckReply(String commandId, CommandStatus commandStatus) {
+    super(Type.HEALTHCHECK_REPLY, commandId, commandStatus);
   }
 }

@@ -15,20 +15,48 @@
  */
 package io.gravitee.cockpit.api.command.healthcheck;
 
-import io.gravitee.cockpit.api.command.CommandStatus;
-import io.gravitee.cockpit.api.command.Reply;
+import io.gravitee.cockpit.api.command.Payload;
+import java.util.List;
 
 /**
  * @author Lorie Pisicchio (lorie.pisicchio at graviteesource.com)
  * @author GraviteeSource Team
  */
-public class HealthcheckReply extends Reply {
+public class HealthCheckPayload implements Payload {
 
-  public HealthcheckReply() {
-    super(Type.HEALTHCHECK_REPLY);
+  /**
+   * The node ID
+   */
+  private String nodeId;
+
+  /**
+   * The date when the health check has been executed.
+   */
+  private long evaluatedAt;
+
+  private List<HealthCheckProbe> probes;
+
+  public String getNodeId() {
+    return nodeId;
   }
 
-  public HealthcheckReply(String commandId, CommandStatus commandStatus) {
-    super(Type.HEALTHCHECK_REPLY, commandId, commandStatus);
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
+  public List<HealthCheckProbe> getProbes() {
+    return probes;
+  }
+
+  public void setProbes(List<HealthCheckProbe> probes) {
+    this.probes = probes;
+  }
+
+  public long getEvaluatedAt() {
+    return evaluatedAt;
+  }
+
+  public void setEvaluatedAt(long evaluatedAt) {
+    this.evaluatedAt = evaluatedAt;
   }
 }
