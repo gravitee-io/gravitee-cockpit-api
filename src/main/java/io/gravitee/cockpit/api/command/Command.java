@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.gravitee.cockpit.api.command.echo.EchoCommand;
 import io.gravitee.cockpit.api.command.environment.EnvironmentCommand;
 import io.gravitee.cockpit.api.command.goodbye.GoodbyeCommand;
-import io.gravitee.cockpit.api.command.healthcheck.HealthcheckCommand;
+import io.gravitee.cockpit.api.command.healthcheck.HealthCheckCommand;
 import io.gravitee.cockpit.api.command.hello.HelloCommand;
 import io.gravitee.cockpit.api.command.installation.InstallationCommand;
 import io.gravitee.cockpit.api.command.membership.DeleteMembershipCommand;
@@ -71,7 +71,7 @@ import io.gravitee.common.utils.UUID;
     @JsonSubTypes.Type(value = EchoCommand.class, name = "ECHO_COMMAND"),
     @JsonSubTypes.Type(value = NodeCommand.class, name = "NODE_COMMAND"),
     @JsonSubTypes.Type(
-      value = HealthcheckCommand.class,
+      value = HealthCheckCommand.class,
       name = "HEALTHCHECK_COMMAND"
     ),
   }

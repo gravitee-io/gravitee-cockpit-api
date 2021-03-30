@@ -15,48 +15,61 @@
  */
 package io.gravitee.cockpit.api.command.healthcheck;
 
-import io.gravitee.cockpit.api.command.Payload;
-import java.util.List;
-
 /**
  * @author Lorie Pisicchio (lorie.pisicchio at graviteesource.com)
  * @author GraviteeSource Team
  */
-public class HealthcheckPayload implements Payload {
+public class HealthCheckProbe {
+
+  public enum Status {
+    HEALTHY,
+    UNHEALTHY,
+  }
 
   /**
-   * The ID of the installation this node belongs to
+   * The key for the probe
    */
-  private String installationId;
+  private String key;
 
   /**
-   * The node ID
+   * The status of the probe
    */
-  private String nodeId;
+  private Status status;
 
-  private List<HealthcheckProbe> probes;
+  /**
+   * The status message
+   */
+  private String statusMessage;
 
-  public String getInstallationId() {
-    return installationId;
+  public String getKey() {
+    return key;
   }
 
-  public void setInstallationId(String installationId) {
-    this.installationId = installationId;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public String getNodeId() {
-    return nodeId;
+  public Status getStatus() {
+    return status;
   }
 
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
+  public void setStatus(Status status) {
+    this.status = status;
   }
 
-  public List<HealthcheckProbe> getProbes() {
-    return probes;
+  public String getStatusMessage() {
+    return statusMessage;
   }
 
-  public void setProbes(List<HealthcheckProbe> probes) {
-    this.probes = probes;
+  public void setStatusMessage(String statusMessage) {
+    this.statusMessage = statusMessage;
+  }
+
+  public HealthCheckProbe() {}
+
+  public HealthCheckProbe(String key, Status status, String statusMessage) {
+    this.key = key;
+    this.status = status;
+    this.statusMessage = statusMessage;
   }
 }

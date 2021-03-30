@@ -18,13 +18,44 @@ package io.gravitee.cockpit.api;
 import io.gravitee.cockpit.api.command.Command;
 import io.gravitee.cockpit.api.command.Payload;
 import io.gravitee.cockpit.api.command.Reply;
+import io.gravitee.cockpit.api.command.hello.HelloReply;
 import io.gravitee.common.service.Service;
-import io.reactivex.Maybe;
+import io.reactivex.Single;
+import java.util.function.Consumer;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
  * @author GraviteeSource Team
  */
 public interface CockpitConnector extends Service<CockpitConnector> {
-  Maybe<Reply> sendCommand(Command<? extends Payload> command);
+  /**
+   * Send a command to the Cockpit server.
+   *
+   * @param command the command to send.
+   * @see #registerOnConnectListener(Runnable)
+   * @see #registerOnReadyListener(Runnable)
+   */
+  Single<Reply> sendCommand(Command<? extends Payload> command);
+
+  /**
+   * Register a listener which will be called when websocket is successfully connected to Cockpit server.
+   *
+   * @param runnable the action to execute.
+   * @see #registerOnReadyListener(Runnable)
+   */
+  void registerOnConnectListener(Runnable runnable);
+
+  /**
+   * Register a listener which will be called when websocket is disconnected from Cockpit server.
+   *
+   * @param runnable the action to execute.
+   */
+  void registerOnDisconnectListener(Runnable runnable);
+
+  /**
+   * Register a listener which will be called when Cockpit server indicates the installation is allowed to send command (basically, it means that the installation is ACCEPTED).
+   *
+   * @param runnable the action to execute.
+   */
+  void registerOnReadyListener(Runnable runnable);
 }
