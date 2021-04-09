@@ -21,15 +21,35 @@ package io.gravitee.cockpit.api.command;
  */
 public class Node {
 
-    private String application;
+  private String application;
 
-    private Object license;
+  private Object license;
 
-    public String getApplication() {
-        return application;
-    }
+  private String version;
 
-    public void setApplication(String application) {
-        this.application = application;
-    }
+  private String connectorVersion;
+
+  public String getApplication() {
+    return application;
+  }
+
+  public void setApplication(String application) {
+    this.application = application;
+  }
+
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  public String getConnectorVersion() {
+    return connectorVersion;
+  }
+
+  public void setConnectorVersion(String connectorVersion) {
+    this.connectorVersion = connectorVersion;
+  }
 }
