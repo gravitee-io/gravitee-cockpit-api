@@ -27,7 +27,11 @@ public class Node {
 
     private String hostname;
 
-    private Object license;
+  private String version;
+
+  private String connectorVersion;
+
+  private Object license;
 
     public String getApplication() {
         return application;
@@ -53,9 +57,25 @@ public class Node {
         this.hostname = hostname;
     }
 
-    public Object getLicense() {
-        return license;
-    }
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  public String getConnectorVersion() {
+    return connectorVersion;
+  }
+
+  public void setConnectorVersion(String connectorVersion) {
+    this.connectorVersion = connectorVersion;
+  }
+
+  public Object getLicense() {
+    return license;
+  }
 
     public void setLicense(Object license) {
         this.license = license;
