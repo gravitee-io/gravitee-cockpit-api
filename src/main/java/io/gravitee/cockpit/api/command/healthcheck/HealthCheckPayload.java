@@ -36,6 +36,13 @@ public class HealthCheckPayload implements Payload {
 
   private List<HealthCheckProbe> probes;
 
+  /**
+   * The global heath of the node.
+   * Important to note, this flag isn't redundant with probes info and should be used instead of checking that any
+   * probe is Unhealthy (because the computation can be more complex than this simple check).
+   */
+  private boolean isHealthy;
+
   public String getNodeId() {
     return nodeId;
   }
@@ -58,5 +65,13 @@ public class HealthCheckPayload implements Payload {
 
   public void setEvaluatedAt(long evaluatedAt) {
     this.evaluatedAt = evaluatedAt;
+  }
+
+  public boolean isHealthy() {
+    return isHealthy;
+  }
+
+  public void setHealthy(boolean healthy) {
+    isHealthy = healthy;
   }
 }
