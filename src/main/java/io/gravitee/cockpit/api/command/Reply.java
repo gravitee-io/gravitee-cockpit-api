@@ -28,6 +28,7 @@ import io.gravitee.cockpit.api.command.ignored.IgnoredReply;
 import io.gravitee.cockpit.api.command.installation.InstallationReply;
 import io.gravitee.cockpit.api.command.membership.DeleteMembershipReply;
 import io.gravitee.cockpit.api.command.membership.MembershipReply;
+import io.gravitee.cockpit.api.command.monitoring.MonitoringReply;
 import io.gravitee.cockpit.api.command.node.NodeReply;
 import io.gravitee.cockpit.api.command.organization.OrganizationReply;
 import io.gravitee.cockpit.api.command.user.UserReply;
@@ -73,6 +74,10 @@ import io.gravitee.cockpit.api.command.user.UserReply;
       value = HealthCheckReply.class,
       name = "HEALTHCHECK_REPLY"
     ),
+    @JsonSubTypes.Type(
+      value = MonitoringReply.class,
+      name = "MONITORING_REPLY"
+    ),
   }
 )
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -92,6 +97,7 @@ public abstract class Reply {
     ECHO_REPLY,
     NODE_REPLY,
     HEALTHCHECK_REPLY,
+    MONITORING_REPLY,
   }
 
   protected String commandId;
