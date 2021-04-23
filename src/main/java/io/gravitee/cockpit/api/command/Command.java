@@ -26,6 +26,7 @@ import io.gravitee.cockpit.api.command.hello.HelloCommand;
 import io.gravitee.cockpit.api.command.installation.InstallationCommand;
 import io.gravitee.cockpit.api.command.membership.DeleteMembershipCommand;
 import io.gravitee.cockpit.api.command.membership.MembershipCommand;
+import io.gravitee.cockpit.api.command.monitoring.MonitoringCommand;
 import io.gravitee.cockpit.api.command.node.NodeCommand;
 import io.gravitee.cockpit.api.command.organization.OrganizationCommand;
 import io.gravitee.cockpit.api.command.unknown.UnknownCommand;
@@ -74,6 +75,10 @@ import io.gravitee.common.utils.UUID;
       value = HealthCheckCommand.class,
       name = "HEALTHCHECK_COMMAND"
     ),
+    @JsonSubTypes.Type(
+      value = MonitoringCommand.class,
+      name = "MONITORING_COMMAND"
+    ),
   }
 )
 public abstract class Command<T extends Payload> {
@@ -101,6 +106,7 @@ public abstract class Command<T extends Payload> {
     ECHO_COMMAND,
     NODE_COMMAND,
     HEALTHCHECK_COMMAND,
+    MONITORING_COMMAND,
   }
 
   public Command(Type type) {
