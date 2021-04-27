@@ -32,6 +32,7 @@ import io.gravitee.cockpit.api.command.organization.OrganizationCommand;
 import io.gravitee.cockpit.api.command.unknown.UnknownCommand;
 import io.gravitee.cockpit.api.command.user.UserCommand;
 import io.gravitee.common.utils.UUID;
+import java.io.Serializable;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
@@ -81,7 +82,7 @@ import io.gravitee.common.utils.UUID;
     ),
   }
 )
-public abstract class Command<T extends Payload> {
+public abstract class Command<T extends Payload> implements Serializable {
 
   public static final String COMMAND_PREFIX = "command: ";
   public static final String REPLY_PREFIX = "reply: ";
