@@ -15,8 +15,10 @@
  */
 package io.gravitee.cockpit.api.command;
 
+import java.io.Serializable;
+
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
  * @author GraviteeSource Team
  */
-public interface Payload {}
+public interface Payload extends Serializable {}

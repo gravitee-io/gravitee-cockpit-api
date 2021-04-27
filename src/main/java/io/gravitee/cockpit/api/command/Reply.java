@@ -32,6 +32,7 @@ import io.gravitee.cockpit.api.command.monitoring.MonitoringReply;
 import io.gravitee.cockpit.api.command.node.NodeReply;
 import io.gravitee.cockpit.api.command.organization.OrganizationReply;
 import io.gravitee.cockpit.api.command.user.UserReply;
+import java.io.Serializable;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
@@ -82,7 +83,7 @@ import io.gravitee.cockpit.api.command.user.UserReply;
 )
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public abstract class Reply {
+public abstract class Reply implements Serializable {
 
   public enum Type {
     IGNORED_REPLY,
