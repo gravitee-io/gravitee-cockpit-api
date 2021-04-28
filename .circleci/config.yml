@@ -3,7 +3,7 @@ version: 2.1
 parameters:
   gio_action:
     type: enum
-    enum: [release, standalone_release, standalone_release_replay, nexus_staging, vm_nexus_staging, admin_cicd, pull_requests]
+    enum: [release, standalone_release, standalone_release_replay, nexus_staging, vm_nexus_staging, cicd_janitor, pull_requests]
     default: pull_requests
   dry_run:
     type: boolean
@@ -377,9 +377,9 @@ workflows:
   # ---
   # A Workflow to execute commons CICD Admin tasks, like:
   # => re-calculate maven metadata into the artifactory
-  admin_cicd:
+  cicd_janitor:
     when:
-      equal: [ admin_cicd, << pipeline.parameters.gio_action >> ]
+      equal: [ cicd_janitor, << pipeline.parameters.gio_action >> ]
     jobs:
       - gravitee/d_release_secrets:
           context: cicd-orchestrator
