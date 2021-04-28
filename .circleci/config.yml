@@ -29,6 +29,10 @@ parameters:
     type: string
     default: $GIO_RELEASE_VERSION
     description: "What is the version number of the release you want to replay? (Mandatory, only for the 'standalone_release_replay' Workflow / see 'gio_action' pipeline parameter)"
+  janitor_artifactory_repository:
+    type: string
+    default: ''
+    description: "NAme of the Artifactory repository you want the CICD Janitor to work on"
 orbs:
   slack: circleci/slack@4.2.1
   gravitee: gravitee-io/gravitee@dev:1.0.4
@@ -371,7 +375,8 @@ workflows:
             - nightly_secrets_resolution
 
   # ---
-  # A Workflow to execute commons CICD Admin tasks, like re-calculate maven metadata into the artifactory
+  # A Workflow to execute commons CICD Admin tasks, like:
+  # => re-calculate maven metadata into the artifactory
   admin_cicd:
     when:
       equal: [ admin_cicd, << pipeline.parameters.gio_action >> ]
@@ -383,7 +388,7 @@ workflows:
           name: force_recalculate_mvn_metadata
           requires:
             - admin_secrets_resolution
-          artifactory_repository: "gravitee-snapshots"
+          artifactory_repository: << pipeline.parameters.janitor_artifactory_repository >>
       # - gravitee/d_arti_admin_maven_metadata:
           # name: force_recalculate_mvn_metadata
           # requires:
