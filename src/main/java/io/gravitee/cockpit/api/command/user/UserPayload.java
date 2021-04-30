@@ -16,7 +16,6 @@
 package io.gravitee.cockpit.api.command.user;
 
 import io.gravitee.cockpit.api.command.Payload;
-import java.util.List;
 import java.util.Map;
 
 /**

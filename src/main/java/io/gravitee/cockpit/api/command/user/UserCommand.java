@@ -16,7 +16,6 @@
 package io.gravitee.cockpit.api.command.user;
 
 import io.gravitee.cockpit.api.command.Command;
-import io.gravitee.cockpit.api.command.organization.OrganizationPayload;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)

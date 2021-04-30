@@ -19,6 +19,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import io.gravitee.cockpit.api.command.bridge.BridgeMultiReply;
+import io.gravitee.cockpit.api.command.bridge.BridgeSimpleReply;
 import io.gravitee.cockpit.api.command.echo.EchoReply;
 import io.gravitee.cockpit.api.command.environment.EnvironmentReply;
 import io.gravitee.cockpit.api.command.goodbye.GoodbyeReply;
@@ -76,6 +78,14 @@ import java.io.Serializable;
       name = "HEALTHCHECK_REPLY"
     ),
     @JsonSubTypes.Type(
+      value = BridgeSimpleReply.class,
+      name = "BRIDGE_SIMPLE_REPLY"
+    ),
+    @JsonSubTypes.Type(
+      value = BridgeMultiReply.class,
+      name = "BRIDGE_MULTI_REPLY"
+    ),
+    @JsonSubTypes.Type(
       value = MonitoringReply.class,
       name = "MONITORING_REPLY"
     ),
@@ -98,6 +108,8 @@ public abstract class Reply implements Serializable {
     ECHO_REPLY,
     NODE_REPLY,
     HEALTHCHECK_REPLY,
+    BRIDGE_SIMPLE_REPLY,
+    BRIDGE_MULTI_REPLY,
     MONITORING_REPLY,
   }
 

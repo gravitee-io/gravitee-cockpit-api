@@ -18,6 +18,7 @@ package io.gravitee.cockpit.api.command;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import io.gravitee.cockpit.api.command.bridge.BridgeCommand;
 import io.gravitee.cockpit.api.command.echo.EchoCommand;
 import io.gravitee.cockpit.api.command.environment.EnvironmentCommand;
 import io.gravitee.cockpit.api.command.goodbye.GoodbyeCommand;
@@ -80,6 +81,7 @@ import java.io.Serializable;
       value = MonitoringCommand.class,
       name = "MONITORING_COMMAND"
     ),
+    @JsonSubTypes.Type(value = BridgeCommand.class, name = "BRIDGE_COMMAND"),
   }
 )
 public abstract class Command<T extends Payload> implements Serializable {
@@ -108,6 +110,7 @@ public abstract class Command<T extends Payload> implements Serializable {
     NODE_COMMAND,
     HEALTHCHECK_COMMAND,
     MONITORING_COMMAND,
+    BRIDGE_COMMAND,
   }
 
   public Command(Type type) {

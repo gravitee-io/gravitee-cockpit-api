@@ -15,7 +15,6 @@
  */
 package io.gravitee.cockpit.api.command;
 
-import io.gravitee.cockpit.api.command.hello.HelloReply;
 import io.reactivex.Single;
 
 /**

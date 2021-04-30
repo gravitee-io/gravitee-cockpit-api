@@ -13,22 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api.command.hello;
+package io.gravitee.cockpit.api.command.bridge;
 
-import io.gravitee.cockpit.api.command.Command;
+import io.gravitee.cockpit.api.command.Payload;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
  * @author GraviteeSource Team
  */
-public class HelloCommand extends Command<HelloPayload> {
+public class BridgePayload implements Payload {
 
-  public HelloCommand() {
-    super(Type.HELLO_COMMAND);
+  public BridgePayload() {}
+
+  public BridgePayload(String content) {
+    this.content = content;
   }
 
-  public HelloCommand(HelloPayload payload) {
-    this();
-    this.payload = payload;
+  private String content;
+
+  public String getContent() {
+    return content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
   }
 }
