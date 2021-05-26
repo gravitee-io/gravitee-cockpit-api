@@ -48,7 +48,16 @@ public class BridgeSimpleReply extends BridgeReply {
   }
 
   public BridgeSimpleReply(String commandId, CommandStatus commandStatus) {
+    this(commandId, commandStatus, null);
+  }
+
+  public BridgeSimpleReply(
+    String commandId,
+    CommandStatus commandStatus,
+    String message
+  ) {
     super(Type.BRIDGE_SIMPLE_REPLY, commandId, commandStatus);
+    this.message = message;
   }
 
   public String getInstallationId() {

@@ -113,11 +113,25 @@ public abstract class Reply implements Serializable {
     MONITORING_REPLY,
   }
 
+  /**
+   * The command id the reply is related to.
+   */
   protected String commandId;
 
+  /**
+   * The type of the reply (mainly used for deserialization).
+   */
   protected Type type;
 
+  /**
+   * The result status of the command.
+   */
   protected CommandStatus commandStatus;
+
+  /**
+   * An optional message that can be use to give some details about the status (ex: in case of error).
+   */
+  protected String message;
 
   public Reply(Type type) {
     this.type = type;
@@ -151,5 +165,13 @@ public abstract class Reply implements Serializable {
 
   public boolean stopOnErrorStatus() {
     return false;
+  }
+
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
   }
 }
