@@ -13,22 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api.command.hello;
+package io.gravitee.cockpit.api.command.bridge;
 
-import io.gravitee.cockpit.api.command.Command;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
  * @author GraviteeSource Team
  */
-public class HelloCommand extends Command<HelloPayload> {
+public class BridgeMultiReply extends BridgeReply {
 
-  public HelloCommand() {
-    super(Type.HELLO_COMMAND);
+  private List<BridgeSimpleReply> replies;
+
+  public BridgeMultiReply() {
+    this(new ArrayList<>());
   }
 
-  public HelloCommand(HelloPayload payload) {
-    this();
-    this.payload = payload;
+  public BridgeMultiReply(List<BridgeSimpleReply> replies) {
+    super(Type.BRIDGE_MULTI_REPLY);
+    this.replies = replies;
+  }
+
+  public List<BridgeSimpleReply> getReplies() {
+    return replies;
+  }
+
+  public void setReplies(List<BridgeSimpleReply> replies) {
+    this.replies = replies;
   }
 }

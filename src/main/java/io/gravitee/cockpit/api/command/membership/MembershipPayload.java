@@ -16,7 +16,6 @@
 package io.gravitee.cockpit.api.command.membership;
 
 import io.gravitee.cockpit.api.command.Payload;
-import java.util.List;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)

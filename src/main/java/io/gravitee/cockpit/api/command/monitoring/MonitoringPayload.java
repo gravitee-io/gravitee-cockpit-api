@@ -16,8 +16,6 @@
 package io.gravitee.cockpit.api.command.monitoring;
 
 import io.gravitee.cockpit.api.command.Payload;
-import io.gravitee.cockpit.api.command.healthcheck.HealthCheckProbe;
-import java.util.List;
 
 /**
  * @author Lorie Pisicchio (lorie.pisicchio at graviteesource.com)

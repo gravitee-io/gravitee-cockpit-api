@@ -16,7 +16,6 @@
 package io.gravitee.cockpit.api.command.organization;
 
 import io.gravitee.cockpit.api.command.Command;
-import io.gravitee.common.utils.UUID;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
