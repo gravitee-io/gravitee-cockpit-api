@@ -90,6 +90,9 @@ public abstract class Command<T extends Payload> implements Serializable {
   public static final String REPLY_PREFIX = "reply: ";
   public static final String PING_PONG_PREFIX = "ping_pong: ";
 
+  public static final String PRIMARY_MESSAGE = "primary: true";
+  public static final String REPLICA_MESSAGE = "replica: true";
+
   protected String id;
 
   protected T payload;

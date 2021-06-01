@@ -27,6 +27,13 @@ import io.reactivex.Single;
  */
 public interface CockpitConnector extends Service<CockpitConnector> {
   /**
+   * Returns <code>true</code> when the current instance is PRIMARY.
+   *
+   * @return boolean
+   */
+  boolean isPrimary();
+
+  /**
    * Send a command to the Cockpit server.
    *
    * @param command the command to send.
@@ -56,4 +63,18 @@ public interface CockpitConnector extends Service<CockpitConnector> {
    * @param runnable the action to execute.
    */
   void registerOnReadyListener(Runnable runnable);
+
+  /**
+   * Register a listener which will be called when Cockpit server indicates this installation instance is PRIMARY.
+   *
+   * @param runnable the action to execute.
+   */
+  void registerOnPrimary(Runnable runnable);
+
+  /**
+   * Register a listener which will be called when Cockpit server indicates this installation instance is REPLICA.
+   *
+   * @param runnable the action to execute.
+   */
+  void registerOnReplica(Runnable runnable);
 }
