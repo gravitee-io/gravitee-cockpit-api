@@ -28,6 +28,10 @@ public class HelloReply extends Reply {
 
   private String installationStatus;
 
+  private String defaultEnvironmentCockpitId;
+
+  private String defaultOrganizationCockpitId;
+
   public HelloReply() {
     this(null, null);
   }
@@ -55,5 +59,25 @@ public class HelloReply extends Reply {
 
   public void setInstallationStatus(String installationStatus) {
     this.installationStatus = installationStatus;
+  }
+
+  public String getDefaultEnvironmentCockpitId() {
+    return defaultEnvironmentCockpitId;
+  }
+
+  public void setDefaultEnvironmentCockpitId(
+    String defaultEnvironmentCockpitId
+  ) {
+    this.defaultEnvironmentCockpitId = defaultEnvironmentCockpitId;
+  }
+
+  public String getDefaultOrganizationCockpitId() {
+    return defaultOrganizationCockpitId;
+  }
+
+  public void setDefaultOrganizationCockpitId(
+    String defaultOrganizationCockpitId
+  ) {
+    this.defaultOrganizationCockpitId = defaultOrganizationCockpitId;
   }
 }
