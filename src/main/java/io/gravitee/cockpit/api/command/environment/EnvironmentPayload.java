@@ -26,6 +26,8 @@ public class EnvironmentPayload implements Payload {
 
   private String id;
 
+  private String cockpitId;
+
   private List<String> hrids;
 
   private String organizationId;
@@ -82,5 +84,13 @@ public class EnvironmentPayload implements Payload {
 
   public void setHrids(List<String> hrids) {
     this.hrids = hrids;
+  }
+
+  public String getCockpitId() {
+    return cockpitId;
+  }
+
+  public void setCockpitId(String cockpitId) {
+    this.cockpitId = cockpitId;
   }
 }

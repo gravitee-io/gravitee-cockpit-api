@@ -26,6 +26,8 @@ public class OrganizationPayload implements Payload {
 
   private String id;
 
+  private String cockpitId;
+
   private List<String> hrids;
 
   private String name;
@@ -72,5 +74,13 @@ public class OrganizationPayload implements Payload {
 
   public void setHrids(List<String> hrids) {
     this.hrids = hrids;
+  }
+
+  public String getCockpitId() {
+    return cockpitId;
+  }
+
+  public void setCockpitId(String cockpitId) {
+    this.cockpitId = cockpitId;
   }
 }
