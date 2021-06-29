@@ -35,6 +35,7 @@
 
     <properties>
         <gravitee-node-api.version>1.7.1</gravitee-node-api.version>
+        <gravitee-alert-api.version>1.7.1</gravitee-alert-api.version>
     </properties>
 
     <dependencies>
@@ -49,6 +50,13 @@
             <groupId>io.gravitee.node</groupId>
             <artifactId>gravitee-node-api</artifactId>
             <version>${gravitee-node-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gravitee.alert</groupId>
+            <artifactId>gravitee-alert-api</artifactId>
+            <version>${gravitee-alert-api.version}</version>
             <scope>provided</scope>
         </dependency>
 
