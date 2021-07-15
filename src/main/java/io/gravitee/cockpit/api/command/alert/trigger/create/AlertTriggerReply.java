@@ -13,22 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api.command.alert;
+package io.gravitee.cockpit.api.command.alert.trigger.create;
 
-import io.gravitee.cockpit.api.command.Command;
+import io.gravitee.cockpit.api.command.CommandStatus;
+import io.gravitee.cockpit.api.command.Reply;
 
 /**
  * @author Lorie Pisicchio (lorie.pisicchio at graviteesource.com)
  * @author GraviteeSource Team
  */
-public class AlertTriggerCommand extends Command<AlertTriggerPayload> {
+public class AlertTriggerReply extends Reply {
 
-  public AlertTriggerCommand() {
-    super(Type.ALERT_TRIGGER_COMMAND);
+  public AlertTriggerReply() {
+    this(null, null);
   }
 
-  public AlertTriggerCommand(AlertTriggerPayload payload) {
-    this();
-    this.payload = payload;
+  public AlertTriggerReply(String commandId, CommandStatus commandStatus) {
+    super(Type.ALERT_TRIGGER_REPLY, commandId, commandStatus);
   }
 }
