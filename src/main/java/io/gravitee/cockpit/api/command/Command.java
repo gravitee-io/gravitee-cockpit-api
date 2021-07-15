@@ -18,6 +18,7 @@ package io.gravitee.cockpit.api.command;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import io.gravitee.cockpit.api.command.alert.notification.AlertNotificationCommand;
 import io.gravitee.cockpit.api.command.alert.trigger.create.AlertTriggerCommand;
 import io.gravitee.cockpit.api.command.alert.trigger.list.ListAlertTriggersCommand;
 import io.gravitee.cockpit.api.command.bridge.BridgeCommand;
@@ -92,6 +93,10 @@ import java.io.Serializable;
       value = ListAlertTriggersCommand.class,
       name = "LIST_ALERT_TRIGGERS_COMMAND"
     ),
+    @JsonSubTypes.Type(
+      value = AlertNotificationCommand.class,
+      name = "ALERT_NOTIFICATION_COMMAND"
+    ),
   }
 )
 public abstract class Command<T extends Payload> implements Serializable {
@@ -126,6 +131,7 @@ public abstract class Command<T extends Payload> implements Serializable {
     BRIDGE_COMMAND,
     ALERT_TRIGGER_COMMAND,
     LIST_ALERT_TRIGGERS_COMMAND,
+    ALERT_NOTIFICATION_COMMAND,
   }
 
   public Command(Type type) {
