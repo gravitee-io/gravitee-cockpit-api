@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import io.gravitee.cockpit.api.command.alert.AlertTriggerReply;
+import io.gravitee.cockpit.api.command.alert.trigger.create.AlertTriggerReply;
 import io.gravitee.cockpit.api.command.bridge.BridgeMultiReply;
 import io.gravitee.cockpit.api.command.bridge.BridgeSimpleReply;
 import io.gravitee.cockpit.api.command.echo.EchoReply;

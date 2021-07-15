@@ -18,7 +18,7 @@ package io.gravitee.cockpit.api.command;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import io.gravitee.cockpit.api.command.alert.AlertTriggerCommand;
+import io.gravitee.cockpit.api.command.alert.trigger.create.AlertTriggerCommand;
 import io.gravitee.cockpit.api.command.bridge.BridgeCommand;
 import io.gravitee.cockpit.api.command.echo.EchoCommand;
 import io.gravitee.cockpit.api.command.environment.EnvironmentCommand;

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api.command.alert;
+package io.gravitee.cockpit.api.command.alert.trigger.create;
 
 import io.gravitee.alert.api.trigger.Trigger;
 import io.gravitee.cockpit.api.command.Payload;
