@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.gravitee.cockpit.api.command.alert.trigger.create.AlertTriggerReply;
+import io.gravitee.cockpit.api.command.alert.trigger.list.ListAlertTriggersReply;
 import io.gravitee.cockpit.api.command.bridge.BridgeMultiReply;
 import io.gravitee.cockpit.api.command.bridge.BridgeSimpleReply;
 import io.gravitee.cockpit.api.command.echo.EchoReply;
@@ -94,6 +95,10 @@ import java.io.Serializable;
       value = AlertTriggerReply.class,
       name = "ALERT_TRIGGER_REPLY"
     ),
+    @JsonSubTypes.Type(
+      value = ListAlertTriggersReply.class,
+      name = "LIST_ALERT_TRIGGERS_REPLY"
+    ),
   }
 )
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -117,6 +122,7 @@ public abstract class Reply implements Serializable {
     BRIDGE_MULTI_REPLY,
     MONITORING_REPLY,
     ALERT_TRIGGER_REPLY,
+    LIST_ALERT_TRIGGERS_REPLY,
   }
 
   /**
