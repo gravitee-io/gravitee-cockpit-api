@@ -24,6 +24,7 @@ import io.gravitee.cockpit.api.command.alert.trigger.create.AlertTriggerReply;
 import io.gravitee.cockpit.api.command.alert.trigger.list.ListAlertTriggersReply;
 import io.gravitee.cockpit.api.command.bridge.BridgeMultiReply;
 import io.gravitee.cockpit.api.command.bridge.BridgeSimpleReply;
+import io.gravitee.cockpit.api.command.designer.DeployModelReply;
 import io.gravitee.cockpit.api.command.echo.EchoReply;
 import io.gravitee.cockpit.api.command.environment.EnvironmentReply;
 import io.gravitee.cockpit.api.command.goodbye.GoodbyeReply;
@@ -104,6 +105,10 @@ import java.io.Serializable;
       value = AlertNotificationReply.class,
       name = "ALERT_NOTIFICATION_REPLY"
     ),
+    @JsonSubTypes.Type(
+      value = DeployModelReply.class,
+      name = "DEPLOY_MODEL_REPLY"
+    ),
   }
 )
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -129,6 +134,7 @@ public abstract class Reply implements Serializable {
     ALERT_TRIGGER_REPLY,
     LIST_ALERT_TRIGGERS_REPLY,
     ALERT_NOTIFICATION_REPLY,
+    DEPLOY_MODEL_REPLY,
   }
 
   /**
