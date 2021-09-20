@@ -22,6 +22,7 @@ import io.gravitee.cockpit.api.command.alert.notification.AlertNotificationComma
 import io.gravitee.cockpit.api.command.alert.trigger.create.AlertTriggerCommand;
 import io.gravitee.cockpit.api.command.alert.trigger.list.ListAlertTriggersCommand;
 import io.gravitee.cockpit.api.command.bridge.BridgeCommand;
+import io.gravitee.cockpit.api.command.designer.DeployModelCommand;
 import io.gravitee.cockpit.api.command.echo.EchoCommand;
 import io.gravitee.cockpit.api.command.environment.EnvironmentCommand;
 import io.gravitee.cockpit.api.command.goodbye.GoodbyeCommand;
@@ -97,6 +98,10 @@ import java.io.Serializable;
       value = AlertNotificationCommand.class,
       name = "ALERT_NOTIFICATION_COMMAND"
     ),
+    @JsonSubTypes.Type(
+      value = DeployModelCommand.class,
+      name = "DEPLOY_MODEL_COMMAND"
+    ),
   }
 )
 public abstract class Command<T extends Payload> implements Serializable {
@@ -132,6 +137,7 @@ public abstract class Command<T extends Payload> implements Serializable {
     ALERT_TRIGGER_COMMAND,
     LIST_ALERT_TRIGGERS_COMMAND,
     ALERT_NOTIFICATION_COMMAND,
+    DEPLOY_MODEL_COMMAND,
   }
 
   public Command(Type type) {
