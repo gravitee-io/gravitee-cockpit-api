@@ -22,8 +22,16 @@ import java.util.List;
  * @author GraviteeSource Team
  */
 public enum CommandStatus {
+  /** The command got a failed reply, no need to replay it. */
+  FAILED,
+
+  /** The command is processing. */
   PENDING,
+
+  /** The command have been successfully processed. */
   SUCCEEDED,
+
+  /** The command got an unexpected error. */
   ERROR;
 
   public static CommandStatus merge(List<CommandStatus> commandStatuses) {
