@@ -16,6 +16,7 @@
 package io.gravitee.cockpit.api.command.designer;
 
 import io.gravitee.cockpit.api.command.Payload;
+import java.util.List;
 
 public class DeployModelPayload implements Payload {
 
@@ -36,6 +37,8 @@ public class DeployModelPayload implements Payload {
   private String environmentId;
 
   private DeploymentMode mode = DeploymentMode.API_DOCUMENTED;
+
+  private List<String> labels;
 
   public String getModelId() {
     return modelId;
@@ -83,5 +86,13 @@ public class DeployModelPayload implements Payload {
 
   public void setEnvironmentId(String environmentId) {
     this.environmentId = environmentId;
+  }
+
+  public List<String> getLabels() {
+    return labels;
+  }
+
+  public void setLabels(List<String> labels) {
+    this.labels = labels;
   }
 }
