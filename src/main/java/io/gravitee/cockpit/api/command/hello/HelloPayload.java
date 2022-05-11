@@ -26,6 +26,11 @@ import java.util.Map;
  */
 public class HelloPayload implements Payload {
 
+  public static final String ADDITIONAL_INFO_INSTALLATION_TYPE =
+    "INSTALLATION_TYPE";
+  public static final String TRIAL_INSTALLATION_TYPE = "trial";
+  public static final String ONPREM_INSTALLATION_TYPE = "onprem";
+
   /**
    * Contains all necessary information about the node.
    */
