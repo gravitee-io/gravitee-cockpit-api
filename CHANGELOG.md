@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/1.11.1...1.12.0) (2022-05-16)
+
+
+### Features
+
+* add constants for installation type ([1a6a642](https://github.com/gravitee-io/gravitee-cockpit-api/commit/1a6a6426813868f06d6b2b782985a2c6e363b04b))
+
 ## [1.11.1](https://github.com/gravitee-io/gravitee-cockpit-api/compare/1.11.0...1.11.1) (2022-05-16)
 
 
