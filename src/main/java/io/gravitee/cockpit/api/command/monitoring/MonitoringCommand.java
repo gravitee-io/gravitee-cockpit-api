@@ -21,6 +21,7 @@ import io.gravitee.cockpit.api.command.Command;
  * @author Lorie Pisicchio (lorie.pisicchio at graviteesource.com)
  * @author GraviteeSource Team
  */
+@Deprecated(forRemoval = true)
 public class MonitoringCommand extends Command<MonitoringPayload> {
 
   public MonitoringCommand() {

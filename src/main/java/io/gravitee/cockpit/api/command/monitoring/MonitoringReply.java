@@ -22,6 +22,7 @@ import io.gravitee.cockpit.api.command.Reply;
  * @author Lorie Pisicchio (lorie.pisicchio at graviteesource.com)
  * @author GraviteeSource Team
  */
+@Deprecated(forRemoval = true)
 public class MonitoringReply extends Reply {
 
   public MonitoringReply() {
