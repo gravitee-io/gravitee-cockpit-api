@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/1.12.4...1.13.0) (2022-06-22)
+
+
+### Features
+
+* flag monitoring model as deprecated ([60bac86](https://github.com/gravitee-io/gravitee-cockpit-api/commit/60bac86ea9706d867d9da0b0855c962ae568ece9))
+
 ## [1.12.4](https://github.com/gravitee-io/gravitee-cockpit-api/compare/1.12.3...1.12.4) (2022-06-21)
 
 
