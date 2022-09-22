@@ -19,7 +19,7 @@ import io.gravitee.cockpit.api.command.Command;
 import io.gravitee.cockpit.api.command.Payload;
 import io.gravitee.cockpit.api.command.Reply;
 import io.gravitee.common.service.Service;
-import io.reactivex.Single;
+import io.reactivex.rxjava3.core.Single;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
