@@ -35,8 +35,9 @@
 
     <properties>
         <gravitee-bom.version>2.6</gravitee-bom.version>
-        <gravitee-node-api.version>1.26.0</gravitee-node-api.version>
+        <gravitee-node-api.version>2.0.0-bumpRxJava3-SNAPSHOT</gravitee-node-api.version>
         <gravitee-alert-api.version>1.9.1</gravitee-alert-api.version>
+        <rxjava.version>3.1.5</rxjava.version>
     </properties>
 
     <dependencyManagement>
@@ -76,8 +77,9 @@
 
         <!-- Reactive dependencies -->
         <dependency>
-            <groupId>io.reactivex.rxjava2</groupId>
+            <groupId>io.reactivex.rxjava3</groupId>
             <artifactId>rxjava</artifactId>
+            <version>${rxjava.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
