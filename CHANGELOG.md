@@ -1,3 +1,15 @@
+# [2.0.0-alpha.1](https://github.com/gravitee-io/gravitee-cockpit-api/compare/1.13.6...2.0.0-alpha.1) (2022-10-18)
+
+
+### chore
+
+* bump to rxJava3 ([b01868f](https://github.com/gravitee-io/gravitee-cockpit-api/commit/b01868fda084d830ca7edaafa5edbde0752fcabd))
+
+
+### BREAKING CHANGES
+
+* rxJava3 required
+
 ## [1.13.6](https://github.com/gravitee-io/gravitee-cockpit-api/compare/1.13.5...1.13.6) (2022-10-13)
 
 
