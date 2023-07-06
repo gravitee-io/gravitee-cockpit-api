@@ -88,8 +88,8 @@
                 <artifactId>prettier-maven-plugin</artifactId>
                 <version>0.18</version>
                 <configuration>
-                    <nodeVersion>12.13.0</nodeVersion>
-                    <prettierJavaVersion>1.0.1</prettierJavaVersion>
+                    <nodeVersion>16.16.0</nodeVersion>
+                    <prettierJavaVersion>1.6.1</prettierJavaVersion>
                 </configuration>
                 <executions>
                     <execution>
