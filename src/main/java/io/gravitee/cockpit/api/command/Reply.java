@@ -38,6 +38,7 @@ import io.gravitee.cockpit.api.command.monitoring.MonitoringReply;
 import io.gravitee.cockpit.api.command.node.NodeReply;
 import io.gravitee.cockpit.api.command.organization.OrganizationReply;
 import io.gravitee.cockpit.api.command.user.UserReply;
+import io.gravitee.cockpit.api.command.v4api.V4ApiReply;
 import java.io.Serializable;
 
 /**
@@ -109,6 +110,7 @@ import java.io.Serializable;
       value = DeployModelReply.class,
       name = "DEPLOY_MODEL_REPLY"
     ),
+    @JsonSubTypes.Type(value = V4ApiReply.class, name = "V4_API_REPLY"),
   }
 )
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -135,6 +137,7 @@ public abstract class Reply implements Serializable {
     LIST_ALERT_TRIGGERS_REPLY,
     ALERT_NOTIFICATION_REPLY,
     DEPLOY_MODEL_REPLY,
+    V4_API_REPLY,
   }
 
   /**
