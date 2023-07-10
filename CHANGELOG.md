@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.0.0...2.1.0) (2023-07-10)
+
+
+### Features
+
+* added V4Api command, payload and reply ([45ff1d0](https://github.com/gravitee-io/gravitee-cockpit-api/commit/45ff1d058bedc61a9bb18f2191de8f9f0003b863))
+
 # [2.0.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/1.13.8...2.0.0) (2022-12-12)
 
 
