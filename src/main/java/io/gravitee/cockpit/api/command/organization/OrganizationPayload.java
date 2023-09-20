@@ -16,12 +16,17 @@
 package io.gravitee.cockpit.api.command.organization;
 
 import io.gravitee.cockpit.api.command.Payload;
+import io.gravitee.cockpit.api.command.accesspoint.AccessPoint;
 import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
  * @author GraviteeSource Team
  */
+@Getter
+@Setter
 public class OrganizationPayload implements Payload {
 
   private String id;
@@ -34,53 +39,5 @@ public class OrganizationPayload implements Payload {
 
   private String description;
 
-  private List<String> domainRestrictions;
-
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public List<String> getDomainRestrictions() {
-    return domainRestrictions;
-  }
-
-  public void setDomainRestrictions(List<String> domainRestrictions) {
-    this.domainRestrictions = domainRestrictions;
-  }
-
-  public List<String> getHrids() {
-    return hrids;
-  }
-
-  public void setHrids(List<String> hrids) {
-    this.hrids = hrids;
-  }
-
-  public String getCockpitId() {
-    return cockpitId;
-  }
-
-  public void setCockpitId(String cockpitId) {
-    this.cockpitId = cockpitId;
-  }
+  private List<AccessPoint> accessPoints;
 }

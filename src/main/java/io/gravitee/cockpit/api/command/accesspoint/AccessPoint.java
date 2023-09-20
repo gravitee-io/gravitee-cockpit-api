@@ -13,33 +13,38 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api.command.environment;
+package io.gravitee.cockpit.api.command.accesspoint;
 
-import io.gravitee.cockpit.api.command.Payload;
-import io.gravitee.cockpit.api.command.accesspoint.AccessPoint;
-import java.util.List;
+import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
- * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
+ * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
  * @author GraviteeSource Team
  */
-@Getter
-@Setter
-public class EnvironmentPayload implements Payload {
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Data
+public class AccessPoint implements Serializable {
 
-  private String id;
+  private Target target;
+  private String host;
+  private boolean secured;
+  private boolean overriding;
 
-  private String cockpitId;
-
-  private List<String> hrids;
-
-  private String organizationId;
-
-  private String name;
-
-  private String description;
-
-  private List<AccessPoint> accessPoints;
+  public enum Target {
+    CONSOLE,
+    CONSOLE_API,
+    PORTAL,
+    PORTAL_API,
+    GATEWAY,
+  }
 }
