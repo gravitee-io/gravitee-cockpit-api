@@ -1,3 +1,15 @@
+# [2.2.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.1.0...2.2.0) (2023-09-27)
+
+
+### Bug Fixes
+
+* upgrade prettier version ([40a1a62](https://github.com/gravitee-io/gravitee-cockpit-api/commit/40a1a626e79b1d67a16c28be6fb79209912c30d9))
+
+
+### Features
+
+* add access points to organization and environment commands ([a691f34](https://github.com/gravitee-io/gravitee-cockpit-api/commit/a691f343fbcb533f16c7b7e94cda8616a1850d9e))
+
 # [2.1.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.0.0...2.1.0) (2023-07-10)
 
 
