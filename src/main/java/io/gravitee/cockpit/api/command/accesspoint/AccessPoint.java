@@ -47,4 +47,9 @@ public class AccessPoint implements Serializable {
     PORTAL_API,
     GATEWAY,
   }
+
+  public enum Type {
+    ORGANIZATION,
+    ENVIRONMENT,
+  }
 }
