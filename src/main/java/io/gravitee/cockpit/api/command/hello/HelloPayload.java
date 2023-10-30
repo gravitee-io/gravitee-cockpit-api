@@ -17,19 +17,23 @@ package io.gravitee.cockpit.api.command.hello;
 
 import io.gravitee.cockpit.api.command.Node;
 import io.gravitee.cockpit.api.command.Payload;
+import io.gravitee.cockpit.api.command.accesspoint.AccessPoint;
+import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
  * @author GraviteeSource Team
  */
+@NoArgsConstructor
+@Getter
+@Setter
 public class HelloPayload implements Payload {
-
-  public static final String ADDITIONAL_INFO_INSTALLATION_TYPE =
-    "INSTALLATION_TYPE";
-  public static final String TRIAL_INSTALLATION_TYPE = "trial";
-  public static final String ONPREM_INSTALLATION_TYPE = "onprem";
 
   /**
    * Contains all necessary information about the node.
@@ -47,43 +51,22 @@ public class HelloPayload implements Payload {
   private String defaultEnvironmentId;
 
   /**
+   * The type of the installation.
+   */
+  private String installationType;
+  /**
+   * Flag indicating if he installation is a trial.
+   */
+  private boolean trial;
+
+  /**
+   * In case of a multi-tenant installation, this defines the access points template used to initialize organizations and environments
+   */
+  private Map<AccessPoint.Type, List<AccessPoint>> accessPointsTemplate =
+    new EnumMap<>(AccessPoint.Type.class);
+
+  /**
    * Additional information.
    */
   private Map<String, String> additionalInformation = new HashMap<>();
-
-  public HelloPayload() {}
-
-  public Node getNode() {
-    return node;
-  }
-
-  public void setNode(Node node) {
-    this.node = node;
-  }
-
-  public String getDefaultOrganizationId() {
-    return defaultOrganizationId;
-  }
-
-  public void setDefaultOrganizationId(String defaultOrganizationId) {
-    this.defaultOrganizationId = defaultOrganizationId;
-  }
-
-  public String getDefaultEnvironmentId() {
-    return defaultEnvironmentId;
-  }
-
-  public void setDefaultEnvironmentId(String defaultEnvironmentId) {
-    this.defaultEnvironmentId = defaultEnvironmentId;
-  }
-
-  public Map<String, String> getAdditionalInformation() {
-    return additionalInformation;
-  }
-
-  public void setAdditionalInformation(
-    Map<String, String> additionalInformation
-  ) {
-    this.additionalInformation = additionalInformation;
-  }
 }
