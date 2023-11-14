@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.2.0...2.3.0) (2023-11-14)
+
+
+### Features
+
+* add new attributes to HelloPayload ([1e8f1ce](https://github.com/gravitee-io/gravitee-cockpit-api/commit/1e8f1ceb3f9cafffeb078a5ed5808ae5b5a5c2ba))
+
 # [2.2.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.1.0...2.2.0) (2023-09-27)
 
 
