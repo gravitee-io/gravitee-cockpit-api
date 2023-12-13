@@ -40,4 +40,6 @@ public class OrganizationPayload implements Payload {
   private String description;
 
   private List<AccessPoint> accessPoints;
+
+  private String license;
 }
