@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.3.0...2.4.0) (2023-12-18)
+
+
+### Features
+
+* update organization command payload to add license ([809cbb3](https://github.com/gravitee-io/gravitee-cockpit-api/commit/809cbb3b8d8958b3004f11ee72b9251d89247c08))
+
 # [2.3.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.2.0...2.3.0) (2023-11-14)
 
 
