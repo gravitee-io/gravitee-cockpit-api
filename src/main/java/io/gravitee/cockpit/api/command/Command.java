@@ -29,6 +29,7 @@ import io.gravitee.cockpit.api.command.goodbye.GoodbyeCommand;
 import io.gravitee.cockpit.api.command.healthcheck.HealthCheckCommand;
 import io.gravitee.cockpit.api.command.hello.HelloCommand;
 import io.gravitee.cockpit.api.command.installation.InstallationCommand;
+import io.gravitee.cockpit.api.command.installation.UnlinkInstallationCommand;
 import io.gravitee.cockpit.api.command.membership.DeleteMembershipCommand;
 import io.gravitee.cockpit.api.command.membership.MembershipCommand;
 import io.gravitee.cockpit.api.command.monitoring.MonitoringCommand;
@@ -73,6 +74,10 @@ import java.io.Serializable;
     @JsonSubTypes.Type(
       value = InstallationCommand.class,
       name = "INSTALLATION_COMMAND"
+    ),
+    @JsonSubTypes.Type(
+      value = UnlinkInstallationCommand.class,
+      name = "UNLINK_INSTALLATION_COMMAND"
     ),
     @JsonSubTypes.Type(value = HelloCommand.class, name = "HELLO_COMMAND"),
     @JsonSubTypes.Type(value = GoodbyeCommand.class, name = "GOODBYE_COMMAND"),
@@ -131,6 +136,7 @@ public abstract class Command<T extends Payload> implements Serializable {
     MEMBERSHIP_COMMAND,
     DELETE_MEMBERSHIP_COMMAND,
     INSTALLATION_COMMAND,
+    UNLINK_INSTALLATION_COMMAND,
     ECHO_COMMAND,
     NODE_COMMAND,
     HEALTHCHECK_COMMAND,
