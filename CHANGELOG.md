@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.4.0...2.5.0) (2023-12-21)
+
+
+### Features
+
+* add unlink installation command ([36d1418](https://github.com/gravitee-io/gravitee-cockpit-api/commit/36d14183fdf3d71d51d61a4c2c31c28dd0332012))
+
 # [2.4.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.3.0...2.4.0) (2023-12-18)
 
 
