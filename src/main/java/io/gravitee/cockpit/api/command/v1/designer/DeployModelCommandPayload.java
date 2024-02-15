@@ -13,22 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api;
+package io.gravitee.cockpit.api.command.v1.designer;
 
-import io.gravitee.common.service.Service;
-import io.gravitee.exchange.api.command.Command;
-import io.gravitee.exchange.api.command.Reply;
-import io.reactivex.rxjava3.core.Single;
+import io.gravitee.exchange.api.command.Payload;
+import java.util.List;
+import lombok.Builder;
 
 /**
- * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
+ * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
  * @author GraviteeSource Team
  */
-public interface CockpitConnector extends Service<CockpitConnector> {
-  /**
-   * Send a command.
-   *
-   * @param command the command to send.
-   */
-  Single<Reply<?>> sendCommand(Command<?> command);
+@Builder
+public record DeployModelCommandPayload(
+  String modelId,
+  String userId,
+  String swaggerDefinition,
+  String organizationId,
+  String environmentId,
+  DeploymentMode mode,
+  List<String> labels
+)
+  implements Payload {
+  public enum DeploymentMode {
+    API_DOCUMENTED,
+    API_MOCKED,
+    API_PUBLISHED,
+  }
+
+  public DeployModelCommandPayload {
+    if (mode == null) mode = DeploymentMode.API_DOCUMENTED;
+  }
 }

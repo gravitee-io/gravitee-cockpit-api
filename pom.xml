@@ -29,14 +29,15 @@
 
     <groupId>io.gravitee.cockpit</groupId>
     <artifactId>gravitee-cockpit-api</artifactId>
-    <version>2.6.6</version>
+    <version>3.0.0</version>
 
     <name>Gravitee.io - Cockpit - API</name>
 
     <properties>
         <gravitee-bom.version>7.0.14</gravitee-bom.version>
-        <gravitee-node-api.version>5.10.0</gravitee-node-api.version>
+        <gravitee-node.version>5.10.0</gravitee-node.version>
         <gravitee-alert-api.version>2.0.0</gravitee-alert-api.version>
+        <gravitee-exchange.version>1.0.0</gravitee-exchange.version>
     </properties>
 
     <dependencyManagement>
@@ -63,7 +64,7 @@
         <dependency>
             <groupId>io.gravitee.node</groupId>
             <artifactId>gravitee-node-api</artifactId>
-            <version>${gravitee-node-api.version}</version>
+            <version>${gravitee-node.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -74,11 +75,25 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>io.gravitee.exchange</groupId>
+            <artifactId>gravitee-exchange-api</artifactId>
+            <version>${gravitee-exchange.version}</version>
+        </dependency>
+
         <!-- Reactive dependencies -->
         <dependency>
             <groupId>io.reactivex.rxjava3</groupId>
             <artifactId>rxjava</artifactId>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- Dev dependencies -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
         </dependency>
     </dependencies>
     <build>

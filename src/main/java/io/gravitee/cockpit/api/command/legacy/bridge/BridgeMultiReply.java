@@ -13,22 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api;
+package io.gravitee.cockpit.api.command.legacy.bridge;
 
-import io.gravitee.common.service.Service;
-import io.gravitee.exchange.api.command.Command;
-import io.gravitee.exchange.api.command.Reply;
-import io.reactivex.rxjava3.core.Single;
+import io.gravitee.cockpit.api.command.legacy.CockpitReplyType;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
  * @author GraviteeSource Team
  */
-public interface CockpitConnector extends Service<CockpitConnector> {
-  /**
-   * Send a command.
-   *
-   * @param command the command to send.
-   */
-  Single<Reply<?>> sendCommand(Command<?> command);
+public class BridgeMultiReply extends BridgeReply {
+
+  private List<BridgeSimpleReply> replies;
+
+  public BridgeMultiReply() {
+    this(new ArrayList<>());
+  }
+
+  public BridgeMultiReply(List<BridgeSimpleReply> replies) {
+    super(CockpitReplyType.BRIDGE_MULTI_REPLY);
+    this.replies = replies;
+  }
+
+  public List<BridgeSimpleReply> getReplies() {
+    return replies;
+  }
+
+  public void setReplies(List<BridgeSimpleReply> replies) {
+    this.replies = replies;
+  }
 }

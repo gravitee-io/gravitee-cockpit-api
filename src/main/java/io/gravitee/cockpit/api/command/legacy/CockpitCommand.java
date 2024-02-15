@@ -13,22 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api;
+package io.gravitee.cockpit.api.command.legacy;
 
-import io.gravitee.common.service.Service;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import io.gravitee.exchange.api.command.Command;
-import io.gravitee.exchange.api.command.Reply;
-import io.reactivex.rxjava3.core.Single;
+import io.gravitee.exchange.api.command.Payload;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
- * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
+ * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
  * @author GraviteeSource Team
  */
-public interface CockpitConnector extends Service<CockpitConnector> {
-  /**
-   * Send a command.
-   *
-   * @param command the command to send.
-   */
-  Single<Reply<?>> sendCommand(Command<?> command);
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
+public abstract class CockpitCommand<P extends Payload> extends Command<P> {
+
+  protected CockpitCommand(final CockpitCommandType type) {
+    super(type.name());
+  }
 }

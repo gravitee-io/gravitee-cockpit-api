@@ -13,22 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api;
-
-import io.gravitee.common.service.Service;
-import io.gravitee.exchange.api.command.Command;
-import io.gravitee.exchange.api.command.Reply;
-import io.reactivex.rxjava3.core.Single;
+package io.gravitee.cockpit.api.command.v1;
 
 /**
- * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
+ * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
  * @author GraviteeSource Team
  */
-public interface CockpitConnector extends Service<CockpitConnector> {
-  /**
-   * Send a command.
-   *
-   * @param command the command to send.
-   */
-  Single<Reply<?>> sendCommand(Command<?> command);
+public enum CockpitCommandType {
+  BRIDGE,
+  DEPLOY_MODEL,
+  DELETE_MEMBERSHIP,
+  DISABLE_ORGANIZATION,
+  DISABLE_ENVIRONMENT,
+  ENVIRONMENT,
+  HELLO,
+  INSTALLATION,
+  MEMBERSHIP,
+  NODE,
+  NODE_HEALTHCHECK,
+  ORGANIZATION,
+  USER,
+  UNLINK_INSTALLATION,
+  V4_API,
 }
