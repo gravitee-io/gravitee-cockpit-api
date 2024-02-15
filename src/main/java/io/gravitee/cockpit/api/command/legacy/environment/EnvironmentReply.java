@@ -13,22 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api;
+package io.gravitee.cockpit.api.command.legacy.environment;
 
-import io.gravitee.common.service.Service;
-import io.gravitee.exchange.api.command.Command;
-import io.gravitee.exchange.api.command.Reply;
-import io.reactivex.rxjava3.core.Single;
+import io.gravitee.cockpit.api.command.legacy.CockpitReply;
+import io.gravitee.cockpit.api.command.legacy.CockpitReplyType;
+import io.gravitee.exchange.api.command.CommandStatus;
+import io.gravitee.exchange.api.command.Payload;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
  * @author GraviteeSource Team
  */
-public interface CockpitConnector extends Service<CockpitConnector> {
-  /**
-   * Send a command.
-   *
-   * @param command the command to send.
-   */
-  Single<Reply<?>> sendCommand(Command<?> command);
+public class EnvironmentReply extends CockpitReply<Payload> {
+
+  public EnvironmentReply() {
+    this(null, null);
+  }
+
+  public EnvironmentReply(String commandId, CommandStatus commandStatus) {
+    super(CockpitReplyType.ENVIRONMENT_REPLY, commandId, commandStatus);
+  }
 }

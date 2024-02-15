@@ -13,22 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api;
+package io.gravitee.cockpit.api.command.legacy;
 
-import io.gravitee.common.service.Service;
-import io.gravitee.exchange.api.command.Command;
-import io.gravitee.exchange.api.command.Reply;
-import io.reactivex.rxjava3.core.Single;
-
-/**
- * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
- * @author GraviteeSource Team
- */
-public interface CockpitConnector extends Service<CockpitConnector> {
-  /**
-   * Send a command.
-   *
-   * @param command the command to send.
-   */
-  Single<Reply<?>> sendCommand(Command<?> command);
+public enum CockpitReplyType {
+  IGNORED_REPLY,
+  ORGANIZATION_REPLY,
+  ENVIRONMENT_REPLY,
+  HELLO_REPLY,
+  GOODBYE_REPLY,
+  USER_REPLY,
+  MEMBERSHIP_REPLY,
+  DELETE_MEMBERSHIP_REPLY,
+  INSTALLATION_REPLY,
+  UNLINK_INSTALLATION_REPLY,
+  ECHO_REPLY,
+  NODE_REPLY,
+  HEALTHCHECK_REPLY,
+  BRIDGE_SIMPLE_REPLY,
+  BRIDGE_MULTI_REPLY,
+  MONITORING_REPLY,
+  ALERT_TRIGGER_REPLY,
+  LIST_ALERT_TRIGGERS_REPLY,
+  ALERT_NOTIFICATION_REPLY,
+  DEPLOY_MODEL_REPLY,
+  V4_API_REPLY,
+  DISABLE_ORGANIZATION_REPLY,
+  DISABLE_ENVIRONMENT_REPLY,
 }

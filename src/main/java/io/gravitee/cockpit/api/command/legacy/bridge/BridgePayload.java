@@ -13,22 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api;
+package io.gravitee.cockpit.api.command.legacy.bridge;
 
-import io.gravitee.common.service.Service;
-import io.gravitee.exchange.api.command.Command;
-import io.gravitee.exchange.api.command.Reply;
-import io.reactivex.rxjava3.core.Single;
+import io.gravitee.exchange.api.command.Payload;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
  * @author GraviteeSource Team
  */
-public interface CockpitConnector extends Service<CockpitConnector> {
-  /**
-   * Send a command.
-   *
-   * @param command the command to send.
-   */
-  Single<Reply<?>> sendCommand(Command<?> command);
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class BridgePayload implements Payload {
+
+  private String content;
 }

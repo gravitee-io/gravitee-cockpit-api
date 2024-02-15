@@ -13,22 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api;
+package io.gravitee.cockpit.api.command.legacy.v4api;
 
-import io.gravitee.common.service.Service;
-import io.gravitee.exchange.api.command.Command;
-import io.gravitee.exchange.api.command.Reply;
+import io.gravitee.cockpit.api.command.v1.CockpitCommandType;
+import io.gravitee.exchange.api.command.CommandAdapter;
 import io.reactivex.rxjava3.core.Single;
 
-/**
- * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
- * @author GraviteeSource Team
- */
-public interface CockpitConnector extends Service<CockpitConnector> {
-  /**
-   * Send a command.
-   *
-   * @param command the command to send.
-   */
-  Single<Reply<?>> sendCommand(Command<?> command);
+public class V4ApiCommandAdapter
+  implements
+    CommandAdapter<io.gravitee.cockpit.api.command.v1.v4api.V4ApiCommand, V4ApiCommand, io.gravitee.cockpit.api.command.v1.v4api.V4ApiReply> {
+
+  @Override
+  public String supportType() {
+    return CockpitCommandType.V4_API.name();
+  }
+
+  @Override
+  public Single<V4ApiCommand> adapt(
+    final io.gravitee.cockpit.api.command.v1.v4api.V4ApiCommand command
+  ) {
+    return Single.just(new V4ApiCommand(command.getPayload()));
+  }
 }

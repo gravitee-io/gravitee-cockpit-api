@@ -13,22 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api;
+package io.gravitee.cockpit.api.command.v1.user;
 
-import io.gravitee.common.service.Service;
-import io.gravitee.exchange.api.command.Command;
-import io.gravitee.exchange.api.command.Reply;
-import io.reactivex.rxjava3.core.Single;
+import io.gravitee.exchange.api.command.Payload;
+import java.util.Map;
+import lombok.Builder;
 
 /**
- * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
+ * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
  * @author GraviteeSource Team
  */
-public interface CockpitConnector extends Service<CockpitConnector> {
-  /**
-   * Send a command.
-   *
-   * @param command the command to send.
-   */
-  Single<Reply<?>> sendCommand(Command<?> command);
-}
+@Builder
+public record UserCommandPayload(
+  String id,
+  String username,
+  String email,
+  String firstName,
+  String lastName,
+  String picture,
+  Map<String, Object> additionalInformation,
+  String organizationId
+)
+  implements Payload {}

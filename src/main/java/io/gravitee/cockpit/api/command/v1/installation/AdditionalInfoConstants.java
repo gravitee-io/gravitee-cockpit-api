@@ -13,22 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api;
+package io.gravitee.cockpit.api.command.v1.installation;
 
-import io.gravitee.common.service.Service;
-import io.gravitee.exchange.api.command.Command;
-import io.gravitee.exchange.api.command.Reply;
-import io.reactivex.rxjava3.core.Single;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 /**
- * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
+ * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
  * @author GraviteeSource Team
  */
-public interface CockpitConnector extends Service<CockpitConnector> {
-  /**
-   * Send a command.
-   *
-   * @param command the command to send.
-   */
-  Single<Reply<?>> sendCommand(Command<?> command);
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class AdditionalInfoConstants {
+
+  // Authentication
+  public static final String AUTH_BASE_URL = "AUTH_BASE_URL";
+  public static final String AUTH_PATH = "AUTH_PATH";
 }

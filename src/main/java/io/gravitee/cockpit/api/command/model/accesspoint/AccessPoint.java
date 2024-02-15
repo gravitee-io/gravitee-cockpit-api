@@ -13,22 +13,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api;
+package io.gravitee.cockpit.api.command.model.accesspoint;
 
-import io.gravitee.common.service.Service;
-import io.gravitee.exchange.api.command.Command;
-import io.gravitee.exchange.api.command.Reply;
-import io.reactivex.rxjava3.core.Single;
+import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
- * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
+ * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
  * @author GraviteeSource Team
  */
-public interface CockpitConnector extends Service<CockpitConnector> {
-  /**
-   * Send a command.
-   *
-   * @param command the command to send.
-   */
-  Single<Reply<?>> sendCommand(Command<?> command);
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Data
+public class AccessPoint implements Serializable {
+
+  private Target target;
+  private String host;
+  private boolean secured;
+  private boolean overriding;
+
+  public enum Target {
+    CONSOLE,
+    CONSOLE_API,
+    PORTAL,
+    PORTAL_API,
+    GATEWAY,
+  }
+
+  public enum Type {
+    ORGANIZATION,
+    ENVIRONMENT,
+  }
 }
