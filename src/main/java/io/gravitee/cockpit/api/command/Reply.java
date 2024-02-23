@@ -26,6 +26,7 @@ import io.gravitee.cockpit.api.command.bridge.BridgeMultiReply;
 import io.gravitee.cockpit.api.command.bridge.BridgeSimpleReply;
 import io.gravitee.cockpit.api.command.designer.DeployModelReply;
 import io.gravitee.cockpit.api.command.echo.EchoReply;
+import io.gravitee.cockpit.api.command.environment.DisableEnvironmentReply;
 import io.gravitee.cockpit.api.command.environment.EnvironmentReply;
 import io.gravitee.cockpit.api.command.goodbye.GoodbyeReply;
 import io.gravitee.cockpit.api.command.healthcheck.HealthCheckReply;
@@ -37,6 +38,7 @@ import io.gravitee.cockpit.api.command.membership.DeleteMembershipReply;
 import io.gravitee.cockpit.api.command.membership.MembershipReply;
 import io.gravitee.cockpit.api.command.monitoring.MonitoringReply;
 import io.gravitee.cockpit.api.command.node.NodeReply;
+import io.gravitee.cockpit.api.command.organization.DisableOrganizationReply;
 import io.gravitee.cockpit.api.command.organization.OrganizationReply;
 import io.gravitee.cockpit.api.command.user.UserReply;
 import io.gravitee.cockpit.api.command.v4api.V4ApiReply;
@@ -58,9 +60,18 @@ import java.io.Serializable;
       value = OrganizationReply.class,
       name = "ORGANIZATION_REPLY"
     ),
+    @JsonSubTypes.Type(value = IgnoredReply.class, name = "IGNORED_REPLY"),
+    @JsonSubTypes.Type(
+      value = DisableOrganizationReply.class,
+      name = "DISABLE_ORGANIZATION_REPLY"
+    ),
     @JsonSubTypes.Type(
       value = EnvironmentReply.class,
       name = "ENVIRONMENT_REPLY"
+    ),
+    @JsonSubTypes.Type(
+      value = DisableEnvironmentReply.class,
+      name = "DISABLE_ENVIRONMENT_REPLY"
     ),
     @JsonSubTypes.Type(value = UserReply.class, name = "USER_REPLY"),
     @JsonSubTypes.Type(
@@ -125,7 +136,9 @@ public abstract class Reply implements Serializable {
   public enum Type {
     IGNORED_REPLY,
     ORGANIZATION_REPLY,
+    DISABLE_ORGANIZATION_REPLY,
     ENVIRONMENT_REPLY,
+    DISABLE_ENVIRONMENT_REPLY,
     HELLO_REPLY,
     GOODBYE_REPLY,
     USER_REPLY,
