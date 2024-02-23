@@ -24,6 +24,7 @@ import io.gravitee.cockpit.api.command.alert.trigger.list.ListAlertTriggersComma
 import io.gravitee.cockpit.api.command.bridge.BridgeCommand;
 import io.gravitee.cockpit.api.command.designer.DeployModelCommand;
 import io.gravitee.cockpit.api.command.echo.EchoCommand;
+import io.gravitee.cockpit.api.command.environment.DisableEnvironmentCommand;
 import io.gravitee.cockpit.api.command.environment.EnvironmentCommand;
 import io.gravitee.cockpit.api.command.goodbye.GoodbyeCommand;
 import io.gravitee.cockpit.api.command.healthcheck.HealthCheckCommand;
@@ -34,6 +35,7 @@ import io.gravitee.cockpit.api.command.membership.DeleteMembershipCommand;
 import io.gravitee.cockpit.api.command.membership.MembershipCommand;
 import io.gravitee.cockpit.api.command.monitoring.MonitoringCommand;
 import io.gravitee.cockpit.api.command.node.NodeCommand;
+import io.gravitee.cockpit.api.command.organization.DisableOrganizationCommand;
 import io.gravitee.cockpit.api.command.organization.OrganizationCommand;
 import io.gravitee.cockpit.api.command.unknown.UnknownCommand;
 import io.gravitee.cockpit.api.command.user.UserCommand;
@@ -59,8 +61,16 @@ import java.io.Serializable;
       name = "ORGANIZATION_COMMAND"
     ),
     @JsonSubTypes.Type(
+      value = DisableOrganizationCommand.class,
+      name = "DISABLE_ORGANIZATION_COMMAND"
+    ),
+    @JsonSubTypes.Type(
       value = EnvironmentCommand.class,
       name = "ENVIRONMENT_COMMAND"
+    ),
+    @JsonSubTypes.Type(
+      value = DisableEnvironmentCommand.class,
+      name = "DISABLE_ENVIRONMENT_COMMAND"
     ),
     @JsonSubTypes.Type(value = UserCommand.class, name = "USER_COMMAND"),
     @JsonSubTypes.Type(
@@ -129,7 +139,9 @@ public abstract class Command<T extends Payload> implements Serializable {
   public enum Type {
     UNKNOWN_COMMAND,
     ORGANIZATION_COMMAND,
+    DISABLE_ORGANIZATION_COMMAND,
     ENVIRONMENT_COMMAND,
+    DISABLE_ENVIRONMENT_COMMAND,
     HELLO_COMMAND,
     GOODBYE_COMMAND,
     USER_COMMAND,

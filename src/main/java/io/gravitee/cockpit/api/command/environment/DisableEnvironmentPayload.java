@@ -15,20 +15,20 @@
  */
 package io.gravitee.cockpit.api.command.environment;
 
-import io.gravitee.cockpit.api.command.CommandStatus;
-import io.gravitee.cockpit.api.command.Reply;
+import io.gravitee.cockpit.api.command.Payload;
+import lombok.*;
 
-/**
- * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
- * @author GraviteeSource Team
- */
-public class EnvironmentReply extends Reply {
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class DisableEnvironmentPayload implements Payload {
 
-  public EnvironmentReply() {
-    this(null, null);
-  }
+  private String id;
 
-  public EnvironmentReply(String commandId, CommandStatus commandStatus) {
-    super(Type.ENVIRONMENT_REPLY, commandId, commandStatus);
-  }
+  private String cockpitId;
+
+  private String name;
+
+  private String userId;
 }

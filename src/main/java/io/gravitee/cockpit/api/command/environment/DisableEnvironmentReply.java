@@ -18,17 +18,16 @@ package io.gravitee.cockpit.api.command.environment;
 import io.gravitee.cockpit.api.command.CommandStatus;
 import io.gravitee.cockpit.api.command.Reply;
 
-/**
- * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
- * @author GraviteeSource Team
- */
-public class EnvironmentReply extends Reply {
+public class DisableEnvironmentReply extends Reply {
 
-  public EnvironmentReply() {
+  public DisableEnvironmentReply() {
     this(null, null);
   }
 
-  public EnvironmentReply(String commandId, CommandStatus commandStatus) {
-    super(Type.ENVIRONMENT_REPLY, commandId, commandStatus);
+  public DisableEnvironmentReply(
+    String commandId,
+    CommandStatus commandStatus
+  ) {
+    super(Type.DISABLE_ENVIRONMENT_REPLY, commandId, commandStatus);
   }
 }

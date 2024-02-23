@@ -13,22 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api.command.environment;
+package io.gravitee.cockpit.api.command.organization;
 
 import io.gravitee.cockpit.api.command.CommandStatus;
 import io.gravitee.cockpit.api.command.Reply;
 
-/**
- * @author Jeoffrey HAEYAERT (jeoffrey.haeyaert at graviteesource.com)
- * @author GraviteeSource Team
- */
-public class EnvironmentReply extends Reply {
+public class DisableOrganizationReply extends Reply {
 
-  public EnvironmentReply() {
+  public DisableOrganizationReply() {
     this(null, null);
   }
 
-  public EnvironmentReply(String commandId, CommandStatus commandStatus) {
-    super(Type.ENVIRONMENT_REPLY, commandId, commandStatus);
+  public DisableOrganizationReply(
+    String commandId,
+    CommandStatus commandStatus
+  ) {
+    super(Type.DISABLE_ORGANIZATION_REPLY, commandId, commandStatus);
   }
 }
