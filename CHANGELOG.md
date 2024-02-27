@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.5.0...2.6.0) (2024-02-27)
+
+
+### Features
+
+* add commands to disable environment and organization ([6dab25b](https://github.com/gravitee-io/gravitee-cockpit-api/commit/6dab25b1ba58a45d44aea8282d1c07c7957c2e0d))
+
 # [2.5.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.4.0...2.5.0) (2023-12-21)
 
 
