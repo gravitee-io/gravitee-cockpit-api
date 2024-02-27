@@ -1,3 +1,10 @@
+## [2.6.1](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.6.0...2.6.1) (2024-02-27)
+
+
+### Bug Fixes
+
+* **deps:** upgrade gravitee dependencies ([dc84b13](https://github.com/gravitee-io/gravitee-cockpit-api/commit/dc84b136ec6bdfa64bfd40a5f35e3327213a5236))
+
 # [2.6.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.5.0...2.6.0) (2024-02-27)
 
 
