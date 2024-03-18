@@ -1,3 +1,10 @@
+## [2.6.6](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.6.5...2.6.6) (2024-03-18)
+
+
+### Bug Fixes
+
+* **deps:** update io.gravitee:gravitee-bom to v7.0.14 ([cdb6f1d](https://github.com/gravitee-io/gravitee-cockpit-api/commit/cdb6f1d32aa2e6f2b5572628eae5c5574861b8a0))
+
 ## [2.6.5](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.6.4...2.6.5) (2024-03-18)
 
 
