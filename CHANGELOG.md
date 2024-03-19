@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.6.6...3.0.0) (2024-03-19)
+
+
+### Features
+
+* use new exchange framework ([4baca35](https://github.com/gravitee-io/gravitee-cockpit-api/commit/4baca35d502a38e6dbe5d4e06f9cbaa611c33b26))
+
+
+### BREAKING CHANGES
+
+* using this version will imply migration on connectors
+
 ## [2.6.6](https://github.com/gravitee-io/gravitee-cockpit-api/compare/2.6.5...2.6.6) (2024-03-18)
 
 
