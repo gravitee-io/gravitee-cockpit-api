@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.1...3.0.2) (2024-03-21)
+
+
+### Bug Fixes
+
+* use latest exchange framework ([a8ddd82](https://github.com/gravitee-io/gravitee-cockpit-api/commit/a8ddd82c795e24c435eb6c0914ab69b54c2e6ef8))
+
 ## [3.0.1](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.0...3.0.1) (2024-03-19)
 
 
