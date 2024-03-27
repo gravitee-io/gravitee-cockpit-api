@@ -26,8 +26,12 @@ public class DeployModelCommand
     super(CockpitCommandType.DEPLOY_MODEL_COMMAND);
   }
 
-  public DeployModelCommand(DeployModelCommandPayload payload) {
+  public DeployModelCommand(
+    final String commandId,
+    final DeployModelCommandPayload payload
+  ) {
     this();
+    this.id = commandId;
     this.payload = payload;
   }
 }

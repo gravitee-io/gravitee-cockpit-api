@@ -32,6 +32,8 @@ public class DisableOrganizationCommandAdapter
   public Single<DisableOrganizationCommand> adapt(
     final io.gravitee.cockpit.api.command.v1.organization.DisableOrganizationCommand command
   ) {
-    return Single.just(new DisableOrganizationCommand(command.getPayload()));
+    return Single.just(
+      new DisableOrganizationCommand(command.getId(), command.getPayload())
+    );
   }
 }

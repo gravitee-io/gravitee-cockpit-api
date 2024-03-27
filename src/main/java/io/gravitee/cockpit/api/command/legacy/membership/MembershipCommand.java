@@ -30,8 +30,12 @@ public class MembershipCommand
     super(CockpitCommandType.MEMBERSHIP_COMMAND);
   }
 
-  public MembershipCommand(MembershipCommandPayload payload) {
+  public MembershipCommand(
+    final String commandId,
+    final MembershipCommandPayload payload
+  ) {
     this();
+    this.id = commandId;
     this.payload = payload;
   }
 }

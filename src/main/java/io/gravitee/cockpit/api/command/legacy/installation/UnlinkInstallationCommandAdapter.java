@@ -32,6 +32,8 @@ public class UnlinkInstallationCommandAdapter
   public Single<UnlinkInstallationCommand> adapt(
     final io.gravitee.cockpit.api.command.v1.installation.UnlinkInstallationCommand command
   ) {
-    return Single.just(new UnlinkInstallationCommand(command.getPayload()));
+    return Single.just(
+      new UnlinkInstallationCommand(command.getId(), command.getPayload())
+    );
   }
 }

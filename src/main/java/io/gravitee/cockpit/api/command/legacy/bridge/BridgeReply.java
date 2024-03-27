@@ -26,14 +26,14 @@ import io.gravitee.exchange.api.command.Payload;
  */
 public abstract class BridgeReply extends CockpitReply<Payload> {
 
-  protected BridgeReply(CockpitReplyType type) {
+  protected BridgeReply(final CockpitReplyType type) {
     this(type, null, null);
   }
 
   protected BridgeReply(
-    CockpitReplyType type,
-    String commandId,
-    CommandStatus commandStatus
+    final CockpitReplyType type,
+    final String commandId,
+    final CommandStatus commandStatus
   ) {
     super(type, commandId, commandStatus);
   }

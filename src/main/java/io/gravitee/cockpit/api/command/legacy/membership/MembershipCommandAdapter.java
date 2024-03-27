@@ -32,6 +32,8 @@ public class MembershipCommandAdapter
   public Single<MembershipCommand> adapt(
     final io.gravitee.cockpit.api.command.v1.membership.MembershipCommand command
   ) {
-    return Single.just(new MembershipCommand(command.getPayload()));
+    return Single.just(
+      new MembershipCommand(command.getId(), command.getPayload())
+    );
   }
 }

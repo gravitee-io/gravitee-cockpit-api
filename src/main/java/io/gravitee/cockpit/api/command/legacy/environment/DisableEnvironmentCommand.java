@@ -30,8 +30,12 @@ public class DisableEnvironmentCommand
     super(CockpitCommandType.DISABLE_ENVIRONMENT_COMMAND);
   }
 
-  public DisableEnvironmentCommand(DisableEnvironmentCommandPayload payload) {
+  public DisableEnvironmentCommand(
+    final String commandId,
+    final DisableEnvironmentCommandPayload payload
+  ) {
     this();
+    this.id = commandId;
     this.payload = payload;
   }
 }

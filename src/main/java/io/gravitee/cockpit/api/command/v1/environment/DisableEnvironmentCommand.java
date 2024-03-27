@@ -29,7 +29,9 @@ public class DisableEnvironmentCommand
     super(CockpitCommandType.DISABLE_ENVIRONMENT);
   }
 
-  public DisableEnvironmentCommand(DisableEnvironmentCommandPayload payload) {
+  public DisableEnvironmentCommand(
+    final DisableEnvironmentCommandPayload payload
+  ) {
     this();
     this.payload = payload;
   }

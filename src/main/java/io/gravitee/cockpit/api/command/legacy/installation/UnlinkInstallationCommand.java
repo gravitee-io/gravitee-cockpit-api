@@ -29,8 +29,12 @@ public class UnlinkInstallationCommand
     super(CockpitCommandType.UNLINK_INSTALLATION_COMMAND);
   }
 
-  public UnlinkInstallationCommand(UnlinkInstallationCommandPayload payload) {
+  public UnlinkInstallationCommand(
+    final String commandId,
+    final UnlinkInstallationCommandPayload payload
+  ) {
     this();
+    this.id = commandId;
     this.payload = payload;
   }
 }

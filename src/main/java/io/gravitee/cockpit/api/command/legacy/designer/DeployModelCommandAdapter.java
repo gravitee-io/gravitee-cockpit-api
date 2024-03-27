@@ -32,6 +32,8 @@ public class DeployModelCommandAdapter
   public Single<DeployModelCommand> adapt(
     final io.gravitee.cockpit.api.command.v1.designer.DeployModelCommand command
   ) {
-    return Single.just(new DeployModelCommand(command.getPayload()));
+    return Single.just(
+      new DeployModelCommand(command.getId(), command.getPayload())
+    );
   }
 }

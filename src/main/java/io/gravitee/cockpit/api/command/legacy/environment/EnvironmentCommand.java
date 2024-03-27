@@ -30,8 +30,12 @@ public class EnvironmentCommand
     super(CockpitCommandType.ENVIRONMENT_COMMAND);
   }
 
-  public EnvironmentCommand(EnvironmentCommandPayload payload) {
+  public EnvironmentCommand(
+    final String commandId,
+    final EnvironmentCommandPayload payload
+  ) {
     this();
+    this.id = commandId;
     this.payload = payload;
   }
 }

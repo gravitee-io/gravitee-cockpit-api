@@ -17,8 +17,11 @@ package io.gravitee.cockpit.api.command.v1.bridge;
 
 import io.gravitee.exchange.api.command.Payload;
 import java.util.List;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 
 /**
@@ -28,8 +31,9 @@ import lombok.experimental.Accessors;
 public record BridgeReplyPayload(List<BridgeReplyContent> contents)
   implements Payload {
   @Builder
+  @AllArgsConstructor
+  @NoArgsConstructor
   @Data
-  @Accessors(fluent = true)
   public static class BridgeReplyContent implements Payload {
 
     private String installationId;

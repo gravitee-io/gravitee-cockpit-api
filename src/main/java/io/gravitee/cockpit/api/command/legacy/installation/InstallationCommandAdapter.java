@@ -32,6 +32,8 @@ public class InstallationCommandAdapter
   public Single<InstallationCommand> adapt(
     final io.gravitee.cockpit.api.command.v1.installation.InstallationCommand command
   ) {
-    return Single.just(new InstallationCommand(command.getPayload()));
+    return Single.just(
+      new InstallationCommand(command.getId(), command.getPayload())
+    );
   }
 }

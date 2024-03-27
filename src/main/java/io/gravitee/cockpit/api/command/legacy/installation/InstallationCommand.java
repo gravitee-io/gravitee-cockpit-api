@@ -30,8 +30,12 @@ public class InstallationCommand
     super(CockpitCommandType.INSTALLATION_COMMAND);
   }
 
-  public InstallationCommand(InstallationCommandPayload payload) {
+  public InstallationCommand(
+    final String commandId,
+    final InstallationCommandPayload payload
+  ) {
     this();
+    this.id = commandId;
     this.payload = payload;
   }
 }

@@ -44,6 +44,7 @@ public class BridgeLegacyCommandAdapter
         .timeoutMillis(command.getTimeoutMillis())
         .build();
       return new io.gravitee.cockpit.api.command.v1.bridge.BridgeCommand(
+        command.getId(),
         bridgeCommandPayload
       );
     });

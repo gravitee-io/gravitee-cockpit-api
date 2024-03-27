@@ -32,6 +32,6 @@ public class V4ApiCommandAdapter
   public Single<V4ApiCommand> adapt(
     final io.gravitee.cockpit.api.command.v1.v4api.V4ApiCommand command
   ) {
-    return Single.just(new V4ApiCommand(command.getPayload()));
+    return Single.just(new V4ApiCommand(command.getId(), command.getPayload()));
   }
 }

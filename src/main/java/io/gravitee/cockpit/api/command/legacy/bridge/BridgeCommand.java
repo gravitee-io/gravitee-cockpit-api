@@ -68,8 +68,9 @@ public class BridgeCommand extends CockpitCommand<BridgePayload> {
     super(CockpitCommandType.BRIDGE_COMMAND);
   }
 
-  public BridgeCommand(BridgePayload payload) {
+  public BridgeCommand(final String commandId, final BridgePayload payload) {
     this();
+    this.id = commandId;
     this.payload = payload;
   }
 }

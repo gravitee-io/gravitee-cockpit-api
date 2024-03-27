@@ -27,8 +27,12 @@ public class DisableOrganizationCommand
     super(CockpitCommandType.DISABLE_ORGANIZATION_COMMAND);
   }
 
-  public DisableOrganizationCommand(DisableOrganizationCommandPayload payload) {
+  public DisableOrganizationCommand(
+    final String commandId,
+    final DisableOrganizationCommandPayload payload
+  ) {
     this();
+    this.id = commandId;
     this.payload = payload;
   }
 }

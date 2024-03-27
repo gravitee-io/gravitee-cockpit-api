@@ -29,8 +29,12 @@ public class V4ApiCommand extends CockpitCommand<V4ApiCommandPayload> {
     super(CockpitCommandType.V4_API_COMMAND);
   }
 
-  public V4ApiCommand(V4ApiCommandPayload payload) {
+  public V4ApiCommand(
+    final String commandId,
+    final V4ApiCommandPayload payload
+  ) {
     this();
+    this.id = commandId;
     this.payload = payload;
   }
 }

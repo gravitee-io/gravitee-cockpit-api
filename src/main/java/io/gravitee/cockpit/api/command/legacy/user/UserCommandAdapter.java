@@ -32,6 +32,6 @@ public class UserCommandAdapter
   public Single<UserCommand> adapt(
     final io.gravitee.cockpit.api.command.v1.user.UserCommand command
   ) {
-    return Single.just(new UserCommand(command.getPayload()));
+    return Single.just(new UserCommand(command.getId(), command.getPayload()));
   }
 }

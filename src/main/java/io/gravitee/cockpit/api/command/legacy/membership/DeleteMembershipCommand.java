@@ -26,8 +26,12 @@ public class DeleteMembershipCommand
     super(CockpitCommandType.DELETE_MEMBERSHIP_COMMAND);
   }
 
-  public DeleteMembershipCommand(DeleteMembershipCommandPayload payload) {
+  public DeleteMembershipCommand(
+    final String commandId,
+    final DeleteMembershipCommandPayload payload
+  ) {
     this();
+    this.id = commandId;
     this.payload = payload;
   }
 }
