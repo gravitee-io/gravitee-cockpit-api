@@ -32,6 +32,8 @@ public class OrganizationCommandAdapter
   public Single<OrganizationCommand> adapt(
     final io.gravitee.cockpit.api.command.v1.organization.OrganizationCommand command
   ) {
-    return Single.just(new OrganizationCommand(command.getPayload()));
+    return Single.just(
+      new OrganizationCommand(command.getId(), command.getPayload())
+    );
   }
 }

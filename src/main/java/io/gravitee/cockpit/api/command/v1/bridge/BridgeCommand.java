@@ -17,6 +17,7 @@ package io.gravitee.cockpit.api.command.v1.bridge;
 
 import io.gravitee.cockpit.api.command.v1.CockpitCommand;
 import io.gravitee.cockpit.api.command.v1.CockpitCommandType;
+import io.gravitee.cockpit.api.command.v1.hello.HelloCommandPayload;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
@@ -34,6 +35,15 @@ public class BridgeCommand extends CockpitCommand<BridgeCommandPayload> {
 
   public BridgeCommand(final BridgeCommandPayload payload) {
     this();
+    this.payload = payload;
+  }
+
+  public BridgeCommand(
+    final String commandId,
+    final BridgeCommandPayload payload
+  ) {
+    this();
+    this.id = commandId;
     this.payload = payload;
   }
 }

@@ -32,6 +32,8 @@ public class EnvironmentCommandAdapter
   public Single<EnvironmentCommand> adapt(
     final io.gravitee.cockpit.api.command.v1.environment.EnvironmentCommand command
   ) {
-    return Single.just(new EnvironmentCommand(command.getPayload()));
+    return Single.just(
+      new EnvironmentCommand(command.getId(), command.getPayload())
+    );
   }
 }

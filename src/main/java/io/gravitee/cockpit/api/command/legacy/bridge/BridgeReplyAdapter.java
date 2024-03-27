@@ -49,7 +49,11 @@ public class BridgeReplyAdapter
               createSimpleReplyFrom(reply, bridgeReplyContent)
             )
             .toList();
-          return new BridgeMultiReply(simpleReplies);
+          return new BridgeMultiReply(
+            reply.getCommandId(),
+            reply.getCommandStatus(),
+            simpleReplies
+          );
         }
       }
       return new BridgeSimpleReply(
@@ -69,9 +73,10 @@ public class BridgeReplyAdapter
       reply.getCommandStatus(),
       reply.getErrorDetails()
     );
-    bridgeSimpleReply.setEnvironmentId(bridgeReplyContent.environmentId());
-    bridgeSimpleReply.setOrganizationId(bridgeReplyContent.organizationId());
-    bridgeSimpleReply.setPayloadAsString(bridgeReplyContent.content());
+    bridgeSimpleReply.setInstallationId(bridgeReplyContent.getInstallationId());
+    bridgeSimpleReply.setEnvironmentId(bridgeReplyContent.getEnvironmentId());
+    bridgeSimpleReply.setOrganizationId(bridgeReplyContent.getOrganizationId());
+    bridgeSimpleReply.setPayloadAsString(bridgeReplyContent.getContent());
     return bridgeSimpleReply;
   }
 }

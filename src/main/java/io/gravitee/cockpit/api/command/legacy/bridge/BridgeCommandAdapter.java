@@ -38,6 +38,7 @@ public class BridgeCommandAdapter
       BridgeCommandPayload commandPayload = command.getPayload();
 
       BridgeCommand bridgeCommand = new BridgeCommand(
+        command.getId(),
         new BridgePayload(commandPayload.content())
       );
       bridgeCommand.setTarget(commandPayload.target());

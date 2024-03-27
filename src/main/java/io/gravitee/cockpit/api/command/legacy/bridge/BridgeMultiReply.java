@@ -16,6 +16,7 @@
 package io.gravitee.cockpit.api.command.legacy.bridge;
 
 import io.gravitee.cockpit.api.command.legacy.CockpitReplyType;
+import io.gravitee.exchange.api.command.CommandStatus;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,11 +29,15 @@ public class BridgeMultiReply extends BridgeReply {
   private List<BridgeSimpleReply> replies;
 
   public BridgeMultiReply() {
-    this(new ArrayList<>());
+    this(null, null, new ArrayList<>());
   }
 
-  public BridgeMultiReply(List<BridgeSimpleReply> replies) {
-    super(CockpitReplyType.BRIDGE_MULTI_REPLY);
+  public BridgeMultiReply(
+    final String commandId,
+    final CommandStatus commandStatus,
+    final List<BridgeSimpleReply> replies
+  ) {
+    super(CockpitReplyType.BRIDGE_MULTI_REPLY, commandId, commandStatus);
     this.replies = replies;
   }
 

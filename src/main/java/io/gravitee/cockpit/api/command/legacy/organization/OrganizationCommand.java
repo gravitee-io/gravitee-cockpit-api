@@ -30,8 +30,12 @@ public class OrganizationCommand
     super(CockpitCommandType.ORGANIZATION_COMMAND);
   }
 
-  public OrganizationCommand(OrganizationCommandPayload payload) {
+  public OrganizationCommand(
+    final String commandId,
+    final OrganizationCommandPayload payload
+  ) {
     this();
+    this.id = commandId;
     this.payload = payload;
   }
 }

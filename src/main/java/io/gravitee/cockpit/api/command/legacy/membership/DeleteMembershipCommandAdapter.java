@@ -32,6 +32,8 @@ public class DeleteMembershipCommandAdapter
   public Single<DeleteMembershipCommand> adapt(
     final io.gravitee.cockpit.api.command.v1.membership.DeleteMembershipCommand command
   ) {
-    return Single.just(new DeleteMembershipCommand(command.getPayload()));
+    return Single.just(
+      new DeleteMembershipCommand(command.getId(), command.getPayload())
+    );
   }
 }

@@ -26,7 +26,8 @@ import io.gravitee.cockpit.api.command.v1.node.healthcheck.NodeHealthCheckComman
 public class HealthCheckCommand
   extends CockpitCommand<NodeHealthCheckCommandPayload> {
 
-  public HealthCheckCommand() {
+  public HealthCheckCommand(final String commandId) {
     super(CockpitCommandType.HEALTHCHECK_COMMAND);
+    this.id = commandId;
   }
 }

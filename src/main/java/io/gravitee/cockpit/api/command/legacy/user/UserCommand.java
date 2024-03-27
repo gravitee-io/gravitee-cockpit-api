@@ -29,8 +29,9 @@ public class UserCommand extends CockpitCommand<UserCommandPayload> {
     super(CockpitCommandType.USER_COMMAND);
   }
 
-  public UserCommand(UserCommandPayload payload) {
+  public UserCommand(final String commandId, final UserCommandPayload payload) {
     this();
+    this.id = commandId;
     this.payload = payload;
   }
 }

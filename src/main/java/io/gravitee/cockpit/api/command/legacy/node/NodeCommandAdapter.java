@@ -34,6 +34,7 @@ public class NodeCommandAdapter
   ) {
     return Single.just(
       new io.gravitee.cockpit.api.command.v1.node.NodeCommand(
+        command.getId(),
         command.getPayload()
       )
     );

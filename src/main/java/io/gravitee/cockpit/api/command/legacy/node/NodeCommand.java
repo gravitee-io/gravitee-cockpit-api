@@ -21,7 +21,8 @@ import io.gravitee.cockpit.api.command.v1.node.NodeCommandPayload;
 
 public class NodeCommand extends CockpitCommand<NodeCommandPayload> {
 
-  public NodeCommand() {
+  public NodeCommand(final String commandId) {
     super(CockpitCommandType.NODE_COMMAND);
+    this.id = commandId;
   }
 }

@@ -32,6 +32,8 @@ public class DisableEnvironmentCommandAdapter
   public Single<DisableEnvironmentCommand> adapt(
     final io.gravitee.cockpit.api.command.v1.environment.DisableEnvironmentCommand command
   ) {
-    return Single.just(new DisableEnvironmentCommand(command.getPayload()));
+    return Single.just(
+      new DisableEnvironmentCommand(command.getId(), command.getPayload())
+    );
   }
 }

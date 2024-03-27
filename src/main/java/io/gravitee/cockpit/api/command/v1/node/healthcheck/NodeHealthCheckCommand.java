@@ -18,6 +18,7 @@ package io.gravitee.cockpit.api.command.v1.node.healthcheck;
 import io.gravitee.cockpit.api.command.v1.CockpitCommand;
 import io.gravitee.cockpit.api.command.v1.CockpitCommandType;
 import io.gravitee.cockpit.api.command.v1.environment.EnvironmentCommandPayload;
+import io.gravitee.cockpit.api.command.v1.node.NodeCommandPayload;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
@@ -34,8 +35,17 @@ public class NodeHealthCheckCommand
     super(CockpitCommandType.NODE_HEALTHCHECK);
   }
 
-  public NodeHealthCheckCommand(NodeHealthCheckCommandPayload payload) {
+  public NodeHealthCheckCommand(final NodeHealthCheckCommandPayload payload) {
     this();
+    this.payload = payload;
+  }
+
+  public NodeHealthCheckCommand(
+    final String commandId,
+    final NodeHealthCheckCommandPayload payload
+  ) {
+    this();
+    this.id = commandId;
     this.payload = payload;
   }
 }

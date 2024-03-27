@@ -38,16 +38,18 @@ public class HelloReplyAdapter
         reply.getCommandStatus()
       );
       helloReply.setMessage(reply.getErrorDetails());
-      helloReply.setInstallationId(reply.getPayload().getInstallationId());
-      helloReply.setInstallationStatus(
-        reply.getPayload().getInstallationStatus()
-      );
-      helloReply.setDefaultEnvironmentCockpitId(
-        reply.getPayload().getDefaultEnvironmentCockpitId()
-      );
-      helloReply.setDefaultOrganizationCockpitId(
-        reply.getPayload().getDefaultOrganizationCockpitId()
-      );
+      if (reply.getPayload() != null) {
+        helloReply.setInstallationId(reply.getPayload().getInstallationId());
+        helloReply.setInstallationStatus(
+          reply.getPayload().getInstallationStatus()
+        );
+        helloReply.setDefaultEnvironmentCockpitId(
+          reply.getPayload().getDefaultEnvironmentCockpitId()
+        );
+        helloReply.setDefaultOrganizationCockpitId(
+          reply.getPayload().getDefaultOrganizationCockpitId()
+        );
+      }
       return helloReply;
     });
   }

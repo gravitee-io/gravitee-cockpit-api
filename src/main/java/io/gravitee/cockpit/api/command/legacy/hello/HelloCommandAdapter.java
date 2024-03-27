@@ -36,6 +36,7 @@ public class HelloCommandAdapter
     return Single.fromCallable(() -> {
       HelloCommandPayload legacyPayload = command.getPayload();
       return new io.gravitee.cockpit.api.command.v1.hello.HelloCommand(
+        command.getId(),
         HelloCommandPayload
           .builder()
           .node(legacyPayload.getNode())

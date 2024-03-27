@@ -33,8 +33,17 @@ public class HelloCommand extends CockpitCommand<HelloCommandPayload> {
     super(CockpitCommandType.HELLO);
   }
 
-  public HelloCommand(HelloCommandPayload payload) {
+  public HelloCommand(final HelloCommandPayload payload) {
     this();
+    this.payload = payload;
+  }
+
+  public HelloCommand(
+    final String commandId,
+    final HelloCommandPayload payload
+  ) {
+    this();
+    this.id = commandId;
     this.payload = payload;
   }
 }

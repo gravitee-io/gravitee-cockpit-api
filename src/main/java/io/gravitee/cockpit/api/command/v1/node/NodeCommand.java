@@ -17,6 +17,7 @@ package io.gravitee.cockpit.api.command.v1.node;
 
 import io.gravitee.cockpit.api.command.v1.CockpitCommand;
 import io.gravitee.cockpit.api.command.v1.CockpitCommandType;
+import io.gravitee.cockpit.api.command.v1.hello.HelloCommandPayload;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
@@ -32,8 +33,14 @@ public class NodeCommand extends CockpitCommand<NodeCommandPayload> {
     super(CockpitCommandType.NODE);
   }
 
-  public NodeCommand(NodeCommandPayload payload) {
+  public NodeCommand(final NodeCommandPayload payload) {
     this();
+    this.payload = payload;
+  }
+
+  public NodeCommand(final String commandId, final NodeCommandPayload payload) {
+    this();
+    this.id = commandId;
     this.payload = payload;
   }
 }
