@@ -40,7 +40,12 @@ public class BridgeLegacyCommandAdapter
         .environmentId(command.getEnvironmentId())
         .operation(command.getOperation())
         .organizationId(command.getOrganizationId())
-        .content(command.getPayload().getContent())
+        .content(
+          command.getPayload() != null
+            ? command.getPayload().getContent()
+            : null
+        )
+        .installationId(command.getInstallationId())
         .timeoutMillis(command.getTimeoutMillis())
         .build();
       return new io.gravitee.cockpit.api.command.v1.bridge.BridgeCommand(
