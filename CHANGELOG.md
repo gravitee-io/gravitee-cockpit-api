@@ -1,3 +1,11 @@
+## [3.0.4](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.3...3.0.4) (2024-03-28)
+
+
+### Bug Fixes
+
+* add missing command id when adapting legacy to v1 ([d3e157b](https://github.com/gravitee-io/gravitee-cockpit-api/commit/d3e157b39f10e9672d758d08920c18d3bbb0a864))
+* promote API failing ([6b9e84a](https://github.com/gravitee-io/gravitee-cockpit-api/commit/6b9e84a09ad4c913b33018c080dada4873eda727))
+
 ## [3.0.3](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.2...3.0.3) (2024-03-27)
 
 
