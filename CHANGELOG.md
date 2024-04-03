@@ -1,3 +1,10 @@
+## [3.0.8](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.7...3.0.8) (2024-04-03)
+
+
+### Bug Fixes
+
+* add missing empty constructor on legacy command ([40c58ae](https://github.com/gravitee-io/gravitee-cockpit-api/commit/40c58ae3359edfde81926b1fa51b447c30a00a44))
+
 ## [3.0.7](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.6...3.0.7) (2024-04-03)
 
 
