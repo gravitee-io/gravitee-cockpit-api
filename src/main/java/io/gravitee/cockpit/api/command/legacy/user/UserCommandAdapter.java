@@ -30,6 +30,7 @@ public class UserCommandAdapter
 
   @Override
   public Single<UserCommand> adapt(
+    final String targetId,
     final io.gravitee.cockpit.api.command.v1.user.UserCommand command
   ) {
     return Single.just(new UserCommand(command.getId(), command.getPayload()));

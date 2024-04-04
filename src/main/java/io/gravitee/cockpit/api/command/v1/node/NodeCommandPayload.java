@@ -23,7 +23,7 @@ import lombok.Builder;
  * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
  * @author GraviteeSource Team
  */
-@Builder
+@Builder(toBuilder = true)
 public record NodeCommandPayload(
   /*
    * The node ID

@@ -32,6 +32,7 @@ public class BridgeReplyAdapter
 
   @Override
   public Single<BridgeReply> adapt(
+    final String targetId,
     final io.gravitee.cockpit.api.command.v1.bridge.BridgeReply reply
   ) {
     return Single.fromCallable(() -> {

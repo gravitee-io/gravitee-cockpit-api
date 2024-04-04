@@ -30,6 +30,7 @@ public class HelloReplyAdapter
 
   @Override
   public Single<HelloReply> adapt(
+    final String targetId,
     final io.gravitee.cockpit.api.command.v1.hello.HelloReply reply
   ) {
     return Single.fromCallable(() -> {

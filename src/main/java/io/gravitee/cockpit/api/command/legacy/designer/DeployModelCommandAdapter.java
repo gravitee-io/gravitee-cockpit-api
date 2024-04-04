@@ -30,6 +30,7 @@ public class DeployModelCommandAdapter
 
   @Override
   public Single<DeployModelCommand> adapt(
+    final String targetId,
     final io.gravitee.cockpit.api.command.v1.designer.DeployModelCommand command
   ) {
     return Single.just(

@@ -31,6 +31,7 @@ public class EnvironmentReplyAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.environment.EnvironmentReply> adapt(
+    final String targetId,
     final EnvironmentReply reply
   ) {
     return Single.fromCallable(() -> {

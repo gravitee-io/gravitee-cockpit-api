@@ -31,6 +31,7 @@ public class MembershipReplyAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.membership.MembershipReply> adapt(
+    final String targetId,
     final MembershipReply reply
   ) {
     return Single.fromCallable(() -> {

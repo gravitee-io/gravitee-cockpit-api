@@ -30,6 +30,7 @@ public class HealthCheckCommandAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.node.healthcheck.NodeHealthCheckCommand> adapt(
+    final String targetId,
     final HealthCheckCommand command
   ) {
     return Single.just(

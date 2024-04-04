@@ -30,6 +30,7 @@ public class DeleteMembershipCommandAdapter
 
   @Override
   public Single<DeleteMembershipCommand> adapt(
+    final String targetId,
     final io.gravitee.cockpit.api.command.v1.membership.DeleteMembershipCommand command
   ) {
     return Single.just(

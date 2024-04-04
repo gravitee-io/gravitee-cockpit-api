@@ -30,6 +30,7 @@ public class NodeReplyAdapter
 
   @Override
   public Single<NodeReply> adapt(
+    final String targetId,
     final io.gravitee.cockpit.api.command.v1.node.NodeReply reply
   ) {
     return Single.fromCallable(() -> {

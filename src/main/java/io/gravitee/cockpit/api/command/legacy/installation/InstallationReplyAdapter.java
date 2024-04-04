@@ -31,6 +31,7 @@ public class InstallationReplyAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.installation.InstallationReply> adapt(
+    final String targetId,
     final InstallationReply reply
   ) {
     return Single.fromCallable(() -> {

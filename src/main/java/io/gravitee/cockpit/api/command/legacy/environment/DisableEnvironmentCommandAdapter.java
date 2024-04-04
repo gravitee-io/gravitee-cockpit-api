@@ -30,6 +30,7 @@ public class DisableEnvironmentCommandAdapter
 
   @Override
   public Single<DisableEnvironmentCommand> adapt(
+    final String targetId,
     final io.gravitee.cockpit.api.command.v1.environment.DisableEnvironmentCommand command
   ) {
     return Single.just(

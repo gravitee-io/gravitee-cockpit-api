@@ -30,12 +30,13 @@ public class NodeCommandAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.node.NodeCommand> adapt(
+    final String targetId,
     final NodeCommand command
   ) {
     return Single.just(
       new io.gravitee.cockpit.api.command.v1.node.NodeCommand(
         command.getId(),
-        command.getPayload()
+        command.getPayload().toBuilder().installationId(targetId).build()
       )
     );
   }

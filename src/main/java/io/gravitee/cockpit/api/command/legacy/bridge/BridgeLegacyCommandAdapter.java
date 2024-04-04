@@ -31,6 +31,7 @@ public class BridgeLegacyCommandAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.bridge.BridgeCommand> adapt(
+    final String targetId,
     final BridgeCommand command
   ) {
     return Single.fromCallable(() -> {

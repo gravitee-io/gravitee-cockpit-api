@@ -31,6 +31,7 @@ public class UnlinkInstallationReplyAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.installation.UnlinkInstallationReply> adapt(
+    final String targetId,
     final UnlinkInstallationReply reply
   ) {
     return Single.fromCallable(() -> {
