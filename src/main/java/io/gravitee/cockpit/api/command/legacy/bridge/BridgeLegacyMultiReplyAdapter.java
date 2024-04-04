@@ -32,6 +32,7 @@ public class BridgeLegacyMultiReplyAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.bridge.BridgeReply> adapt(
+    final String targetId,
     final BridgeMultiReply reply
   ) {
     return Single.fromCallable(() -> {

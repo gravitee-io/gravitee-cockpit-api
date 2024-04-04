@@ -31,6 +31,7 @@ public class DisableEnvironmentReplyAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.environment.DisableEnvironmentReply> adapt(
+    final String targetId,
     final DisableEnvironmentReply reply
   ) {
     return Single.fromCallable(() -> {

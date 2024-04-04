@@ -30,6 +30,7 @@ public class DisableOrganizationCommandAdapter
 
   @Override
   public Single<DisableOrganizationCommand> adapt(
+    final String targetId,
     final io.gravitee.cockpit.api.command.v1.organization.DisableOrganizationCommand command
   ) {
     return Single.just(

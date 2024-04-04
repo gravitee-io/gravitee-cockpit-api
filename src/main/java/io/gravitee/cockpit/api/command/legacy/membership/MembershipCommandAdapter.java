@@ -30,6 +30,7 @@ public class MembershipCommandAdapter
 
   @Override
   public Single<MembershipCommand> adapt(
+    final String targetId,
     final io.gravitee.cockpit.api.command.v1.membership.MembershipCommand command
   ) {
     return Single.just(

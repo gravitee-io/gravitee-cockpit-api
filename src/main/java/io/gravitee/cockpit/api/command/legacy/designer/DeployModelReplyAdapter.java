@@ -31,6 +31,7 @@ public class DeployModelReplyAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.designer.DeployModelReply> adapt(
+    final String targetId,
     final DeployModelReply reply
   ) {
     return Single.fromCallable(() -> {

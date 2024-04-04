@@ -30,6 +30,7 @@ public class V4ApiCommandAdapter
 
   @Override
   public Single<V4ApiCommand> adapt(
+    final String targetId,
     final io.gravitee.cockpit.api.command.v1.v4api.V4ApiCommand command
   ) {
     return Single.just(new V4ApiCommand(command.getId(), command.getPayload()));

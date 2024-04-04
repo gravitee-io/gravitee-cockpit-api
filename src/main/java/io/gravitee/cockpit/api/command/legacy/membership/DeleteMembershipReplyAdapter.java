@@ -31,6 +31,7 @@ public class DeleteMembershipReplyAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.membership.DeleteMembershipReply> adapt(
+    final String targetId,
     final DeleteMembershipReply reply
   ) {
     return Single.fromCallable(() -> {

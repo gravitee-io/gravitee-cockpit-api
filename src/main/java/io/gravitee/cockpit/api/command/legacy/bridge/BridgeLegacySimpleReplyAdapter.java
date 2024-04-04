@@ -32,6 +32,7 @@ public class BridgeLegacySimpleReplyAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.bridge.BridgeReply> adapt(
+    final String targetId,
     final BridgeSimpleReply reply
   ) {
     return Single.just(

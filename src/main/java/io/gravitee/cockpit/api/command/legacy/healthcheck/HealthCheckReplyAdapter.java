@@ -30,6 +30,7 @@ public class HealthCheckReplyAdapter
 
   @Override
   public Single<HealthCheckReply> adapt(
+    final String targetId,
     final io.gravitee.cockpit.api.command.v1.node.healthcheck.NodeHealthCheckReply reply
   ) {
     return Single.fromCallable(() -> {

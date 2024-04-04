@@ -32,6 +32,7 @@ public class V4ApiReplyAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.v4api.V4ApiReply> adapt(
+    final String targetId,
     final V4ApiReply reply
   ) {
     return Single.fromCallable(() -> {

@@ -31,6 +31,7 @@ public class DisableOrganizationReplyAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.organization.DisableOrganizationReply> adapt(
+    final String targetId,
     final DisableOrganizationReply reply
   ) {
     return Single.fromCallable(() -> {

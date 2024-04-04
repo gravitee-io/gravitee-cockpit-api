@@ -31,6 +31,7 @@ public class HelloCommandAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.hello.HelloCommand> adapt(
+    final String targetId,
     final HelloCommand command
   ) {
     return Single.fromCallable(() -> {

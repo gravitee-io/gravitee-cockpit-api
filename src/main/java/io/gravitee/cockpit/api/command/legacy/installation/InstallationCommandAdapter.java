@@ -30,6 +30,7 @@ public class InstallationCommandAdapter
 
   @Override
   public Single<InstallationCommand> adapt(
+    final String targetId,
     final io.gravitee.cockpit.api.command.v1.installation.InstallationCommand command
   ) {
     return Single.just(

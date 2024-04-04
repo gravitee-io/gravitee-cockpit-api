@@ -32,6 +32,7 @@ public class UserReplyAdapter
 
   @Override
   public Single<io.gravitee.cockpit.api.command.v1.user.UserReply> adapt(
+    final String targetId,
     final UserReply reply
   ) {
     return Single.fromCallable(() -> {
