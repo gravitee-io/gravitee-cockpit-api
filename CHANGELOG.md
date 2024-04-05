@@ -1,3 +1,10 @@
+## [3.0.11](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.10...3.0.11) (2024-04-05)
+
+
+### Bug Fixes
+
+* add missing installation id from legacy node command ([44beb7c](https://github.com/gravitee-io/gravitee-cockpit-api/commit/44beb7c9385aae3d09ca4b282fc155f4e9a03d4e))
+
 ## [3.0.10](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.9...3.0.10) (2024-04-05)
 
 
