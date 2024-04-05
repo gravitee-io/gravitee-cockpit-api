@@ -1,3 +1,10 @@
+## [3.0.12](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.11...3.0.12) (2024-04-05)
+
+
+### Bug Fixes
+
+* add missing installation id on node healthcheck adapter ([23abb9d](https://github.com/gravitee-io/gravitee-cockpit-api/commit/23abb9d5223728b20e1ca160ab4f69ba77aba665))
+
 ## [3.0.11](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.10...3.0.11) (2024-04-05)
 
 
