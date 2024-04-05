@@ -36,7 +36,7 @@ public class HealthCheckCommandAdapter
     return Single.just(
       new io.gravitee.cockpit.api.command.v1.node.healthcheck.NodeHealthCheckCommand(
         command.getId(),
-        command.getPayload()
+        command.getPayload().toBuilder().installationId(targetId).build()
       )
     );
   }
