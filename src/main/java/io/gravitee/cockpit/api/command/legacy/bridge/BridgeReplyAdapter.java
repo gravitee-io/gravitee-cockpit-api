@@ -17,6 +17,7 @@ package io.gravitee.cockpit.api.command.legacy.bridge;
 
 import io.gravitee.cockpit.api.command.v1.CockpitCommandType;
 import io.gravitee.cockpit.api.command.v1.bridge.BridgeReplyPayload;
+import io.gravitee.exchange.api.command.CommandStatus;
 import io.gravitee.exchange.api.command.ReplyAdapter;
 import io.reactivex.rxjava3.core.Single;
 import java.util.List;
@@ -69,11 +70,17 @@ public class BridgeReplyAdapter
     final io.gravitee.cockpit.api.command.v1.bridge.BridgeReply reply,
     final BridgeReplyPayload.BridgeReplyContent bridgeReplyContent
   ) {
-    BridgeSimpleReply bridgeSimpleReply = new BridgeSimpleReply(
-      reply.getCommandId(),
-      reply.getCommandStatus(),
-      reply.getErrorDetails()
-    );
+    BridgeSimpleReply bridgeSimpleReply;
+    if (bridgeReplyContent.isError()) {
+      bridgeSimpleReply =
+        new BridgeSimpleReply(
+          reply.getCommandId(),
+          CommandStatus.ERROR,
+          "Unable to build to Bridge Reply"
+        );
+    } else {
+      bridgeSimpleReply = new BridgeSimpleReply(reply.getCommandId());
+    }
     bridgeSimpleReply.setInstallationId(bridgeReplyContent.getInstallationId());
     bridgeSimpleReply.setEnvironmentId(bridgeReplyContent.getEnvironmentId());
     bridgeSimpleReply.setOrganizationId(bridgeReplyContent.getOrganizationId());

@@ -58,6 +58,14 @@ public class BridgeSimpleReply extends BridgeReply {
     this(commandId, commandStatus, null);
   }
 
+  public BridgeSimpleReply(String commandId) {
+    super(
+      CockpitReplyType.BRIDGE_SIMPLE_REPLY,
+      commandId,
+      CommandStatus.SUCCEEDED
+    );
+  }
+
   public BridgeSimpleReply(
     String commandId,
     CommandStatus commandStatus,
