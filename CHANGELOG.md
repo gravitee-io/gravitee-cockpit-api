@@ -1,3 +1,11 @@
+## [3.0.17](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.16...3.0.17) (2024-04-12)
+
+
+### Bug Fixes
+
+* add single target boolean on bridge command ([4eafc5e](https://github.com/gravitee-io/gravitee-cockpit-api/commit/4eafc5e9f3b15f6d624212e28901506f8edd5555))
+* create an error simple reply in case of bridge reply in error ([f26a9fc](https://github.com/gravitee-io/gravitee-cockpit-api/commit/f26a9fc06af5199834f62f54b8827363572e0a72))
+
 ## [3.0.16](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.15...3.0.16) (2024-04-12)
 
 
