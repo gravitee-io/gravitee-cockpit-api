@@ -18,6 +18,7 @@ package io.gravitee.cockpit.api.command.legacy.bridge;
 import io.gravitee.cockpit.api.command.legacy.CockpitReplyType;
 import io.gravitee.cockpit.api.command.v1.bridge.BridgeReply;
 import io.gravitee.cockpit.api.command.v1.bridge.BridgeReplyPayload;
+import io.gravitee.exchange.api.command.CommandStatus;
 import io.gravitee.exchange.api.command.ReplyAdapter;
 import io.reactivex.rxjava3.core.Single;
 import java.util.List;
@@ -46,12 +47,13 @@ public class BridgeLegacyMultiReplyAdapter
             .organizationId(bridgeSimpleReply.getOrganizationId())
             .installationId(bridgeSimpleReply.getInstallationId())
             .content(bridgeSimpleReply.getPayloadAsString())
+            .error(bridgeSimpleReply.getCommandStatus() == CommandStatus.ERROR)
             .build()
         )
         .toList();
       return new io.gravitee.cockpit.api.command.v1.bridge.BridgeReply(
         reply.getCommandId(),
-        new BridgeReplyPayload(contents)
+        new BridgeReplyPayload(false, contents)
       );
     });
   }

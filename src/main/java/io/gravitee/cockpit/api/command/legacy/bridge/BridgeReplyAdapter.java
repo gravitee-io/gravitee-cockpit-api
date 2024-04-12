@@ -38,12 +38,16 @@ public class BridgeReplyAdapter
   ) {
     return Single.fromCallable(() -> {
       BridgeReplyPayload replyPayload = reply.getPayload();
-      if (replyPayload.contents() != null) {
-        if (replyPayload.contents().size() == 1) {
+      if (
+        replyPayload != null &&
+        replyPayload.contents() != null &&
+        !replyPayload.contents().isEmpty()
+      ) {
+        if (replyPayload.singleTarget()) {
           BridgeReplyPayload.BridgeReplyContent bridgeReplyContent =
             replyPayload.contents().get(0);
           return createSimpleReplyFrom(reply, bridgeReplyContent);
-        } else if (replyPayload.contents().size() > 1) {
+        } else {
           List<BridgeSimpleReply> simpleReplies = replyPayload
             .contents()
             .stream()
