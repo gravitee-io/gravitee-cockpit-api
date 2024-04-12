@@ -21,14 +21,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.Accessors;
 
 /**
  * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
  * @author GraviteeSource Team
  */
-public record BridgeReplyPayload(List<BridgeReplyContent> contents)
+public record BridgeReplyPayload(
+  boolean singleTarget,
+  List<BridgeReplyContent> contents
+)
   implements Payload {
   @Builder
   @AllArgsConstructor
