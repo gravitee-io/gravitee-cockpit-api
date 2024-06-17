@@ -1,3 +1,10 @@
+## [3.0.31](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.30...3.0.31) (2024-06-17)
+
+
+### Bug Fixes
+
+* **deps:** upgrade gravitee dependencies ([c89a6a6](https://github.com/gravitee-io/gravitee-cockpit-api/commit/c89a6a6e7c92f6be90e1a843e6daf1acbb121d1d))
+
 ## [3.0.30](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.29...3.0.30) (2024-06-10)
 
 
