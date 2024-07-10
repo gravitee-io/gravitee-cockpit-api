@@ -16,6 +16,11 @@
 package io.gravitee.cockpit.api.command.websocket;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.gravitee.cockpit.api.command.v1.CockpitCommandType;
+import io.gravitee.cockpit.api.command.v1.scoring.request.ScoringRequestCommand;
+import io.gravitee.cockpit.api.command.v1.scoring.request.ScoringRequestReply;
+import io.gravitee.cockpit.api.command.v1.scoring.response.ScoringResponseCommand;
+import io.gravitee.cockpit.api.command.v1.scoring.response.ScoringResponseReply;
 import io.gravitee.exchange.api.command.Command;
 import io.gravitee.exchange.api.command.Reply;
 import io.gravitee.exchange.api.websocket.command.DefaultExchangeSerDe;
@@ -161,6 +166,14 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.V4_API.name(),
       io.gravitee.cockpit.api.command.v1.v4api.V4ApiCommand.class
     );
+    COMMAND_TYPES.put(
+      CockpitCommandType.SCORING_REQUEST.name(),
+      ScoringRequestCommand.class
+    );
+    COMMAND_TYPES.put(
+      CockpitCommandType.SCORING_RESPONSE.name(),
+      ScoringResponseCommand.class
+    );
 
     // Legacy
     REPLY_TYPES.put(
@@ -288,6 +301,14 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.V4_API.name(),
       io.gravitee.cockpit.api.command.v1.v4api.V4ApiReply.class
+    );
+    REPLY_TYPES.put(
+      CockpitCommandType.SCORING_REQUEST.name(),
+      ScoringRequestReply.class
+    );
+    REPLY_TYPES.put(
+      CockpitCommandType.SCORING_RESPONSE.name(),
+      ScoringResponseReply.class
     );
   }
 
