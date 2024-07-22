@@ -1,3 +1,10 @@
+## [3.0.41](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.40...3.0.41) (2024-07-22)
+
+
+### Bug Fixes
+
+* bump exchange framework version ([d0bdd3b](https://github.com/gravitee-io/gravitee-cockpit-api/commit/d0bdd3ba21aacc49c76784f5be91ccceb5a811c9))
+
 ## [3.0.40](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.39...3.0.40) (2024-07-17)
 
 
