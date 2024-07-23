@@ -1,3 +1,10 @@
+## [3.0.44](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.43...3.0.44) (2024-07-23)
+
+
+### Bug Fixes
+
+* **deps:** update io.gravitee.exchange:gravitee-exchange-api to v1.7.2 ([0963558](https://github.com/gravitee-io/gravitee-cockpit-api/commit/096355833b04c7a0404d90a9321762578526b5ef))
+
 ## [3.0.43](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.42...3.0.43) (2024-07-22)
 
 
