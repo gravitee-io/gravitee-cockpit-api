@@ -1,3 +1,10 @@
+## [3.0.47](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.46...3.0.47) (2024-07-25)
+
+
+### Bug Fixes
+
+* bump exchange framework to 1.8.0 ([9608f71](https://github.com/gravitee-io/gravitee-cockpit-api/commit/9608f7151f93998d98e53ce5dd369575598a9ecf))
+
 ## [3.0.46](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.45...3.0.46) (2024-07-23)
 
 
