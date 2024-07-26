@@ -1,3 +1,10 @@
+## [3.0.48](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.47...3.0.48) (2024-07-26)
+
+
+### Bug Fixes
+
+* bump gravitee node to 6.0.3 ([8e3f696](https://github.com/gravitee-io/gravitee-cockpit-api/commit/8e3f6969f8678ec136d85eb72e1f8b22136f8bab))
+
 ## [3.0.47](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.46...3.0.47) (2024-07-25)
 
 
