@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api.command.v1.environment;
+package io.gravitee.cockpit.api.command.v1.organization;
 
 import io.gravitee.exchange.api.command.Payload;
 import lombok.Builder;
 
 @Builder
-public record DeleteEnvironmentCommandPayload(
+public record DeleteOrganizationCommandPayload(
   String id,
   String cockpitId,
   String userId
