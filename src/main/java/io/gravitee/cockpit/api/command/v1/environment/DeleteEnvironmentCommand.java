@@ -13,29 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api.command.v1;
+package io.gravitee.cockpit.api.command.v1.environment;
 
-/**
- * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
- * @author GraviteeSource Team
- */
-public enum CockpitCommandType {
-  BRIDGE,
-  SCORING_REQUEST,
-  SCORING_RESPONSE,
-  DEPLOY_MODEL,
-  DELETE_MEMBERSHIP,
-  DELETE_ENVIRONMENT,
-  DISABLE_ENVIRONMENT,
-  DISABLE_ORGANIZATION,
-  ENVIRONMENT,
-  HELLO,
-  INSTALLATION,
-  MEMBERSHIP,
-  NODE,
-  NODE_HEALTHCHECK,
-  ORGANIZATION,
-  USER,
-  UNLINK_INSTALLATION,
-  V4_API,
+import io.gravitee.cockpit.api.command.v1.CockpitCommand;
+import io.gravitee.cockpit.api.command.v1.CockpitCommandType;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
+public class DeleteEnvironmentCommand
+  extends CockpitCommand<DeleteEnvironmentCommandPayload> {
+
+  public DeleteEnvironmentCommand() {
+    super(CockpitCommandType.DELETE_ENVIRONMENT);
+  }
+
+  public DeleteEnvironmentCommand(
+    final DeleteEnvironmentCommandPayload payload
+  ) {
+    this();
+    this.payload = payload;
+  }
 }
