@@ -174,6 +174,10 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
       CockpitCommandType.SCORING_RESPONSE.name(),
       ScoringResponseCommand.class
     );
+    COMMAND_TYPES.put(
+      io.gravitee.cockpit.api.command.v1.CockpitCommandType.DELETE_ENVIRONMENT.name(),
+      io.gravitee.cockpit.api.command.v1.environment.DeleteEnvironmentCommand.class
+    );
 
     // Legacy
     REPLY_TYPES.put(
@@ -309,6 +313,10 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     REPLY_TYPES.put(
       CockpitCommandType.SCORING_RESPONSE.name(),
       ScoringResponseReply.class
+    );
+    REPLY_TYPES.put(
+      io.gravitee.cockpit.api.command.v1.CockpitCommandType.DELETE_ENVIRONMENT.name(),
+      io.gravitee.cockpit.api.command.v1.environment.DeleteEnvironmentReply.class
     );
   }
 
