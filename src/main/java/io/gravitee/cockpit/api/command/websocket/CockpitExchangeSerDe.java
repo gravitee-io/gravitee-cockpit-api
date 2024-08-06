@@ -161,6 +161,14 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.V4_API.name(),
       io.gravitee.cockpit.api.command.v1.v4api.V4ApiCommand.class
     );
+    COMMAND_TYPES.put(
+      io.gravitee.cockpit.api.command.v1.CockpitCommandType.DELETE_ENVIRONMENT.name(),
+      io.gravitee.cockpit.api.command.v1.environment.DeleteEnvironmentCommand.class
+    );
+    COMMAND_TYPES.put(
+      io.gravitee.cockpit.api.command.v1.CockpitCommandType.DELETE_ORGANIZATION.name(),
+      io.gravitee.cockpit.api.command.v1.organization.DeleteOrganizationCommand.class
+    );
 
     // Legacy
     REPLY_TYPES.put(
@@ -288,6 +296,14 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.V4_API.name(),
       io.gravitee.cockpit.api.command.v1.v4api.V4ApiReply.class
+    );
+    REPLY_TYPES.put(
+      io.gravitee.cockpit.api.command.v1.CockpitCommandType.DELETE_ENVIRONMENT.name(),
+      io.gravitee.cockpit.api.command.v1.environment.DeleteEnvironmentReply.class
+    );
+    REPLY_TYPES.put(
+      io.gravitee.cockpit.api.command.v1.CockpitCommandType.DELETE_ORGANIZATION.name(),
+      io.gravitee.cockpit.api.command.v1.organization.DeleteOrganizationReply.class
     );
   }
 
