@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.54...3.1.0) (2024-08-20)
+
+
+### Features
+
+* add scoring service request and response command ([0a37eba](https://github.com/gravitee-io/gravitee-cockpit-api/commit/0a37ebad043a54e11f945410240d3de579d1a17e))
+
 ## [3.0.54](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.0.53...3.0.54) (2024-08-19)
 
 
