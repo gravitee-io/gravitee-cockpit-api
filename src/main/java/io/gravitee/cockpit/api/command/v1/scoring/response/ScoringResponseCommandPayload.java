@@ -13,28 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api.command.v1;
+package io.gravitee.cockpit.api.command.v1.scoring.response;
 
-/**
- * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
- * @author GraviteeSource Team
- */
-public enum CockpitCommandType {
-  BRIDGE,
-  SCORING_REQUEST,
-  SCORING_RESPONSE,
-  DEPLOY_MODEL,
-  DELETE_MEMBERSHIP,
-  DISABLE_ORGANIZATION,
-  DISABLE_ENVIRONMENT,
-  ENVIRONMENT,
-  HELLO,
-  INSTALLATION,
-  MEMBERSHIP,
-  NODE,
-  NODE_HEALTHCHECK,
-  ORGANIZATION,
-  USER,
-  UNLINK_INSTALLATION,
-  V4_API,
-}
+import io.gravitee.exchange.api.command.Payload;
+import io.gravitee.scoring.api.model.ScoringResult;
+
+public record ScoringResponseCommandPayload(
+  String correlationId,
+  String organizationId,
+  String environmentId,
+  ScoringResult result
+)
+  implements Payload {}
