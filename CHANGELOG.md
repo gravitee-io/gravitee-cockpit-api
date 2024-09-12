@@ -1,3 +1,11 @@
+# [3.2.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.1.4...3.2.0) (2024-09-12)
+
+
+### Features
+
+* add delete environment command ([7835f2f](https://github.com/gravitee-io/gravitee-cockpit-api/commit/7835f2f3da943e9c01174a9fc7a47bc714642bc2))
+* add delete organization command ([f37ab48](https://github.com/gravitee-io/gravitee-cockpit-api/commit/f37ab4861a0c6bab66349e5b040f10679143bfff))
+
 ## [3.1.4](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.1.3...3.1.4) (2024-09-04)
 
 
