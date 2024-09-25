@@ -1,3 +1,10 @@
+## [3.2.3](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.2.2...3.2.3) (2024-09-25)
+
+
+### Bug Fixes
+
+* **deps:** update gravitee-scoring-api to 0.3.0 ([d2cca50](https://github.com/gravitee-io/gravitee-cockpit-api/commit/d2cca500e5d22b308ddd44e82606bf53756bacaf))
+
 ## [3.2.2](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.2.1...3.2.2) (2024-09-17)
 
 
