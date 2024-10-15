@@ -39,6 +39,7 @@
         <gravitee-alert-api.version>2.0.0</gravitee-alert-api.version>
         <gravitee-exchange.version>1.8.2</gravitee-exchange.version>
         <gravitee-scoring-api.version>0.3.0</gravitee-scoring-api.version>
+        <gravitee-spec-gen-api.version>1.0.0-feat-SAT-88-SNAPSHOT</gravitee-spec-gen-api.version>
     </properties>
 
     <dependencyManagement>
@@ -80,6 +81,13 @@
             <groupId>io.gravitee.scoring</groupId>
             <artifactId>gravitee-scoring-api</artifactId>
             <version>${gravitee-scoring-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gravitee.spec.gen.api</groupId>
+            <artifactId>gravitee-spec-gen-api</artifactId>
+            <version>${gravitee-spec-gen-api.version}</version>
             <scope>provided</scope>
         </dependency>
 

@@ -13,32 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api.command.v1;
+package io.gravitee.cockpit.api.command.v1.specgen;
 
-/**
- * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
- * @author GraviteeSource Team
- */
-public enum CockpitCommandType {
-  BRIDGE,
-  SCORING_REQUEST,
-  SCORING_RESPONSE,
-  DEPLOY_MODEL,
-  DELETE_MEMBERSHIP,
-  DELETE_ENVIRONMENT,
-  DELETE_ORGANIZATION,
-  DISABLE_ENVIRONMENT,
-  DISABLE_ORGANIZATION,
-  ENVIRONMENT,
-  HELLO,
-  INSTALLATION,
-  MEMBERSHIP,
-  NODE,
-  NODE_HEALTHCHECK,
-  ORGANIZATION,
-  USER,
-  UNLINK_INSTALLATION,
-  V4_API,
-  SPEC_GEN_REQUEST,
-  SPEC_GEN_RESPONSE,
-}
+import io.gravitee.exchange.api.command.Payload;
+
+public record SpecGenCommandPayload<T>(
+  String correlationId,
+  String organizationId,
+  String environmentId,
+  String installationId,
+  T payload
+)
+  implements Payload {}
