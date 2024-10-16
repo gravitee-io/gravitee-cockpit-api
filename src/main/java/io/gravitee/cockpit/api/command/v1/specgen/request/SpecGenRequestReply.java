@@ -22,8 +22,12 @@ import io.gravitee.exchange.api.command.CommandStatus;
 import io.gravitee.exchange.api.command.Payload;
 import io.gravitee.spec.gen.api.SpecGenRequestState;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 @EqualsAndHashCode(callSuper = true)
+@Getter
+@Setter
 public class SpecGenRequestReply
   extends CockpitReply<SpecGenReplyPayload<SpecGenRequestState>> {
 
