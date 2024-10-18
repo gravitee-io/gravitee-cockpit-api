@@ -21,6 +21,8 @@ import io.gravitee.cockpit.api.command.v1.scoring.request.ScoringRequestCommand;
 import io.gravitee.cockpit.api.command.v1.scoring.request.ScoringRequestReply;
 import io.gravitee.cockpit.api.command.v1.scoring.response.ScoringResponseCommand;
 import io.gravitee.cockpit.api.command.v1.scoring.response.ScoringResponseReply;
+import io.gravitee.cockpit.api.command.v1.specgen.request.SpecGenRequestCommand;
+import io.gravitee.cockpit.api.command.v1.specgen.request.SpecGenRequestReply;
 import io.gravitee.exchange.api.command.Command;
 import io.gravitee.exchange.api.command.Reply;
 import io.gravitee.exchange.api.websocket.command.DefaultExchangeSerDe;
@@ -182,6 +184,10 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.DELETE_ORGANIZATION.name(),
       io.gravitee.cockpit.api.command.v1.organization.DeleteOrganizationCommand.class
     );
+    COMMAND_TYPES.put(
+      io.gravitee.cockpit.api.command.v1.CockpitCommandType.SPEC_GEN_REQUEST.name(),
+      SpecGenRequestCommand.class
+    );
 
     // Legacy
     REPLY_TYPES.put(
@@ -325,6 +331,10 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.DELETE_ORGANIZATION.name(),
       io.gravitee.cockpit.api.command.v1.organization.DeleteOrganizationReply.class
+    );
+    REPLY_TYPES.put(
+      io.gravitee.cockpit.api.command.v1.CockpitCommandType.SPEC_GEN_REQUEST.name(),
+      SpecGenRequestReply.class
     );
   }
 
