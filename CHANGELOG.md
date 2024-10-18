@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.2.13...3.3.0) (2024-10-18)
+
+
+### Features
+
+* SpecGenRequest command api ([#223](https://github.com/gravitee-io/gravitee-cockpit-api/issues/223)) ([ce588c4](https://github.com/gravitee-io/gravitee-cockpit-api/commit/ce588c4252a9fdfcf74ff565d6e574b27498bc78))
+
 ## [3.2.13](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.2.12...3.2.13) (2024-10-17)
 
 
