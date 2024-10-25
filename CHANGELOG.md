@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.3.0...3.4.0) (2024-10-25)
+
+
+### Features
+
+* spec gen response command and reply ([#225](https://github.com/gravitee-io/gravitee-cockpit-api/issues/225)) ([a4109f5](https://github.com/gravitee-io/gravitee-cockpit-api/commit/a4109f5779d0f500bb69c6c86dd602e72751b6ad))
+
 # [3.3.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.2.13...3.3.0) (2024-10-18)
 
 
