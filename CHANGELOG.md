@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.4.0...3.5.0) (2024-10-30)
+
+
+### Features
+
+* target token create command and reply ([#227](https://github.com/gravitee-io/gravitee-cockpit-api/issues/227)) ([765831e](https://github.com/gravitee-io/gravitee-cockpit-api/commit/765831e9115d3eefe4d5751f2e9331343ab33a80))
+
 # [3.4.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.3.0...3.4.0) (2024-10-25)
 
 
