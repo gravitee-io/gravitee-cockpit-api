@@ -1,4 +1,4 @@
-/*
+package io.gravitee.cockpit.api.command.v1.targettoken;/*
  * Copyright © 2015 The Gravitee team (http://gravitee.io)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,33 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.cockpit.api.command.v1;
 
-/**
- * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
- * @author GraviteeSource Team
- */
-public enum CockpitCommandType {
-  BRIDGE,
-  SCORING_REQUEST,
-  SCORING_RESPONSE,
-  DEPLOY_MODEL,
-  DELETE_MEMBERSHIP,
-  DELETE_ENVIRONMENT,
-  DELETE_ORGANIZATION,
-  DISABLE_ENVIRONMENT,
-  DISABLE_ORGANIZATION,
-  ENVIRONMENT,
-  HELLO,
-  INSTALLATION,
-  MEMBERSHIP,
-  NODE,
-  NODE_HEALTHCHECK,
-  ORGANIZATION,
-  USER,
-  UNLINK_INSTALLATION,
-  V4_API,
-  SPEC_GEN_REQUEST,
-  SPEC_GEN_RESPONSE,
-  TARGET_TOKEN,
+import io.gravitee.cockpit.api.command.v1.CockpitCommand;
+import io.gravitee.cockpit.api.command.v1.CockpitCommandType;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
+public class TargetTokenCommand
+  extends CockpitCommand<TargetTokenCommandPayload> {
+
+  public TargetTokenCommand() {
+    super(CockpitCommandType.TARGET_TOKEN);
+  }
+
+  public TargetTokenCommand(TargetTokenCommandPayload payload) {
+    this();
+    this.payload = payload;
+  }
 }
