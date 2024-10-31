@@ -22,6 +22,12 @@ import lombok.Builder;
 public record TargetTokenCommandPayload(
   String id,
   String organizationId,
-  String environmentId
+  String environmentId,
+  Scope scope
 )
-  implements Payload {}
+  implements Payload {
+  public enum Scope {
+    GKO,
+    FEDERATION,
+  }
+}
