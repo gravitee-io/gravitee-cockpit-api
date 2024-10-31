@@ -1,3 +1,10 @@
+# [3.6.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.5.0...3.6.0) (2024-10-31)
+
+
+### Features
+
+* add scope to target token command payload ([#228](https://github.com/gravitee-io/gravitee-cockpit-api/issues/228)) ([da22826](https://github.com/gravitee-io/gravitee-cockpit-api/commit/da2282694de1aefaeab7733f60df7ad124865c64))
+
 # [3.5.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.4.0...3.5.0) (2024-10-30)
 
 
