@@ -17,8 +17,6 @@ package io.gravitee.cockpit.api.command.v1.node.healthcheck;
 
 import io.gravitee.cockpit.api.command.v1.CockpitCommand;
 import io.gravitee.cockpit.api.command.v1.CockpitCommandType;
-import io.gravitee.cockpit.api.command.v1.environment.EnvironmentCommandPayload;
-import io.gravitee.cockpit.api.command.v1.node.NodeCommandPayload;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
