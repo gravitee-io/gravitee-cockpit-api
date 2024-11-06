@@ -17,6 +17,7 @@ package io.gravitee.cockpit.api.command.v1.node;
 
 import io.gravitee.exchange.api.command.Payload;
 import java.util.List;
+import java.util.Map;
 import lombok.Builder;
 
 /**
@@ -80,7 +81,9 @@ public record NodeCommandPayload(
    */
   long evaluatedAt,
 
-  Status status
+  Status status,
+
+  Map<String, String> metadata
 )
   implements Payload {
   @Builder
