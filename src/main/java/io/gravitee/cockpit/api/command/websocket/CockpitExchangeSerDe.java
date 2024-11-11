@@ -25,6 +25,8 @@ import io.gravitee.cockpit.api.command.v1.specgen.request.SpecGenRequestCommand;
 import io.gravitee.cockpit.api.command.v1.specgen.request.SpecGenRequestReply;
 import io.gravitee.cockpit.api.command.v1.specgen.response.SpecGenResponseCommand;
 import io.gravitee.cockpit.api.command.v1.specgen.response.SpecGenResponseReply;
+import io.gravitee.cockpit.api.command.v1.targettoken.TargetTokenCommand;
+import io.gravitee.cockpit.api.command.v1.targettoken.TargetTokenReply;
 import io.gravitee.exchange.api.command.Command;
 import io.gravitee.exchange.api.command.Reply;
 import io.gravitee.exchange.api.websocket.command.DefaultExchangeSerDe;
@@ -194,6 +196,10 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
       CockpitCommandType.SPEC_GEN_RESPONSE.name(),
       SpecGenResponseCommand.class
     );
+    COMMAND_TYPES.put(
+      CockpitCommandType.TARGET_TOKEN.name(),
+      TargetTokenCommand.class
+    );
 
     // Legacy
     REPLY_TYPES.put(
@@ -345,6 +351,10 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     REPLY_TYPES.put(
       CockpitCommandType.SPEC_GEN_RESPONSE.name(),
       SpecGenResponseReply.class
+    );
+    REPLY_TYPES.put(
+      CockpitCommandType.TARGET_TOKEN.name(),
+      TargetTokenReply.class
     );
   }
 
