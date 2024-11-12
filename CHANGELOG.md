@@ -1,3 +1,10 @@
+## [3.6.2](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.6.1...3.6.2) (2024-11-12)
+
+
+### Bug Fixes
+
+* add target token types ([#233](https://github.com/gravitee-io/gravitee-cockpit-api/issues/233)) ([cc9d6a6](https://github.com/gravitee-io/gravitee-cockpit-api/commit/cc9d6a65144c9ac273e37dbf44289148e3350f3b))
+
 ## [3.6.1](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.6.0...3.6.1) (2024-11-04)
 
 
