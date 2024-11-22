@@ -1,3 +1,10 @@
+# [3.7.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.6.4...3.7.0) (2024-11-22)
+
+
+### Features
+
+* add metadata to NodeCommandPayload ([8415723](https://github.com/gravitee-io/gravitee-cockpit-api/commit/84157231393b8dfdb95fdc8feeede9019f4a0f1b))
+
 ## [3.6.4](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.6.3...3.6.4) (2024-11-19)
 
 
