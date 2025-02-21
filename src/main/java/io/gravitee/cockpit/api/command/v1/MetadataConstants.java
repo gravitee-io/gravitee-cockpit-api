@@ -21,5 +21,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MetadataConstants {
 
-  public static final String GATEWAY_ID = "GATEWAY_ID";
+  public static final String GATEWAY_ID = "GATEWAYID";
 }
