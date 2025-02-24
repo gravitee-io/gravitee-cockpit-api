@@ -1,3 +1,10 @@
+## [3.7.11](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.7.10...3.7.11) (2025-02-24)
+
+
+### Bug Fixes
+
+* **deps:** update io.gravitee.scoring:gravitee-scoring-api to v0.7.0 ([d95b6e6](https://github.com/gravitee-io/gravitee-cockpit-api/commit/d95b6e6275b92615f70d5eb8b0bbdf24e39bf595))
+
 ## [3.7.10](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.7.9...3.7.10) (2025-02-24)
 
 
