@@ -29,7 +29,7 @@
 
     <groupId>io.gravitee.cockpit</groupId>
     <artifactId>gravitee-cockpit-api</artifactId>
-    <version>3.7.9</version>
+    <version>3.7.10</version>
 
     <name>Gravitee.io - Cockpit - API</name>
 
