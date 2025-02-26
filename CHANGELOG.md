@@ -1,3 +1,10 @@
+## [3.7.12](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.7.11...3.7.12) (2025-02-26)
+
+
+### Bug Fixes
+
+* remove underscore to MetadataConstants.GATEWAY_ID ([80939e2](https://github.com/gravitee-io/gravitee-cockpit-api/commit/80939e2c35a85b4b92cbf4317dda6646bb6147c8))
+
 ## [3.7.11](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.7.10...3.7.11) (2025-02-24)
 
 
