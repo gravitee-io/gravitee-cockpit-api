@@ -42,6 +42,8 @@ public class AccessPoint implements Serializable {
     PORTAL,
     PORTAL_API,
     GATEWAY,
+    TCP_GATEWAY,
+    KAFKA_GATEWAY,
   }
 
   public enum Type {
