@@ -1,3 +1,10 @@
+# [3.8.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.7.18...3.8.0) (2025-03-21)
+
+
+### Features
+
+* add Target AccessPoint for Kafka & Tcp gateway ([2d16555](https://github.com/gravitee-io/gravitee-cockpit-api/commit/2d16555fd3387990c1ab8fffbcde06c28d8af6d9))
+
 ## [3.7.18](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.7.17...3.7.18) (2025-03-12)
 
 
