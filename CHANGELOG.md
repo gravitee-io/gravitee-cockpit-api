@@ -1,3 +1,10 @@
+## [3.8.5](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.8.4...3.8.5) (2025-05-15)
+
+
+### Bug Fixes
+
+* **deps:** update io.gravitee:gravitee-parent to v22.4.1 ([427412e](https://github.com/gravitee-io/gravitee-cockpit-api/commit/427412ef7e1a95935e0d8bd37315dbaae0c8c226))
+
 ## [3.8.4](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.8.3...3.8.4) (2025-04-08)
 
 
