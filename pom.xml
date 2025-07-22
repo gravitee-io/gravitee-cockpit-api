@@ -34,7 +34,7 @@
     <name>Gravitee.io - Cockpit - API</name>
 
     <properties>
-        <gravitee-bom.version>8.3.22</gravitee-bom.version>
+        <gravitee-bom.version>8.3.26</gravitee-bom.version>
         <gravitee-node.version>7.10.0</gravitee-node.version>
         <gravitee-alert-api.version>2.1.7</gravitee-alert-api.version>
         <gravitee-exchange.version>1.8.3</gravitee-exchange.version>
