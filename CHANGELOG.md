@@ -1,3 +1,10 @@
+# [3.9.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.8.34...3.9.0) (2025-08-14)
+
+
+### Features
+
+* add command for expression langage generation ([b85a599](https://github.com/gravitee-io/gravitee-cockpit-api/commit/b85a59993d02f9943114d428d3bba8aab6be669b))
+
 ## [3.8.34](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.8.33...3.8.34) (2025-08-14)
 
 
