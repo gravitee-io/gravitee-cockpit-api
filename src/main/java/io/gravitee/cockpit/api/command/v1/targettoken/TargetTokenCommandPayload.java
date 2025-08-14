@@ -27,7 +27,10 @@ public record TargetTokenCommandPayload(
 )
   implements Payload {
   public enum Scope {
+    @Deprecated
+    //Replaced by Automation which covers GKO and wider (additional automation scope in token)
     GKO,
     FEDERATION,
+    AUTOMATION,
   }
 }
