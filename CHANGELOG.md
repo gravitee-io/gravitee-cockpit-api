@@ -1,3 +1,10 @@
+## [3.9.2](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.9.1...3.9.2) (2025-08-19)
+
+
+### Bug Fixes
+
+* **deps:** update io.gravitee.alert:gravitee-alert-api to v2.1.12 ([d551dc3](https://github.com/gravitee-io/gravitee-cockpit-api/commit/d551dc332eb81502a0170cc02ac3590213239573))
+
 ## [3.9.1](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.9.0...3.9.1) (2025-08-18)
 
 
