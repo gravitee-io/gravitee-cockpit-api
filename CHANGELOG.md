@@ -1,3 +1,10 @@
+## [3.9.5](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.9.4...3.9.5) (2025-08-29)
+
+
+### Bug Fixes
+
+* **deps:** update io.gravitee.exchange:gravitee-exchange-api to v1.9.0 ([c178d16](https://github.com/gravitee-io/gravitee-cockpit-api/commit/c178d1671d822ae1d2adbbb5c2636b1f4f4d8c00))
+
 ## [3.9.4](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.9.3...3.9.4) (2025-08-25)
 
 
