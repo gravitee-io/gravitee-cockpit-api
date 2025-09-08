@@ -1,3 +1,10 @@
+## [3.9.7](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.9.6...3.9.7) (2025-09-08)
+
+
+### Bug Fixes
+
+* **deps:** update io.gravitee:gravitee-bom to v8.3.36 ([4a072fe](https://github.com/gravitee-io/gravitee-cockpit-api/commit/4a072fe66257bce562f43d814e85b6fde232792c))
+
 ## [3.9.6](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.9.5...3.9.6) (2025-09-01)
 
 
