@@ -18,7 +18,9 @@ package io.gravitee.cockpit.api.command.websocket;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.gravitee.cockpit.api.command.v1.CockpitCommandType;
 import io.gravitee.cockpit.api.command.v1.newtai.elgen.ELCommand;
+import io.gravitee.cockpit.api.command.v1.newtai.elgen.ELGenFeedbackCommand;
 import io.gravitee.cockpit.api.command.v1.newtai.elgen.ELReply;
+import io.gravitee.cockpit.api.command.v1.newtai.elgen.ElGenFeedbackReply;
 import io.gravitee.cockpit.api.command.v1.scoring.request.ScoringRequestCommand;
 import io.gravitee.cockpit.api.command.v1.scoring.request.ScoringRequestReply;
 import io.gravitee.cockpit.api.command.v1.scoring.response.ScoringResponseCommand;
@@ -203,6 +205,10 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
       TargetTokenCommand.class
     );
     COMMAND_TYPES.put(CockpitCommandType.EL.name(), ELCommand.class);
+    COMMAND_TYPES.put(
+      CockpitCommandType.EL_GEN_FEEDBACK.name(),
+      ELGenFeedbackCommand.class
+    );
 
     // Legacy
     REPLY_TYPES.put(
@@ -360,6 +366,10 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
       TargetTokenReply.class
     );
     REPLY_TYPES.put(CockpitCommandType.EL.name(), ELReply.class);
+    REPLY_TYPES.put(
+      CockpitCommandType.EL_GEN_FEEDBACK.name(),
+      ElGenFeedbackReply.class
+    );
   }
 
   public CockpitExchangeSerDe(final ObjectMapper objectMapper) {
