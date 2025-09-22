@@ -1,3 +1,10 @@
+# [3.10.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.9.20...3.10.0) (2025-09-22)
+
+
+### Features
+
+* add command to submit feedback on newtai-generated expression language ([275d23f](https://github.com/gravitee-io/gravitee-cockpit-api/commit/275d23f26f7b5c7db897c08bf679269af0a8ada7))
+
 ## [3.9.20](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.9.19...3.9.20) (2025-09-22)
 
 
