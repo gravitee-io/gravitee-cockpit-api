@@ -29,6 +29,8 @@ import io.gravitee.cockpit.api.command.v1.specgen.request.SpecGenRequestCommand;
 import io.gravitee.cockpit.api.command.v1.specgen.request.SpecGenRequestReply;
 import io.gravitee.cockpit.api.command.v1.specgen.response.SpecGenResponseCommand;
 import io.gravitee.cockpit.api.command.v1.specgen.response.SpecGenResponseReply;
+import io.gravitee.cockpit.api.command.v1.targettoken.DeleteTargetTokenCommand;
+import io.gravitee.cockpit.api.command.v1.targettoken.DeleteTargetTokenReply;
 import io.gravitee.cockpit.api.command.v1.targettoken.TargetTokenCommand;
 import io.gravitee.cockpit.api.command.v1.targettoken.TargetTokenReply;
 import io.gravitee.exchange.api.command.Command;
@@ -204,6 +206,10 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
       CockpitCommandType.TARGET_TOKEN.name(),
       TargetTokenCommand.class
     );
+    COMMAND_TYPES.put(
+      CockpitCommandType.DELETE_TARGET_TOKEN.name(),
+      DeleteTargetTokenCommand.class
+    );
     COMMAND_TYPES.put(CockpitCommandType.EL.name(), ELCommand.class);
     COMMAND_TYPES.put(
       CockpitCommandType.EL_GEN_FEEDBACK.name(),
@@ -364,6 +370,10 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     REPLY_TYPES.put(
       CockpitCommandType.TARGET_TOKEN.name(),
       TargetTokenReply.class
+    );
+    REPLY_TYPES.put(
+      CockpitCommandType.DELETE_TARGET_TOKEN.name(),
+      DeleteTargetTokenReply.class
     );
     REPLY_TYPES.put(CockpitCommandType.EL.name(), ELReply.class);
     REPLY_TYPES.put(
