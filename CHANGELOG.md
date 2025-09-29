@@ -1,3 +1,10 @@
+# [3.11.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.10.4...3.11.0) (2025-09-29)
+
+
+### Features
+
+* add delete target token command ([cf9d14d](https://github.com/gravitee-io/gravitee-cockpit-api/commit/cf9d14df446e0dee2dd3c21ec6b6e9c7d25afd84))
+
 ## [3.10.4](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.10.3...3.10.4) (2025-09-29)
 
 
