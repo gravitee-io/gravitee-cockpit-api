@@ -1,3 +1,10 @@
+## [3.11.15](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.11.14...3.11.15) (2025-12-16)
+
+
+### Bug Fixes
+
+* **deps:** update io.gravitee.node:gravitee-node-api to v7.18.3 ([7540e74](https://github.com/gravitee-io/gravitee-cockpit-api/commit/7540e749c25d89e8e95b9ef67599359d3d6d9644))
+
 ## [3.11.14](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.11.13...3.11.14) (2025-12-15)
 
 
