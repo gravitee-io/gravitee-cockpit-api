@@ -1,3 +1,16 @@
+# [4.0.0-alpha.1](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.11.19...4.0.0-alpha.1) (2026-04-01)
+
+
+### Features
+
+* bumped AM version to 4.12.0-alpha.1 ([4e799c8](https://github.com/gravitee-io/gravitee-cockpit-api/commit/4e799c8fbbaf67a4a0b3ecf36635afcfc0bae270))
+* Upgrade vertx5 ([14b4abc](https://github.com/gravitee-io/gravitee-cockpit-api/commit/14b4abcd60d8bdb9778240a0d79de1c9d30d8bc7))
+
+
+### BREAKING CHANGES
+
+* Vertx5 JDK 25
+
 ## [3.11.19](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.11.18...3.11.19) (2026-02-06)
 
 
