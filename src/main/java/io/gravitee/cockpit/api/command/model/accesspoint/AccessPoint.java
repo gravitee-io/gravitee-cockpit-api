@@ -44,6 +44,8 @@ public class AccessPoint implements Serializable {
     GATEWAY,
     TCP_GATEWAY,
     KAFKA_GATEWAY,
+    GAMMA_CONSOLE,
+    GAMMA_API,
   }
 
   public enum Type {
