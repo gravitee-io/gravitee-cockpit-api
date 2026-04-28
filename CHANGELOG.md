@@ -1,3 +1,10 @@
+# [4.0.0-alpha.2](https://github.com/gravitee-io/gravitee-cockpit-api/compare/4.0.0-alpha.1...4.0.0-alpha.2) (2026-04-28)
+
+
+### Features
+
+* add gamma access points ([bd966bc](https://github.com/gravitee-io/gravitee-cockpit-api/commit/bd966bc6f40bc60930341220fe881f12514adaaf))
+
 # [4.0.0-alpha.1](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.11.19...4.0.0-alpha.1) (2026-04-01)
 
 
