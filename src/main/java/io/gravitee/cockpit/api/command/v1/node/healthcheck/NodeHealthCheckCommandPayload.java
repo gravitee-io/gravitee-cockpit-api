@@ -30,8 +30,7 @@ public record NodeHealthCheckCommandPayload(
   long evaluatedAt,
   List<HealthCheckProbe> probes,
   Boolean isHealthy
-)
-  implements Payload {
+) implements Payload {
   @Builder
   public record HealthCheckProbe(
     String key,

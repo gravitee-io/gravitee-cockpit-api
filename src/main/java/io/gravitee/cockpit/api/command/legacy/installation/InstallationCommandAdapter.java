@@ -21,7 +21,11 @@ import io.reactivex.rxjava3.core.Single;
 
 public class InstallationCommandAdapter
   implements
-    CommandAdapter<io.gravitee.cockpit.api.command.v1.installation.InstallationCommand, InstallationCommand, InstallationReply> {
+    CommandAdapter<
+      io.gravitee.cockpit.api.command.v1.installation.InstallationCommand,
+      InstallationCommand,
+      InstallationReply
+    > {
 
   @Override
   public String supportType() {

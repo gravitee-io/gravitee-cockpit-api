@@ -23,5 +23,4 @@ public record DeleteTargetTokenCommandPayload(
   String id,
   String organizationId,
   String environmentId
-)
-  implements Payload {}
+) implements Payload {}

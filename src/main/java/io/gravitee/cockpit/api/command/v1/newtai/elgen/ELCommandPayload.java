@@ -23,7 +23,6 @@ public record ELCommandPayload(
   String productVersion,
   Map<String, String> properties,
   String installationId
-)
-  implements Payload {
+) implements Payload {
   public static final String EL_CONTEXT = "elContext";
 }

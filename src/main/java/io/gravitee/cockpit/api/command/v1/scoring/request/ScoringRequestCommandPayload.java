@@ -24,5 +24,4 @@ public record ScoringRequestCommandPayload(
   String environmentId,
   String installationId,
   ScoringRequest scoringRequest
-)
-  implements Payload {}
+) implements Payload {}

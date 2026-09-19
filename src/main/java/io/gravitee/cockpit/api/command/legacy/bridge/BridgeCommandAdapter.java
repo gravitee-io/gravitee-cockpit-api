@@ -23,7 +23,11 @@ import io.reactivex.rxjava3.core.Single;
 
 public class BridgeCommandAdapter
   implements
-    CommandAdapter<io.gravitee.cockpit.api.command.v1.bridge.BridgeCommand, BridgeCommand, BridgeReply> {
+    CommandAdapter<
+      io.gravitee.cockpit.api.command.v1.bridge.BridgeCommand,
+      BridgeCommand,
+      BridgeReply
+    > {
 
   @Override
   public String supportType() {

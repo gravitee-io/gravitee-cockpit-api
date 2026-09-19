@@ -21,7 +21,11 @@ import io.reactivex.rxjava3.core.Single;
 
 public class NodeCommandAdapter
   implements
-    CommandAdapter<NodeCommand, io.gravitee.cockpit.api.command.v1.node.NodeCommand, NodeReply> {
+    CommandAdapter<
+      NodeCommand,
+      io.gravitee.cockpit.api.command.v1.node.NodeCommand,
+      NodeReply
+    > {
 
   @Override
   public String supportType() {

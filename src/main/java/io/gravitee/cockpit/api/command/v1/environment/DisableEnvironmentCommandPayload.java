@@ -24,5 +24,4 @@ public record DisableEnvironmentCommandPayload(
   String cockpitId,
   String name,
   String userId
-)
-  implements Payload {}
+) implements Payload {}

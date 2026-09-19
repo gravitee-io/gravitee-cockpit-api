@@ -29,5 +29,4 @@ public record MembershipCommandPayload(
   String referenceId,
   String userId,
   String role
-)
-  implements Payload {}
+) implements Payload {}

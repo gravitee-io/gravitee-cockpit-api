@@ -22,7 +22,11 @@ import io.reactivex.rxjava3.core.Single;
 
 public class HelloCommandAdapter
   implements
-    CommandAdapter<HelloCommand, io.gravitee.cockpit.api.command.v1.hello.HelloCommand, HelloReply> {
+    CommandAdapter<
+      HelloCommand,
+      io.gravitee.cockpit.api.command.v1.hello.HelloCommand,
+      HelloReply
+    > {
 
   @Override
   public String supportType() {
@@ -38,8 +42,7 @@ public class HelloCommandAdapter
       HelloCommandPayload legacyPayload = command.getPayload();
       return new io.gravitee.cockpit.api.command.v1.hello.HelloCommand(
         command.getId(),
-        HelloCommandPayload
-          .builder()
+        HelloCommandPayload.builder()
           .node(legacyPayload.getNode())
           .defaultOrganizationId(legacyPayload.getDefaultOrganizationId())
           .defaultEnvironmentId(legacyPayload.getDefaultEnvironmentId())

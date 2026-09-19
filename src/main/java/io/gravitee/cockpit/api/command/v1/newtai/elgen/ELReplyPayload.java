@@ -17,8 +17,8 @@ package io.gravitee.cockpit.api.command.v1.newtai.elgen;
 
 import io.gravitee.exchange.api.command.Payload;
 
-public record ELReplyPayload(String message, RequestId feedbackId)
-  implements Payload {
+public record ELReplyPayload(String message, RequestId feedbackId) implements
+  Payload {
   public record RequestId(
     String chatId,
     String userMessageId,

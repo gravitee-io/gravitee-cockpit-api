@@ -32,8 +32,7 @@ public record DeployModelCommandPayload(
   String environmentId,
   DeploymentMode mode,
   List<String> labels
-)
-  implements Payload {
+) implements Payload {
   public enum DeploymentMode {
     API_DOCUMENTED,
     API_MOCKED,

@@ -23,5 +23,8 @@ import lombok.Builder;
  * @author GraviteeSource Team
  */
 @Builder
-public record V4ApiReplyPayload(String apiId, String apiName, String apiVersion)
-  implements Payload {}
+public record V4ApiReplyPayload(
+  String apiId,
+  String apiName,
+  String apiVersion
+) implements Payload {}

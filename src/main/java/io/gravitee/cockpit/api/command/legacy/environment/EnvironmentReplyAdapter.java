@@ -22,7 +22,10 @@ import io.reactivex.rxjava3.core.Single;
 
 public class EnvironmentReplyAdapter
   implements
-    ReplyAdapter<EnvironmentReply, io.gravitee.cockpit.api.command.v1.environment.EnvironmentReply> {
+    ReplyAdapter<
+      EnvironmentReply,
+      io.gravitee.cockpit.api.command.v1.environment.EnvironmentReply
+    > {
 
   @Override
   public String supportType() {
@@ -30,10 +33,9 @@ public class EnvironmentReplyAdapter
   }
 
   @Override
-  public Single<io.gravitee.cockpit.api.command.v1.environment.EnvironmentReply> adapt(
-    final String targetId,
-    final EnvironmentReply reply
-  ) {
+  public Single<
+    io.gravitee.cockpit.api.command.v1.environment.EnvironmentReply
+  > adapt(final String targetId, final EnvironmentReply reply) {
     return Single.fromCallable(() -> {
       if (reply.getCommandStatus() == CommandStatus.ERROR) {
         return new io.gravitee.cockpit.api.command.v1.environment.EnvironmentReply(

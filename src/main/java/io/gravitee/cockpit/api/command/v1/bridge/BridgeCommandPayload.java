@@ -60,8 +60,7 @@ public record BridgeCommandPayload(
    * The content of the command.
    */
   String content
-)
-  implements Payload {
+) implements Payload {
   public BridgeCommandPayload {
     if (timeoutMillis == null) timeoutMillis = 10000L;
   }
@@ -76,6 +75,5 @@ public record BridgeCommandPayload(
      * The identifier of the environment to target. Optional if a list of valid <code>scopes</code> is specified.
      */
     String environmentId
-  )
-    implements Serializable {}
+  ) implements Serializable {}
 }

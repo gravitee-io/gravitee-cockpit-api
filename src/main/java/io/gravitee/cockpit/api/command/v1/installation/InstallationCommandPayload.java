@@ -61,8 +61,7 @@ public record InstallationCommandPayload(
    * Additional information about this installation.
    */
   Map<String, String> additionalInformation
-)
-  implements Payload {
+) implements Payload {
   public InstallationCommandPayload {
     if (additionalInformation == null) additionalInformation = new HashMap<>();
   }

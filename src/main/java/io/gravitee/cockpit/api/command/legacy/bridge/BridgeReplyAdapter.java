@@ -24,7 +24,10 @@ import java.util.List;
 
 public class BridgeReplyAdapter
   implements
-    ReplyAdapter<io.gravitee.cockpit.api.command.v1.bridge.BridgeReply, BridgeReply> {
+    ReplyAdapter<
+      io.gravitee.cockpit.api.command.v1.bridge.BridgeReply,
+      BridgeReply
+    > {
 
   @Override
   public String supportType() {
@@ -76,12 +79,11 @@ public class BridgeReplyAdapter
   ) {
     BridgeSimpleReply bridgeSimpleReply;
     if (bridgeReplyContent.isError()) {
-      bridgeSimpleReply =
-        new BridgeSimpleReply(
-          reply.getCommandId(),
-          CommandStatus.ERROR,
-          "Unable to build to Bridge Reply"
-        );
+      bridgeSimpleReply = new BridgeSimpleReply(
+        reply.getCommandId(),
+        CommandStatus.ERROR,
+        "Unable to build to Bridge Reply"
+      );
     } else {
       bridgeSimpleReply = new BridgeSimpleReply(reply.getCommandId());
     }

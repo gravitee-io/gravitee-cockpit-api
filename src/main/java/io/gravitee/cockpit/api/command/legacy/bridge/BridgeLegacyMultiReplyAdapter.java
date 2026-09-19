@@ -41,8 +41,7 @@ public class BridgeLegacyMultiReplyAdapter
         .getReplies()
         .stream()
         .map(bridgeSimpleReply ->
-          BridgeReplyPayload.BridgeReplyContent
-            .builder()
+          BridgeReplyPayload.BridgeReplyContent.builder()
             .environmentId(bridgeSimpleReply.getEnvironmentId())
             .organizationId(bridgeSimpleReply.getOrganizationId())
             .installationId(bridgeSimpleReply.getInstallationId())

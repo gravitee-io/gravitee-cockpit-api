@@ -20,5 +20,4 @@ import io.gravitee.exchange.api.command.Payload;
 public record ELGenFeedbackCommandPayload(
   ELReplyPayload.RequestId feedbackRequestId,
   boolean answerHelpful
-)
-  implements Payload {}
+) implements Payload {}

@@ -21,7 +21,10 @@ import io.reactivex.rxjava3.core.Single;
 
 public class HelloReplyAdapter
   implements
-    ReplyAdapter<io.gravitee.cockpit.api.command.v1.hello.HelloReply, HelloReply> {
+    ReplyAdapter<
+      io.gravitee.cockpit.api.command.v1.hello.HelloReply,
+      HelloReply
+    > {
 
   @Override
   public String supportType() {

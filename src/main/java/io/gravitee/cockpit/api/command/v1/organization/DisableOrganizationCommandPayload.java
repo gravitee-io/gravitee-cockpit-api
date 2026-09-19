@@ -24,5 +24,4 @@ public record DisableOrganizationCommandPayload(
   String cockpitId,
   String name,
   String userId
-)
-  implements Payload {}
+) implements Payload {}

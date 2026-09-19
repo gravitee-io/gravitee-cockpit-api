@@ -113,27 +113,4 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.hubspot.maven.plugins</groupId>
-                <artifactId>prettier-maven-plugin</artifactId>
-                <configuration>
-                    <prettierJavaVersion>2.1.0</prettierJavaVersion>
-                    <skip>${skip.validation}</skip>
-                    <inputGlobs>
-                        <inputGlob>src/{main,test}/**/*.java</inputGlob>
-                    </inputGlobs>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 </project>

@@ -29,8 +29,7 @@ import lombok.NoArgsConstructor;
 public record BridgeReplyPayload(
   boolean singleTarget,
   List<BridgeReplyContent> contents
-)
-  implements Payload {
+) implements Payload {
   @Builder
   @AllArgsConstructor
   @NoArgsConstructor

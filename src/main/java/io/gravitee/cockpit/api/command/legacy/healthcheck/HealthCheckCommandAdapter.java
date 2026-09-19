@@ -21,7 +21,11 @@ import io.reactivex.rxjava3.core.Single;
 
 public class HealthCheckCommandAdapter
   implements
-    CommandAdapter<HealthCheckCommand, io.gravitee.cockpit.api.command.v1.node.healthcheck.NodeHealthCheckCommand, HealthCheckReply> {
+    CommandAdapter<
+      HealthCheckCommand,
+      io.gravitee.cockpit.api.command.v1.node.healthcheck.NodeHealthCheckCommand,
+      HealthCheckReply
+    > {
 
   @Override
   public String supportType() {
@@ -29,10 +33,9 @@ public class HealthCheckCommandAdapter
   }
 
   @Override
-  public Single<io.gravitee.cockpit.api.command.v1.node.healthcheck.NodeHealthCheckCommand> adapt(
-    final String targetId,
-    final HealthCheckCommand command
-  ) {
+  public Single<
+    io.gravitee.cockpit.api.command.v1.node.healthcheck.NodeHealthCheckCommand
+  > adapt(final String targetId, final HealthCheckCommand command) {
     return Single.just(
       new io.gravitee.cockpit.api.command.v1.node.healthcheck.NodeHealthCheckCommand(
         command.getId(),

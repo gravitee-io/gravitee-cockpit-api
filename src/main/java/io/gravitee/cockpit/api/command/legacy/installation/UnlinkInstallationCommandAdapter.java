@@ -21,7 +21,11 @@ import io.reactivex.rxjava3.core.Single;
 
 public class UnlinkInstallationCommandAdapter
   implements
-    CommandAdapter<io.gravitee.cockpit.api.command.v1.installation.UnlinkInstallationCommand, UnlinkInstallationCommand, UnlinkInstallationReply> {
+    CommandAdapter<
+      io.gravitee.cockpit.api.command.v1.installation.UnlinkInstallationCommand,
+      UnlinkInstallationCommand,
+      UnlinkInstallationReply
+    > {
 
   @Override
   public String supportType() {

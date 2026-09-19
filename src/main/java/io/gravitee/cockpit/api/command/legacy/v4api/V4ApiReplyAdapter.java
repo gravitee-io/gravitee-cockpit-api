@@ -23,7 +23,10 @@ import io.reactivex.rxjava3.core.Single;
 
 public class V4ApiReplyAdapter
   implements
-    ReplyAdapter<V4ApiReply, io.gravitee.cockpit.api.command.v1.v4api.V4ApiReply> {
+    ReplyAdapter<
+      V4ApiReply,
+      io.gravitee.cockpit.api.command.v1.v4api.V4ApiReply
+    > {
 
   @Override
   public String supportType() {
@@ -44,8 +47,7 @@ public class V4ApiReplyAdapter
       } else {
         return new io.gravitee.cockpit.api.command.v1.v4api.V4ApiReply(
           reply.getCommandId(),
-          V4ApiReplyPayload
-            .builder()
+          V4ApiReplyPayload.builder()
             .apiId(reply.getApiId())
             .apiName(reply.getApiName())
             .apiVersion(reply.getApiVersion())

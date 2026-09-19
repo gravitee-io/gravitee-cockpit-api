@@ -22,7 +22,10 @@ import io.reactivex.rxjava3.core.Single;
 
 public class DeployModelReplyAdapter
   implements
-    ReplyAdapter<DeployModelReply, io.gravitee.cockpit.api.command.v1.designer.DeployModelReply> {
+    ReplyAdapter<
+      DeployModelReply,
+      io.gravitee.cockpit.api.command.v1.designer.DeployModelReply
+    > {
 
   @Override
   public String supportType() {
@@ -30,10 +33,9 @@ public class DeployModelReplyAdapter
   }
 
   @Override
-  public Single<io.gravitee.cockpit.api.command.v1.designer.DeployModelReply> adapt(
-    final String targetId,
-    final DeployModelReply reply
-  ) {
+  public Single<
+    io.gravitee.cockpit.api.command.v1.designer.DeployModelReply
+  > adapt(final String targetId, final DeployModelReply reply) {
     return Single.fromCallable(() -> {
       if (reply.getCommandStatus() == CommandStatus.ERROR) {
         return new io.gravitee.cockpit.api.command.v1.designer.DeployModelReply(

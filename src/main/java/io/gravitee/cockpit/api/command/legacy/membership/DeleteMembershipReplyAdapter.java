@@ -22,7 +22,10 @@ import io.reactivex.rxjava3.core.Single;
 
 public class DeleteMembershipReplyAdapter
   implements
-    ReplyAdapter<DeleteMembershipReply, io.gravitee.cockpit.api.command.v1.membership.DeleteMembershipReply> {
+    ReplyAdapter<
+      DeleteMembershipReply,
+      io.gravitee.cockpit.api.command.v1.membership.DeleteMembershipReply
+    > {
 
   @Override
   public String supportType() {
@@ -30,10 +33,9 @@ public class DeleteMembershipReplyAdapter
   }
 
   @Override
-  public Single<io.gravitee.cockpit.api.command.v1.membership.DeleteMembershipReply> adapt(
-    final String targetId,
-    final DeleteMembershipReply reply
-  ) {
+  public Single<
+    io.gravitee.cockpit.api.command.v1.membership.DeleteMembershipReply
+  > adapt(final String targetId, final DeleteMembershipReply reply) {
     return Single.fromCallable(() -> {
       if (reply.getCommandStatus() == CommandStatus.ERROR) {
         return new io.gravitee.cockpit.api.command.v1.membership.DeleteMembershipReply(

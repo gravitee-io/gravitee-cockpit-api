@@ -21,7 +21,11 @@ import io.reactivex.rxjava3.core.Single;
 
 public class V4ApiCommandAdapter
   implements
-    CommandAdapter<io.gravitee.cockpit.api.command.v1.v4api.V4ApiCommand, V4ApiCommand, io.gravitee.cockpit.api.command.v1.v4api.V4ApiReply> {
+    CommandAdapter<
+      io.gravitee.cockpit.api.command.v1.v4api.V4ApiCommand,
+      V4ApiCommand,
+      io.gravitee.cockpit.api.command.v1.v4api.V4ApiReply
+    > {
 
   @Override
   public String supportType() {

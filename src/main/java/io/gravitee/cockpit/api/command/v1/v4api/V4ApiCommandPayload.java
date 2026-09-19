@@ -28,5 +28,4 @@ public record V4ApiCommandPayload(
   String organizationId,
   String environmentId,
   String apiDefinition
-)
-  implements Payload {}
+) implements Payload {}

@@ -21,7 +21,11 @@ import io.reactivex.rxjava3.core.Single;
 
 public class EnvironmentCommandAdapter
   implements
-    CommandAdapter<io.gravitee.cockpit.api.command.v1.environment.EnvironmentCommand, EnvironmentCommand, EnvironmentReply> {
+    CommandAdapter<
+      io.gravitee.cockpit.api.command.v1.environment.EnvironmentCommand,
+      EnvironmentCommand,
+      EnvironmentReply
+    > {
 
   @Override
   public String supportType() {

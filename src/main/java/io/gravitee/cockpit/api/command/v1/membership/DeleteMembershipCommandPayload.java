@@ -28,5 +28,4 @@ public record DeleteMembershipCommandPayload(
   String referenceType,
   String referenceId,
   String userId
-)
-  implements Payload {}
+) implements Payload {}

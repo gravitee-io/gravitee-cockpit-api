@@ -21,7 +21,11 @@ import io.reactivex.rxjava3.core.Single;
 
 public class MembershipCommandAdapter
   implements
-    CommandAdapter<io.gravitee.cockpit.api.command.v1.membership.MembershipCommand, MembershipCommand, io.gravitee.cockpit.api.command.v1.membership.MembershipReply> {
+    CommandAdapter<
+      io.gravitee.cockpit.api.command.v1.membership.MembershipCommand,
+      MembershipCommand,
+      io.gravitee.cockpit.api.command.v1.membership.MembershipReply
+    > {
 
   @Override
   public String supportType() {

@@ -33,5 +33,4 @@ public record EnvironmentCommandPayload(
   String name,
   String description,
   List<AccessPoint> accessPoints
-)
-  implements Payload {}
+) implements Payload {}
