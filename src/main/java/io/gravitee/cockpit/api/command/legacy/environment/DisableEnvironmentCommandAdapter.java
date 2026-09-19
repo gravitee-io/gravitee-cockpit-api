@@ -21,7 +21,11 @@ import io.reactivex.rxjava3.core.Single;
 
 public class DisableEnvironmentCommandAdapter
   implements
-    CommandAdapter<io.gravitee.cockpit.api.command.v1.environment.DisableEnvironmentCommand, DisableEnvironmentCommand, io.gravitee.cockpit.api.command.v1.environment.DisableEnvironmentReply> {
+    CommandAdapter<
+      io.gravitee.cockpit.api.command.v1.environment.DisableEnvironmentCommand,
+      DisableEnvironmentCommand,
+      io.gravitee.cockpit.api.command.v1.environment.DisableEnvironmentReply
+    > {
 
   @Override
   public String supportType() {

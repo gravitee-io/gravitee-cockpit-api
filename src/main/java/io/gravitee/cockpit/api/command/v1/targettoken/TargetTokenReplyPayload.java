@@ -17,5 +17,5 @@ package io.gravitee.cockpit.api.command.v1.targettoken;
 
 import io.gravitee.exchange.api.command.Payload;
 
-public record TargetTokenReplyPayload<String>(String token)
-  implements Payload {}
+public record TargetTokenReplyPayload<String>(String token) implements
+  Payload {}

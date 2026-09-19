@@ -33,5 +33,4 @@ public record OrganizationCommandPayload(
   String description,
   List<AccessPoint> accessPoints,
   String license
-)
-  implements Payload {}
+) implements Payload {}

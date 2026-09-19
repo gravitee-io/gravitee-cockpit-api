@@ -42,8 +42,7 @@ public class BridgeLegacySimpleReplyAdapter
         new BridgeReplyPayload(
           true,
           List.of(
-            BridgeReplyPayload.BridgeReplyContent
-              .builder()
+            BridgeReplyPayload.BridgeReplyContent.builder()
               .environmentId(reply.getEnvironmentId())
               .organizationId(reply.getOrganizationId())
               .installationId(reply.getInstallationId())

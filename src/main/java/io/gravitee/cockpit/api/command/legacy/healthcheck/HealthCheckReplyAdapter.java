@@ -21,7 +21,10 @@ import io.reactivex.rxjava3.core.Single;
 
 public class HealthCheckReplyAdapter
   implements
-    ReplyAdapter<io.gravitee.cockpit.api.command.v1.node.healthcheck.NodeHealthCheckReply, HealthCheckReply> {
+    ReplyAdapter<
+      io.gravitee.cockpit.api.command.v1.node.healthcheck.NodeHealthCheckReply,
+      HealthCheckReply
+    > {
 
   @Override
   public String supportType() {

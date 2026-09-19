@@ -22,7 +22,11 @@ import io.reactivex.rxjava3.core.Single;
 
 public class BridgeLegacyCommandAdapter
   implements
-    CommandAdapter<BridgeCommand, io.gravitee.cockpit.api.command.v1.bridge.BridgeCommand, BridgeReply> {
+    CommandAdapter<
+      BridgeCommand,
+      io.gravitee.cockpit.api.command.v1.bridge.BridgeCommand,
+      BridgeReply
+    > {
 
   @Override
   public String supportType() {
@@ -35,8 +39,7 @@ public class BridgeLegacyCommandAdapter
     final BridgeCommand command
   ) {
     return Single.fromCallable(() -> {
-      BridgeCommandPayload bridgeCommandPayload = BridgeCommandPayload
-        .builder()
+      BridgeCommandPayload bridgeCommandPayload = BridgeCommandPayload.builder()
         .target(command.getTarget())
         .environmentId(command.getEnvironmentId())
         .operation(command.getOperation())

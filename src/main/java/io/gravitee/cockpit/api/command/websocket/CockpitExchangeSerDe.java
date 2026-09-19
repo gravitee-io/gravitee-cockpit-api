@@ -58,7 +58,8 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitCommandType.DELETE_MEMBERSHIP_COMMAND.name(),
-      io.gravitee.cockpit.api.command.legacy.membership.DeleteMembershipCommand.class
+      io.gravitee.cockpit.api.command.legacy.membership
+        .DeleteMembershipCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitCommandType.DEPLOY_MODEL_COMMAND.name(),
@@ -66,19 +67,23 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitCommandType.DISABLE_ENVIRONMENT_COMMAND.name(),
-      io.gravitee.cockpit.api.command.legacy.environment.DisableEnvironmentCommand.class
+      io.gravitee.cockpit.api.command.legacy.environment
+        .DisableEnvironmentCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitCommandType.DISABLE_ORGANIZATION_COMMAND.name(),
-      io.gravitee.cockpit.api.command.legacy.organization.DisableOrganizationCommand.class
+      io.gravitee.cockpit.api.command.legacy.organization
+        .DisableOrganizationCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitCommandType.ENVIRONMENT_COMMAND.name(),
-      io.gravitee.cockpit.api.command.legacy.environment.EnvironmentCommand.class
+      io.gravitee.cockpit.api.command.legacy.environment
+        .EnvironmentCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitCommandType.HEALTHCHECK_COMMAND.name(),
-      io.gravitee.cockpit.api.command.legacy.healthcheck.HealthCheckCommand.class
+      io.gravitee.cockpit.api.command.legacy.healthcheck
+        .HealthCheckCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitCommandType.HELLO_COMMAND.name(),
@@ -86,7 +91,8 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitCommandType.INSTALLATION_COMMAND.name(),
-      io.gravitee.cockpit.api.command.legacy.installation.InstallationCommand.class
+      io.gravitee.cockpit.api.command.legacy.installation
+        .InstallationCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitCommandType.MEMBERSHIP_COMMAND.name(),
@@ -98,11 +104,13 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitCommandType.ORGANIZATION_COMMAND.name(),
-      io.gravitee.cockpit.api.command.legacy.organization.OrganizationCommand.class
+      io.gravitee.cockpit.api.command.legacy.organization
+        .OrganizationCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitCommandType.UNLINK_INSTALLATION_COMMAND.name(),
-      io.gravitee.cockpit.api.command.legacy.installation.UnlinkInstallationCommand.class
+      io.gravitee.cockpit.api.command.legacy.installation
+        .UnlinkInstallationCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitCommandType.USER_COMMAND.name(),
@@ -124,15 +132,18 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.DISABLE_ENVIRONMENT.name(),
-      io.gravitee.cockpit.api.command.v1.environment.DisableEnvironmentCommand.class
+      io.gravitee.cockpit.api.command.v1.environment
+        .DisableEnvironmentCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.DISABLE_ORGANIZATION.name(),
-      io.gravitee.cockpit.api.command.v1.organization.DisableOrganizationCommand.class
+      io.gravitee.cockpit.api.command.v1.organization
+        .DisableOrganizationCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.DELETE_MEMBERSHIP.name(),
-      io.gravitee.cockpit.api.command.v1.membership.DeleteMembershipCommand.class
+      io.gravitee.cockpit.api.command.v1.membership
+        .DeleteMembershipCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.ENVIRONMENT.name(),
@@ -156,7 +167,8 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.NODE_HEALTHCHECK.name(),
-      io.gravitee.cockpit.api.command.v1.node.healthcheck.NodeHealthCheckCommand.class
+      io.gravitee.cockpit.api.command.v1.node.healthcheck
+        .NodeHealthCheckCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.ORGANIZATION.name(),
@@ -164,7 +176,8 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.UNLINK_INSTALLATION.name(),
-      io.gravitee.cockpit.api.command.v1.installation.UnlinkInstallationCommand.class
+      io.gravitee.cockpit.api.command.v1.installation
+        .UnlinkInstallationCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.USER.name(),
@@ -172,7 +185,8 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.UNLINK_INSTALLATION.name(),
-      io.gravitee.cockpit.api.command.v1.installation.UnlinkInstallationCommand.class
+      io.gravitee.cockpit.api.command.v1.installation
+        .UnlinkInstallationCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.V4_API.name(),
@@ -188,11 +202,13 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.DELETE_ENVIRONMENT.name(),
-      io.gravitee.cockpit.api.command.v1.environment.DeleteEnvironmentCommand.class
+      io.gravitee.cockpit.api.command.v1.environment
+        .DeleteEnvironmentCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.DELETE_ORGANIZATION.name(),
-      io.gravitee.cockpit.api.command.v1.organization.DeleteOrganizationCommand.class
+      io.gravitee.cockpit.api.command.v1.organization
+        .DeleteOrganizationCommand.class
     );
     COMMAND_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.SPEC_GEN_REQUEST.name(),
@@ -231,15 +247,18 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitReplyType.DELETE_MEMBERSHIP_REPLY.name(),
-      io.gravitee.cockpit.api.command.legacy.membership.DeleteMembershipReply.class
+      io.gravitee.cockpit.api.command.legacy.membership
+        .DeleteMembershipReply.class
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitReplyType.DISABLE_ENVIRONMENT_REPLY.name(),
-      io.gravitee.cockpit.api.command.legacy.environment.DisableEnvironmentReply.class
+      io.gravitee.cockpit.api.command.legacy.environment
+        .DisableEnvironmentReply.class
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitReplyType.DISABLE_ORGANIZATION_REPLY.name(),
-      io.gravitee.cockpit.api.command.legacy.organization.DisableOrganizationReply.class
+      io.gravitee.cockpit.api.command.legacy.organization
+        .DisableOrganizationReply.class
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitReplyType.ENVIRONMENT_REPLY.name(),
@@ -255,7 +274,8 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitReplyType.INSTALLATION_REPLY.name(),
-      io.gravitee.cockpit.api.command.legacy.installation.InstallationReply.class
+      io.gravitee.cockpit.api.command.legacy.installation
+        .InstallationReply.class
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitReplyType.MEMBERSHIP_REPLY.name(),
@@ -267,11 +287,13 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitReplyType.ORGANIZATION_REPLY.name(),
-      io.gravitee.cockpit.api.command.legacy.organization.OrganizationReply.class
+      io.gravitee.cockpit.api.command.legacy.organization
+        .OrganizationReply.class
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitReplyType.UNLINK_INSTALLATION_REPLY.name(),
-      io.gravitee.cockpit.api.command.legacy.installation.UnlinkInstallationReply.class
+      io.gravitee.cockpit.api.command.legacy.installation
+        .UnlinkInstallationReply.class
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.legacy.CockpitReplyType.USER_REPLY.name(),
@@ -297,11 +319,13 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.DISABLE_ENVIRONMENT.name(),
-      io.gravitee.cockpit.api.command.v1.environment.DisableEnvironmentReply.class
+      io.gravitee.cockpit.api.command.v1.environment
+        .DisableEnvironmentReply.class
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.DISABLE_ORGANIZATION.name(),
-      io.gravitee.cockpit.api.command.v1.organization.DisableOrganizationReply.class
+      io.gravitee.cockpit.api.command.v1.organization
+        .DisableOrganizationReply.class
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.ENVIRONMENT.name(),
@@ -325,7 +349,8 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.NODE_HEALTHCHECK.name(),
-      io.gravitee.cockpit.api.command.v1.node.healthcheck.NodeHealthCheckReply.class
+      io.gravitee.cockpit.api.command.v1.node.healthcheck
+        .NodeHealthCheckReply.class
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.ORGANIZATION.name(),
@@ -337,7 +362,8 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.UNLINK_INSTALLATION.name(),
-      io.gravitee.cockpit.api.command.v1.installation.UnlinkInstallationReply.class
+      io.gravitee.cockpit.api.command.v1.installation
+        .UnlinkInstallationReply.class
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.V4_API.name(),
@@ -353,11 +379,13 @@ public class CockpitExchangeSerDe extends DefaultExchangeSerDe {
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.DELETE_ENVIRONMENT.name(),
-      io.gravitee.cockpit.api.command.v1.environment.DeleteEnvironmentReply.class
+      io.gravitee.cockpit.api.command.v1.environment
+        .DeleteEnvironmentReply.class
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.DELETE_ORGANIZATION.name(),
-      io.gravitee.cockpit.api.command.v1.organization.DeleteOrganizationReply.class
+      io.gravitee.cockpit.api.command.v1.organization
+        .DeleteOrganizationReply.class
     );
     REPLY_TYPES.put(
       io.gravitee.cockpit.api.command.v1.CockpitCommandType.SPEC_GEN_REQUEST.name(),

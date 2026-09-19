@@ -84,15 +84,13 @@ public record NodeCommandPayload(
   Status status,
 
   Map<String, String> metadata
-)
-  implements Payload {
+) implements Payload {
   @Builder
   public record NodePlugin(
     /*
      * The name of the plugin
      */
     String name,
-
     /*
      * The version of the plugin
      */

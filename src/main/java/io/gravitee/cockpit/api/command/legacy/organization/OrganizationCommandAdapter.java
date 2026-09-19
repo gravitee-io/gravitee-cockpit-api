@@ -21,7 +21,11 @@ import io.reactivex.rxjava3.core.Single;
 
 public class OrganizationCommandAdapter
   implements
-    CommandAdapter<io.gravitee.cockpit.api.command.v1.organization.OrganizationCommand, OrganizationCommand, io.gravitee.cockpit.api.command.v1.organization.OrganizationReply> {
+    CommandAdapter<
+      io.gravitee.cockpit.api.command.v1.organization.OrganizationCommand,
+      OrganizationCommand,
+      io.gravitee.cockpit.api.command.v1.organization.OrganizationReply
+    > {
 
   @Override
   public String supportType() {

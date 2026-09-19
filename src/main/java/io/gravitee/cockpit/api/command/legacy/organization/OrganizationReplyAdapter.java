@@ -23,7 +23,10 @@ import io.reactivex.rxjava3.core.Single;
 
 public class OrganizationReplyAdapter
   implements
-    ReplyAdapter<OrganizationReply, io.gravitee.cockpit.api.command.v1.organization.OrganizationReply> {
+    ReplyAdapter<
+      OrganizationReply,
+      io.gravitee.cockpit.api.command.v1.organization.OrganizationReply
+    > {
 
   @Override
   public String supportType() {
@@ -31,10 +34,9 @@ public class OrganizationReplyAdapter
   }
 
   @Override
-  public Single<io.gravitee.cockpit.api.command.v1.organization.OrganizationReply> adapt(
-    final String targetId,
-    final OrganizationReply reply
-  ) {
+  public Single<
+    io.gravitee.cockpit.api.command.v1.organization.OrganizationReply
+  > adapt(final String targetId, final OrganizationReply reply) {
     return Single.fromCallable(() -> {
       if (reply.getCommandStatus() == CommandStatus.ERROR) {
         return new io.gravitee.cockpit.api.command.v1.organization.OrganizationReply(

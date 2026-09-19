@@ -1,4 +1,4 @@
-package io.gravitee.cockpit.api.command.v1.targettoken;/*
+package io.gravitee.cockpit.api.command.v1.targettoken; /*
  * Copyright © 2015 The Gravitee team (http://gravitee.io)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");

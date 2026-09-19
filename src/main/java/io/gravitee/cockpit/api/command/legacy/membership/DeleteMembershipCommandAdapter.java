@@ -21,7 +21,11 @@ import io.reactivex.rxjava3.core.Single;
 
 public class DeleteMembershipCommandAdapter
   implements
-    CommandAdapter<io.gravitee.cockpit.api.command.v1.membership.DeleteMembershipCommand, DeleteMembershipCommand, io.gravitee.cockpit.api.command.v1.membership.DeleteMembershipReply> {
+    CommandAdapter<
+      io.gravitee.cockpit.api.command.v1.membership.DeleteMembershipCommand,
+      DeleteMembershipCommand,
+      io.gravitee.cockpit.api.command.v1.membership.DeleteMembershipReply
+    > {
 
   @Override
   public String supportType() {

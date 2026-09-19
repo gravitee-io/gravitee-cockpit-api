@@ -21,7 +21,11 @@ import io.reactivex.rxjava3.core.Single;
 
 public class UserCommandAdapter
   implements
-    CommandAdapter<io.gravitee.cockpit.api.command.v1.user.UserCommand, UserCommand, io.gravitee.cockpit.api.command.v1.user.UserReply> {
+    CommandAdapter<
+      io.gravitee.cockpit.api.command.v1.user.UserCommand,
+      UserCommand,
+      io.gravitee.cockpit.api.command.v1.user.UserReply
+    > {
 
   @Override
   public String supportType() {

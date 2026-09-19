@@ -22,7 +22,10 @@ import io.reactivex.rxjava3.core.Single;
 
 public class UnlinkInstallationReplyAdapter
   implements
-    ReplyAdapter<UnlinkInstallationReply, io.gravitee.cockpit.api.command.v1.installation.UnlinkInstallationReply> {
+    ReplyAdapter<
+      UnlinkInstallationReply,
+      io.gravitee.cockpit.api.command.v1.installation.UnlinkInstallationReply
+    > {
 
   @Override
   public String supportType() {
@@ -30,10 +33,9 @@ public class UnlinkInstallationReplyAdapter
   }
 
   @Override
-  public Single<io.gravitee.cockpit.api.command.v1.installation.UnlinkInstallationReply> adapt(
-    final String targetId,
-    final UnlinkInstallationReply reply
-  ) {
+  public Single<
+    io.gravitee.cockpit.api.command.v1.installation.UnlinkInstallationReply
+  > adapt(final String targetId, final UnlinkInstallationReply reply) {
     return Single.fromCallable(() -> {
       if (reply.getCommandStatus() == CommandStatus.ERROR) {
         return new io.gravitee.cockpit.api.command.v1.installation.UnlinkInstallationReply(

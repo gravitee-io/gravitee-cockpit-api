@@ -26,5 +26,4 @@ import lombok.Builder;
 public record UnlinkInstallationCommandPayload(
   String environmentCockpitId,
   String organizationCockpitId
-)
-  implements Payload {}
+) implements Payload {}

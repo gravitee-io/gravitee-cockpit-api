@@ -23,5 +23,4 @@ public record SpecGenCommandPayload<T>(
   String environmentId,
   String installationId,
   T payload
-)
-  implements Payload {}
+) implements Payload {}

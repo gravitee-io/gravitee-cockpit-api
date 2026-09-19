@@ -24,8 +24,7 @@ public record TargetTokenCommandPayload(
   String organizationId,
   String environmentId,
   Scope scope
-)
-  implements Payload {
+) implements Payload {
   public enum Scope {
     @Deprecated
     //Replaced by Automation which covers GKO and wider (additional automation scope in token)

@@ -33,5 +33,4 @@ public record UserCommandPayload(
   String picture,
   Map<String, Object> additionalInformation,
   String organizationId
-)
-  implements Payload {}
+) implements Payload {}

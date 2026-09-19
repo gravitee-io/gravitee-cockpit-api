@@ -21,7 +21,11 @@ import io.reactivex.rxjava3.core.Single;
 
 public class DeployModelCommandAdapter
   implements
-    CommandAdapter<io.gravitee.cockpit.api.command.v1.designer.DeployModelCommand, DeployModelCommand, io.gravitee.cockpit.api.command.v1.designer.DeployModelReply> {
+    CommandAdapter<
+      io.gravitee.cockpit.api.command.v1.designer.DeployModelCommand,
+      DeployModelCommand,
+      io.gravitee.cockpit.api.command.v1.designer.DeployModelReply
+    > {
 
   @Override
   public String supportType() {

@@ -23,5 +23,4 @@ public record DeleteEnvironmentCommandPayload(
   String id,
   String cockpitId,
   String userId
-)
-  implements Payload {}
+) implements Payload {}
