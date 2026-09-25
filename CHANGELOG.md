@@ -1,3 +1,16 @@
+# [4.0.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.12.0...4.0.0) (2026-09-25)
+
+
+* chore(deps)!: move to the gravitee orb 5 and parent 24 ([b59dfc8](https://github.com/gravitee-io/gravitee-cockpit-api/commit/b59dfc8e8eb9e26fb7b48932bef6c098b2c06226))
+
+
+### BREAKING CHANGES
+
+* the artifact is now compiled for Java 21, up from Java 17, and
+requires a Java 21 runtime or later.
+
+https://gravitee.atlassian.net/browse/BX-403
+
 # [3.12.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.11.19...3.12.0) (2026-04-28)
 
 
