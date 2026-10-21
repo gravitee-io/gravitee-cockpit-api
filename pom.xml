@@ -38,7 +38,7 @@
         <gravitee-node.version>9.14.1</gravitee-node.version>
         <gravitee-alert-api.version>4.0.0</gravitee-alert-api.version>
         <gravitee-exchange.version>3.0.1</gravitee-exchange.version>
-        <gravitee-scoring-api.version>0.7.1</gravitee-scoring-api.version>
+        <gravitee-scoring-api.version>1.0.1</gravitee-scoring-api.version>
         <gravitee-spec-gen-api.version>1.1.1</gravitee-spec-gen-api.version>
     </properties>
 
