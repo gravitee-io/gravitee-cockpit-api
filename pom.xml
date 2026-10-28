@@ -35,7 +35,7 @@
 
     <properties>
         <gravitee-bom.version>9.0.10</gravitee-bom.version>
-        <gravitee-node.version>9.14.2</gravitee-node.version>
+        <gravitee-node.version>9.15.0</gravitee-node.version>
         <gravitee-alert-api.version>4.0.0</gravitee-alert-api.version>
         <gravitee-exchange.version>3.0.1</gravitee-exchange.version>
         <gravitee-scoring-api.version>1.0.1</gravitee-scoring-api.version>
