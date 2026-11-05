@@ -28,4 +28,6 @@ public class AdditionalInfoConstants {
   // Authentication
   public static final String AUTH_BASE_URL = "AUTH_BASE_URL";
   public static final String AUTH_PATH = "AUTH_PATH";
+  // Sent as "true" when the auth path also accepts the token in a form post
+  public static final String AUTH_FORM_POST = "AUTH_FORM_POST";
 }
