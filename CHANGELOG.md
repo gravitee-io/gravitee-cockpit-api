@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/4.0.0...4.1.0) (2026-11-06)
+
+
+### Features
+
+* add the auth form post installation info ([a5b5088](https://github.com/gravitee-io/gravitee-cockpit-api/commit/a5b50881f710244f9c459831701dd32551691fc8))
+
 # [4.0.0](https://github.com/gravitee-io/gravitee-cockpit-api/compare/3.12.0...4.0.0) (2026-09-25)
 
 
